@@ -23,11 +23,24 @@ enum DESIGN_MODE_ITEMS // The items of the Design Mode (you should add more item
 	// Note: Items MUST be ordered here as they appear in menu
 	// If you want to change the menu items order, change the order here
 
-	ITM_SET_FLAG_CELL,
-	ITM_EXIT,
+	ITM_EXIT_DESIGN_MODE,
 	ITM_SWITCH_TO_PLAY_MODE,
+	ITM_LOAD,
+	ITM_DELETE,
+	ITM_SAVE,
+	ITM_CUT,
+	ITM_COPY,
+	ITM_PASTE,
+	ITM_SET_FLAG_CELL,
+	ITM_ADD_ANTENNA,
+	ITM_ADD_BELT,
+	ITM_ADD_DANGER_ZONE,
+	ITM_ADD_WATER_PIT,
+	ITM_ADD_ROTATING_GEAR,
+	ITM_ADD_WORKSHOP,
 
-	///TODO: Add more items names here
+
+	///[+]TODO: Add more items names here
 
 	DESIGN_ITM_COUNT	// no. of items ==> This should be the last line in this enum
 };
@@ -37,11 +50,14 @@ enum PLAY_MODE_ITEMS // The items of the Play Mode (you should add more items)
 	// Note: Items are ordered here as they appear in menu
 	// If you want to change the menu items order, change the order here
 
+	ITM_EXIT_PLAY_MODE,
+	ITM_SWITCH_TO_DESIGN_MODE,
+	ITM_NEW_GAME,
 	ITM_EXECUTE_COMMANDS,
 	ITM_SELECT_COMMAND,
-	ITM_SWITCH_TO_DESIGN_MODE,
-
-	///TODO: Add more items names here
+	ITM_REBOOT_AND_REPAIR,
+	ITM_USE_CONSUMABLE,
+	///[+]TODO: Add more items names here
 
 	PLAY_ITM_COUNT		// no. of items ==> This should be the last line in this enum
 };
@@ -91,7 +107,7 @@ struct UI_Info	// User Interface Info.
 	int SpaceBetweenCommandsSlots; // Space between the slots of the saved commands in the commands bar
 	int AvailableCommandsXOffset;	// Size of the horizontal space before drawing the available commands
 	int AvailableCommandsYOffset;	// Size of the vertical space between the start of the command bar and the cards of available commands
-									// will be used in detecting selected command from the user click
+	// will be used in detecting selected command from the user click
 	int BeltXOffset;			// Size of the horizontal space before drawing the belt
 	int BeltYOffset;			// Size of the vertical space before drawing the belt
 	int BeltLineWidth;			// Width of the belt line
@@ -105,7 +121,9 @@ struct UI_Info	// User Interface Info.
 	int CommandItemsCount;		// Number of commands the player can use
 	int AvailableCommandsCount;	// Number of available commands the player can select from
 
-								///TODO: Add more members if needed
+	///[+]TODO: Add more members if needed
+	int PlayerWidth;
+	int PlayerHeight;
 
 } UI;	// create a global object UI
 
