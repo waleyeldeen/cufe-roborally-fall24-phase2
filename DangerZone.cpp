@@ -15,6 +15,7 @@ void DangerZone::Apply(Grid * pGrid, Player * pPlayer)
 {
 	///TODO: Implement this function as mentioned in the guideline steps (numbered below) below
 
+	// test change in danger zone
 
 	// == Here are some guideline steps (numbered below) to implement this function ==
 
