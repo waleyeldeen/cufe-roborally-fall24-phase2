@@ -11,6 +11,7 @@ class Input;
 
 class Output	// The application manager & grid (phase 2) should have a pointer to this class
 {
+friend class DisplayRandomCommands;
 private:
 
 	window* pWind;	// Pointer to the Graphics Window
