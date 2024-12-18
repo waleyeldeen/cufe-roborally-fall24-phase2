@@ -193,6 +193,8 @@
     <ClCompile Include="AddRotatingGearAction.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
+    <ClCompile Include="DisplayRandomCommands.cpp" />
+    <ClCompile Include="SwitchToPlayMode.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMUgraphicsLib\auxil.h">
@@ -316,5 +318,7 @@
     <ClInclude Include="AddRotatingGearAction.h">
       <Filter>Actions</Filter>
     </ClInclude>
+    <ClInclude Include="DisplayRandomCommands.h" />
+    <ClInclude Include="SwitchToPlayMode.h" />
   </ItemGroup>
 </Project>
