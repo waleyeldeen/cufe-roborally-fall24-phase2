@@ -228,3 +228,9 @@ Grid::~Grid()
 		delete PlayerList[i];
 	}
 }
+Player* Grid::GetPlayer(int i)const {
+	if (i >= 0 && i < MaxPlayerCount) {
+		return PlayerList[i];
+	}
+	return nullptr;
+}
