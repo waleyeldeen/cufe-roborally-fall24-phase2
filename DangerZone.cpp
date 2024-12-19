@@ -1,6 +1,6 @@
 #include "DangerZone.h"
-
-
+using namespace std;
+#include<iostream>
 
 DangerZone::DangerZone(const CellPosition & dangerZonePosition): GameObject(dangerZonePosition)
 {
@@ -24,6 +24,16 @@ void DangerZone::Apply(Grid * pGrid, Player * pPlayer)
 	// 3- Update the players info which is displayed (check Grid class and decide which function to use)
 	
 }
+void DangerZone::Save(GType type) const  
+{
+	if (type == DANGER_ZONE)
+	{
+		
+	}
+}
+
+
+
 
 
 DangerZone::~DangerZone()
