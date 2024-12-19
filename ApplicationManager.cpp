@@ -4,6 +4,7 @@
 #include "Grid.h"
 #include "AddBeltAction.h"
 #include "AddRotatingGearAction.h"
+#include "AddWaterPitAction.h"
 #include "AddFlagAction.h"
 
 ///TODO: Add #include for all action types
@@ -65,6 +66,11 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		// create an object of AddRotatingGearAction here
 		pAct = new AddRotatingGearAction(this);
 		break;
+
+	case ADD_WATER_PIT:
+		pAct = new AddWaterPitAction(this);
+		break;
+
 	case SET_FLAG_CELL:
 		// create an object of AddFlagAction here
 		pAct = new AddFlagAction(this);
