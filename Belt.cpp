@@ -32,6 +32,13 @@ CellPosition Belt::GetEndPosition() const
 	return endCellPos;
 }
 
+void Belt::Save(GType type) const
+{
+	if (type == BELT) 
+	{
+
+	}
+}
 
 Belt::~Belt()
 {
