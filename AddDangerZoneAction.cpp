@@ -18,7 +18,7 @@ void AddDangerZoneAction::ReadActionParameters() {
 void AddDangerZoneAction::Execute() {
 	ReadActionParameters();
 
-	WaterPit* pWaterPit = new WaterPit(dangerZonePos);
+	DangerZone* pWaterPit = new DangerZone(dangerZonePos);
 
 	Grid* pGrid = pManager->GetGrid(); // We get a pointer to the Grid from the ApplicationManager
 	Output* pOut = pGrid->GetOutput();
