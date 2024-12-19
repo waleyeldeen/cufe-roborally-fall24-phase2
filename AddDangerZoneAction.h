@@ -2,7 +2,7 @@
 #include "Action.h"
 #include "Input.h"
 #include "Output.h"
-#include "WaterPit.h"
+#include "DangerZone.h"
 
 class AddDangerZoneAction :	public Action
 {
