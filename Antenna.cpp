@@ -1,6 +1,6 @@
 #include "Antenna.h"
-
-
+using namespace std;
+#include<iostream>
 
 
 
@@ -15,9 +15,10 @@ void Antenna::Draw(Output * pOut) const
 
 void Antenna::Apply(Grid * pGrid, Player * pPlayer)
 {
-
+	
+	
 	///TODO: Implement this function as mentioned in the guideline steps (numbered below) below
-
+	
 
 	// == Here are some guideline steps (numbered below) to implement this function ==
 
