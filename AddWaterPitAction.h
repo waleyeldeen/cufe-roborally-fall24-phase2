@@ -2,7 +2,7 @@
 #include "Action.h"
 #include "Input.h"
 #include "Output.h"
-#include "Belt.h"
+#include "WaterPit.h"
 
 class AddWaterPitAction : public Action {
 private:
