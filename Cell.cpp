@@ -6,6 +6,7 @@
 #include "WaterPit.h"
 #include "Player.h"
 #include "DangerZone.h"
+#include "WaterPit.h"
 #include "Output.h"
 Cell::Cell(const CellPosition & pos) : position(pos)
 {
@@ -58,11 +59,8 @@ Flag * Cell::HasFlag() const
 }
 WaterPit * Cell::HasWaterPit() const
 {
-
-	///TODO: Implement the following function like HasBelt() function
-
-	return false; // THIS LINE SHOULD CHANGED WITH YOUR IMPLEMENTATION
-
+	///[+]TODO: Implement the following function like HasBelt() function
+	return dynamic_cast<WaterPit*>(pGameObject);
 }
 
 DangerZone * Cell::HasDangerZone() const

@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectName>PT Project</ProjectName>
+    <ProjectName>phase2</ProjectName>
     <ProjectGuid>{1AC3DDD7-FDDE-487E-A2A4-52A8FCF7BDB9}</ProjectGuid>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -132,6 +132,7 @@
     <ClCompile Include="AddBeltAction.cpp" />
     <ClCompile Include="AddFlagAction.cpp" />
     <ClCompile Include="AddRotatingGearAction.cpp" />
+    <ClCompile Include="AddWaterPitAction.cpp" />
     <ClCompile Include="Antenna.cpp" />
     <ClCompile Include="ApplicationManager.cpp" />
     <ClCompile Include="Belt.cpp" />
@@ -174,6 +175,7 @@
     <ClCompile Include="CMUgraphicsLib\jpeg\jquant2.c" />
     <ClCompile Include="CMUgraphicsLib\jpeg\jutils.c" />
     <ClCompile Include="DangerZone.cpp" />
+    <ClCompile Include="DisplayRandomCommands.cpp" />
     <ClCompile Include="Flag.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Grid.cpp" />
@@ -182,6 +184,8 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="RotatingGear.cpp" />
+    <ClCompile Include="SwitchToDesignMode.cpp" />
+    <ClCompile Include="SwitchToPlayMode.cpp" />
     <ClCompile Include="WaterPit.cpp" />
     <ClCompile Include="Workshop.cpp" />
   </ItemGroup>
@@ -190,6 +194,7 @@
     <ClInclude Include="AddBeltAction.h" />
     <ClInclude Include="AddFlagAction.h" />
     <ClInclude Include="AddRotatingGearAction.h" />
+    <ClInclude Include="AddWaterPitAction.h" />
     <ClInclude Include="Antenna.h" />
     <ClInclude Include="ApplicationManager.h" />
     <ClInclude Include="Belt.h" />
@@ -217,6 +222,7 @@
     <ClInclude Include="CMUgraphicsLib\jpeg\jversion.h" />
     <ClInclude Include="DangerZone.h" />
     <ClInclude Include="DEFS.h" />
+    <ClInclude Include="DisplayRandomCommands.h" />
     <ClInclude Include="Flag.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Grid.h" />
@@ -224,6 +230,8 @@
     <ClInclude Include="Output.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="RotatingGear.h" />
+    <ClInclude Include="SwitchToDesignMode.h" />
+    <ClInclude Include="SwitchToPlayMode.h" />
     <ClInclude Include="UI_Info.h" />
     <ClInclude Include="WaterPit.h" />
     <ClInclude Include="Workshop.h" />

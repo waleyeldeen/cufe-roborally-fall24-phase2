@@ -1,8 +1,10 @@
 #include "ApplicationManager.h"
-
+#include "SwitchToPlayMode.h"
+#include "SwitchToDesignMode.h"
 #include "Grid.h"
 #include "AddBeltAction.h"
 #include "AddRotatingGearAction.h"
+#include "AddWaterPitAction.h"
 #include "AddFlagAction.h"
 
 ///TODO: Add #include for all action types
@@ -60,11 +62,16 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		pAct = new AddBeltAction(this);
 		break;
 
-	case ADD_ROTATINGGEAR:
+	case ADD_ROTATING_GEAR:
 		// create an object of AddRotatingGearAction here
 		pAct = new AddRotatingGearAction(this);
 		break;
-	case ADD_FLAG:
+
+	case ADD_WATER_PIT:
+		pAct = new AddWaterPitAction(this);
+		break;
+
+	case SET_FLAG_CELL:
 		// create an object of AddFlagAction here
 		pAct = new AddFlagAction(this);
 		break;
@@ -73,13 +80,13 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		break;
 
 	case TO_PLAY_MODE:					//TODO:
-		pOut->CreatePlayModeToolBar(); // temporary till you made its action class (CHANGE THIS LATTER)
+		pAct= new SwitchToPlayMode(this); // temporary till you made its action class (CHANGE THIS LATTER)
 		break;
 
 	
 
 	case TO_DESIGN_MODE:				//TODO:
-		pOut->CreateDesignModeToolBar(); // temporary till you made its action class (CHANGE THIS LATTER)
+		pAct = new SwitchToDesignMode(this); // temporary till you made its action class (CHANGE THIS LATTER)
 		break;
 
 		
