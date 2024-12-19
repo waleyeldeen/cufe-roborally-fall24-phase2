@@ -207,7 +207,12 @@ void Grid::PrintErrorMessage(string msg)
 	pOut->ClearStatusBar();
 }
 
-
+Cell* Grid::GetCell(const CellPosition& pos) const {
+	if (pos.IsValidCell()) { 
+		return CellList[pos.VCell()][pos.HCell()]; 
+	}
+	return nullptr;
+}
 Grid::~Grid()
 {
 	delete pIn;
