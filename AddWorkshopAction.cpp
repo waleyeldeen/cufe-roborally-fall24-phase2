@@ -10,7 +10,7 @@ void AddWorkshopAction::ReadActionParameters() {
 	Input* pIn = pGrid->GetInput();
 
 	// Read the waterPitPos parameter
-	pOut->PrintMessage("New water pit: Click on Target Cell");
+	pOut->PrintMessage("New Workshop: Click on Target Cell");
 	workshopPos = pIn->GetCellClicked();
 }
 
