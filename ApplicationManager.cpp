@@ -6,6 +6,7 @@
 #include "AddRotatingGearAction.h"
 #include "AddWaterPitAction.h"
 #include "AddDangerZoneAction.h"
+#include "AddWorkshopAction.h"
 #include "AddFlagAction.h"
 
 ///TODO: Add #include for all action types
@@ -74,6 +75,10 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 
 	case ADD_DANGER_ZONE:
 		pAct = new AddDangerZoneAction(this);
+		break;
+
+	case ADD_WORKSHOP:
+		pAct = new AddWorkshopAction(this);
 		break;
 
 	case SET_FLAG_CELL:
