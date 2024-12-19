@@ -5,7 +5,7 @@
 #include "AddBeltAction.h"
 #include "AddRotatingGearAction.h"
 #include "AddFlagAction.h"
-
+#include "DisplayPlayersInfo.h"
 ///TODO: Add #include for all action types
 
 ApplicationManager::ApplicationManager()
@@ -83,8 +83,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		pAct = new SwitchToDesignMode(this); // temporary till you made its action class (CHANGE THIS LATTER)
 		break;
 
-		
-
+	case DISPLAYPLAYERSINFO:
+		pAct = new DisplayPlayersInfo(this);
+		break;
 		///TODO: Add a case for EACH Action type in the Design mode or Play mode
 
 
