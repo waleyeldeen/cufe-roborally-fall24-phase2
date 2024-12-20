@@ -235,12 +235,13 @@ Grid::~Grid()
 		return nullptr; 
 	}
 	void Grid::ClearGrid() {
-		for (int i = 0; i < NumHorizontalCells; ++i) {
-			for (int j = 0; j < NumVerticalCells; ++j) {
-				CellList[i][j]->Clear(); 
+		for (int i = NumVerticalCells - 1; i >= 0; i--) // bottom up
+		{
+			for (int j = 0; j < NumHorizontalCells; j++) // left to right
+			{
+				CellList[i][j]->Clear();
 			}
 		}
-	
 	}
 
 	void Grid::ResetPlayers() {
