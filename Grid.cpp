@@ -224,13 +224,6 @@ Player* Grid::GetPlayer(int index) const {
 	return nullptr; 
 }
 
-Cell* Grid::GetCell(const CellPosition& pos) const {
-	if (pos.IsValidCell()) { 
-		return CellList[pos.VCell()][pos.HCell()]; 
-	}
-	return nullptr;
-}
-
 void Grid::ClearGrid() {
 	for (int i = NumVerticalCells - 1; i >= 0; i--) // bottom up
 	{
