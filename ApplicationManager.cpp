@@ -10,7 +10,7 @@
 #include "AddFlagAction.h"
 #include "NewGameAction.h"
 
-#include"Cut.h"
+#include"CutAction.h"
 ///TODO: Add #include for all action types
 
 ApplicationManager::ApplicationManager()
@@ -101,7 +101,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		pAct = new SwitchToDesignMode(this); // temporary till you made its action class (CHANGE THIS LATTER)
 		break;
 	case CUT:
-		pAct = new Cut(this);
+		pAct = new CutAction(this);
 		break;
 
 	// PLAYMODE

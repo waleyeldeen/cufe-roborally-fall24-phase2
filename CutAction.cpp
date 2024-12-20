@@ -1,12 +1,12 @@
-#include "Cut.h"
+#include "CutAction.h"
 #include "Grid.h"
 #include "Cell.h"
 #include "GameObject.h"
 
-Cut::Cut(ApplicationManager* pApp) :Action(pApp) {}
-Cut::~Cut() {}
+CutAction::CutAction(ApplicationManager* pApp) :Action(pApp) {}
+CutAction::~CutAction() {}
 
-void Cut::ReadActionParameters() {
+void CutAction::ReadActionParameters() {
     Grid* pGrid = pManager->GetGrid();
     Output* pOut = pGrid->GetOutput();
     Input* pIn = pGrid->GetInput();
@@ -15,7 +15,7 @@ void Cut::ReadActionParameters() {
     sourceCell = pIn->GetCellClicked();
     pOut->ClearStatusBar();
 }
-void Cut::Execute() {
+void CutAction::Execute() {
     Grid* pGrid = pManager->GetGrid();
     if (!pGrid) {
         return;
