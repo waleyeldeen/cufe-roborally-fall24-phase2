@@ -4,7 +4,12 @@
 #include "Grid.h"
 #include "AddBeltAction.h"
 #include "AddRotatingGearAction.h"
+#include "AddWaterPitAction.h"
+#include "AddDangerZoneAction.h"
+#include "AddWorkshopAction.h"
 #include "AddFlagAction.h"
+#include "NewGameAction.h"
+
 #include"Cut.h"
 ///TODO: Add #include for all action types
 
@@ -65,6 +70,19 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		// create an object of AddRotatingGearAction here
 		pAct = new AddRotatingGearAction(this);
 		break;
+
+	case ADD_WATER_PIT:
+		pAct = new AddWaterPitAction(this);
+		break;
+
+	case ADD_DANGER_ZONE:
+		pAct = new AddDangerZoneAction(this);
+		break;
+
+	case ADD_WORKSHOP:
+		pAct = new AddWorkshopAction(this);
+		break;
+
 	case SET_FLAG_CELL:
 		// create an object of AddFlagAction here
 		pAct = new AddFlagAction(this);
@@ -86,10 +104,13 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		pAct = new Cut(this);
 		
 
+	// PLAYMODE
+	case NEW_GAME:
+		pAct = new NewGameAction(this);
+		break;
+
+
 		///TODO: Add a case for EACH Action type in the Design mode or Play mode
-
-
-
 	case STATUS:	// a click on the status bar ==> no action
 		return;
 	}

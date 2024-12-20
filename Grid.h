@@ -79,5 +79,9 @@ public:
 									    // We added this function once here because it is used many times by other classes
 	Cell* GetCell(const CellPosition& pos) const;
 	~Grid(); // A destructor for any needed deallcations
+
+	Player* GetPlayer(int index)const;
+	void ClearGrid();
+	void ResetPlayers();
 };
 
