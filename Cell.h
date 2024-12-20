@@ -51,6 +51,5 @@ public:
 	// then draw all other game objects, in order to avoid overlapping 
 	// or drawing cell's background over existing game objects
 	void DrawGameObject(Output* pOut) const;	
-	
 };
 

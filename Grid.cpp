@@ -61,8 +61,7 @@ void Grid::RemoveObjectFromCell(const CellPosition & pos)
 {
 	if (pos.IsValidCell()) // Check if valid position
 	{
-		// Note: you can deallocate the object here before setting the pointer to null if it is needed
-
+		delete CellList[pos.VCell()][pos.HCell()]; // Note: you can deallocate the object here before setting the pointer to null if it is needed
 		CellList[pos.VCell()][pos.HCell()]->SetGameObject(NULL);
 	}
 }
@@ -199,6 +198,7 @@ void Grid::UpdateInterface() const
 	}
 }
 
+
 void Grid::PrintErrorMessage(string msg)
 {
 	pOut->PrintMessage(msg);
@@ -208,22 +208,51 @@ void Grid::PrintErrorMessage(string msg)
 }
 
 
+Player* Grid::GetPlayer(int index) const {
+	if (index >= 0 && index < MaxPlayerCount) { 
+		return PlayerList[index]; 
+	}
+	return nullptr; 
+}
+
+
+void Grid::ClearGrid() {
+	for (int i = NumVerticalCells - 1; i >= 0; i--) // bottom up
+	{
+		for (int j = 0; j < NumHorizontalCells; j++) // left to right
+		{
+			//CellList[i][j]->Clear();
+			this->RemoveObjectFromCell(CellList[i][j]->GetCellPosition());
+		}
+	}
+}
+
+
+void Grid::ResetPlayers() {
+	for (int i = 0; i < MaxPlayerCount; ++i) {
+		if (PlayerList[i]) {
+			PlayerList[i]->Reset(); 
+		}
+	}
+}
+
+
 Grid::~Grid()
 {
 	delete pIn;
 	delete pOut;
 
 	// Deallocate the Cell Objects of the CellList
-	for (int i = NumVerticalCells-1; i >= 0 ; i--) 
+	for (int i = NumVerticalCells - 1; i >= 0; i--)
 	{
-		for (int j = 0; j < NumHorizontalCells; j++) 
+		for (int j = 0; j < NumHorizontalCells; j++)
 		{
 			delete CellList[i][j];
 		}
 	}
 
 	// Deallocate the Player Objects of the PlayerList
-	for (int i = 0; i < MaxPlayerCount; i++) 
+	for (int i = 0; i < MaxPlayerCount; i++)
 	{
 		delete PlayerList[i];
 	}
