@@ -20,7 +20,7 @@ Cell::Cell(const CellPosition & pos) : position(pos)
 Cell::Cell(int v, int h) : position(v, h)
 {
 	// initializes the data members (position & pGameObject)
-	pGameObject = NULL;
+	pGameObject = nullptr;
 }
 
 
@@ -101,12 +101,4 @@ void Cell::DrawGameObject(Output* pOut) const
 	//TODO: edit this incomplete implemntation to check for other game objects (excluding waterpits and dangerzones)
 	if (HasFlag()|| HasBelt() || HasWorkshop() || HasRotatingGear())
 		pGameObject->Draw(pOut); // draw game object
-
-}
-void Cell::Clear()
-{
-	if (pGameObject) {
-		delete pGameObject;  
-		pGameObject = nullptr;
-	}
 }

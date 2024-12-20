@@ -8,6 +8,7 @@
 #include "AddDangerZoneAction.h"
 #include "AddWorkshopAction.h"
 #include "AddFlagAction.h"
+#include "NewGameAction.h"
 
 ///TODO: Add #include for all action types
 
@@ -101,10 +102,13 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 
 		
 
+	// PLAYMODE
+	case NEW_GAME:
+		pAct = new NewGameAction(this);
+		break;
+
+
 		///TODO: Add a case for EACH Action type in the Design mode or Play mode
-
-
-
 	case STATUS:	// a click on the status bar ==> no action
 		return;
 	}
