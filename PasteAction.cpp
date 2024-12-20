@@ -30,11 +30,6 @@ void PasteAction::Execute() {
         return;
     }
 
-    Cell* pCell = pGrid->GetCell(targetCell);
-    if (!pCell) {
-        pGrid->PrintErrorMessage("Cell not found! Click anywhere to continue...");
-        return;
-    }
 
     GameObject* pClipboardObject = pGrid->GetClipboard();
     if (!pClipboardObject) {
@@ -42,10 +37,10 @@ void PasteAction::Execute() {
         return;
     }
 
-    if (!pCell->SetGameObject(pClipboardObject)) {
-        pGrid->PrintErrorMessage("Cell already contains a game object! Click anywhere to continue...");
-        return;
-    }
+    
+    pClipboardObject->SetPositon(targetCell);
+
+    pGrid->AddObjectToCell(pClipboardObject);
 
   
     pGrid->SetClipboard(nullptr);
