@@ -10,22 +10,27 @@ void NewGameAction::ReadActionParameters() {}
 void NewGameAction::Execute() {
   
     Grid* pGrid = pManager->GetGrid();
+
     if (!pGrid) {
         return;
     }
     pGrid->ClearGrid();
     pGrid->ResetPlayers();
+
     string PlayersInfo="";
+
     for (int i = 0; i < MaxPlayerCount; ++i) {
         Player* pPlayer = pGrid->GetPlayer(i);
         if (pPlayer) {
             pPlayer->AppendPlayerInfo(PlayersInfo);
         }
     }
+
     Output* pOut = pGrid->GetOutput();
+
     if (pOut) {
         pOut->ClearGridArea();
         pOut->ClearStatusBar();
         pOut->PrintMessage("New Game has started!");
     }
-      }
+}

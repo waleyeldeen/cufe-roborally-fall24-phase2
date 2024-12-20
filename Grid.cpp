@@ -199,12 +199,41 @@ void Grid::UpdateInterface() const
 	}
 }
 
+
 void Grid::PrintErrorMessage(string msg)
 {
 	pOut->PrintMessage(msg);
 	int x, y;
 	pIn->GetPointClicked(x, y);
 	pOut->ClearStatusBar();
+}
+
+
+Player* Grid::GetPlayer(int index) const {
+	if (index >= 0 && index < MaxPlayerCount) { 
+		return PlayerList[index]; 
+	}
+	return nullptr; 
+}
+
+
+void Grid::ClearGrid() {
+	for (int i = NumVerticalCells - 1; i >= 0; i--) // bottom up
+	{
+		for (int j = 0; j < NumHorizontalCells; j++) // left to right
+		{
+			CellList[i][j]->Clear();
+		}
+	}
+}
+
+
+void Grid::ResetPlayers() {
+	for (int i = 0; i < MaxPlayerCount; ++i) {
+		if (PlayerList[i]) {
+			PlayerList[i]->Reset(); 
+		}
+	}
 }
 
 
@@ -228,27 +257,3 @@ Grid::~Grid()
 		delete PlayerList[i];
 	}
 }
-	Player* Grid::GetPlayer(int index) const {
-		if (index >= 0 && index < MaxPlayerCount) { 
-			return PlayerList[index]; 
-		}
-		return nullptr; 
-	}
-	void Grid::ClearGrid() {
-		for (int i = NumVerticalCells - 1; i >= 0; i--) // bottom up
-		{
-			for (int j = 0; j < NumHorizontalCells; j++) // left to right
-			{
-				CellList[i][j]->Clear();
-			}
-		}
-	}
-
-	void Grid::ResetPlayers() {
-		for (int i = 0; i < MaxPlayerCount; ++i) {
-			if (PlayerList[i]) {
-				PlayerList[i]->Reset(); 
-			}
-		}
-	}
-
