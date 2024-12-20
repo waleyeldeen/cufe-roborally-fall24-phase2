@@ -13,6 +13,7 @@ class Flag;
 class Player;
 class DangerZone;
 class Workshop;
+class RotatingGear;
 class Cell
 {
 	const CellPosition position;	// the cell position (vCell and hCell) --> will not change after the Cell is constructed
@@ -37,6 +38,8 @@ public:
 	Flag * HasFlag() const;	    // Checks if pGameObject is a Flag Then returns true if it is a flag or returns NULL if not flag
 	WaterPit* HasWaterPit() const;
 	DangerZone* HasDangerZone() const;
+
+	RotatingGear* HasRotatingGear() const;
 
 	Workshop* HasWorkshop() const;
 	// ======= Drawing Functions ======= 
