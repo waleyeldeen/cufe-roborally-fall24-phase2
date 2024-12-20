@@ -9,7 +9,7 @@
 #include "AddWorkshopAction.h"
 #include "AddFlagAction.h"
 #include "NewGameAction.h"
-
+#include"PasteAction.h"
 #include"CutAction.h"
 ///TODO: Add #include for all action types
 
@@ -103,7 +103,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 	case CUT:
 		pAct = new CutAction(this);
 		break;
-
+	case PASTE:
+		pAct = new PasteAction(this);
+		break;
 	// PLAYMODE
 	case NEW_GAME:
 		pAct = new NewGameAction(this);

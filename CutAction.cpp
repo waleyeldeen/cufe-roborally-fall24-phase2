@@ -42,6 +42,5 @@ void CutAction::Execute() {
 
     pGrid->SetClipboard(pGameObject);
     pCell->SetGameObject(nullptr);
-    delete pGameObject;
     pGrid->PrintErrorMessage("Game object cut successfully. Click anywhere to continue...");
 }
