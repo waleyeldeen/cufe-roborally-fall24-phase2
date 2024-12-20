@@ -214,17 +214,40 @@ Grid::~Grid()
 	delete pOut;
 
 	// Deallocate the Cell Objects of the CellList
-	for (int i = NumVerticalCells-1; i >= 0 ; i--) 
+	for (int i = NumVerticalCells - 1; i >= 0; i--)
 	{
-		for (int j = 0; j < NumHorizontalCells; j++) 
+		for (int j = 0; j < NumHorizontalCells; j++)
 		{
 			delete CellList[i][j];
 		}
 	}
 
 	// Deallocate the Player Objects of the PlayerList
-	for (int i = 0; i < MaxPlayerCount; i++) 
+	for (int i = 0; i < MaxPlayerCount; i++)
 	{
 		delete PlayerList[i];
 	}
 }
+	Player* Grid::GetPlayer(int index) const {
+		if (index >= 0 && index < MaxPlayerCount) { 
+			return PlayerList[index]; 
+		}
+		return nullptr; 
+	}
+	void Grid::ClearGrid() {
+		for (int i = 0; i < NumHorizontalCells; ++i) {
+			for (int j = 0; j < NumVerticalCells; ++j) {
+				CellList[i][j]->Clear(); 
+			}
+		}
+	
+	}
+
+	void Grid::ResetPlayers() {
+		for (int i = 0; i < MaxPlayerCount; ++i) {
+			if (PlayerList[i]) {
+				PlayerList[i]->Reset(); 
+			}
+		}
+	}
+

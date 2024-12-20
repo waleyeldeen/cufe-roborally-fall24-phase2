@@ -103,3 +103,10 @@ void Cell::DrawGameObject(Output* pOut) const
 		pGameObject->Draw(pOut); // draw game object
 
 }
+void Cell::Clear()
+{
+	if (pGameObject) {
+		delete pGameObject;  
+		pGameObject = nullptr;
+	}
+}
