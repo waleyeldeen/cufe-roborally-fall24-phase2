@@ -16,6 +16,8 @@ void CutAction::ReadActionParameters() {
     pOut->ClearStatusBar();
 }
 void CutAction::Execute() {
+    ReadActionParameters();
+
     Grid* pGrid = pManager->GetGrid();
     if (!pGrid) {
         return;
