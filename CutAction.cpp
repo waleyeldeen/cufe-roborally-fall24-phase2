@@ -28,19 +28,14 @@ void CutAction::Execute() {
         return;
     }
 
-    Cell* pCell = pGrid->GetCell(sourceCell);
-    if (!pCell) {
-        pGrid->PrintErrorMessage("Cell not found! Click anywhere to continue...");
-        return;
-    }
-
-    GameObject* pGameObject = pCell->GetGameObject();
+    GameObject* pGameObject = pGrid->GetGameObjectFromCellPosition(sourceCell);
     if (!pGameObject) {
         pGrid->PrintErrorMessage("No game object found in the selected cell! Click anywhere to continue...");
         return;
     }
 
     pGrid->SetClipboard(pGameObject);
-    pCell->SetGameObject(nullptr);
+    pGrid->RemoveObjectFromCell(sourceCell);
+    //pCell->SetGameObject(nullptr);
     pGrid->PrintErrorMessage("Game object cut successfully. Click anywhere to continue...");
 }
