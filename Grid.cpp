@@ -66,6 +66,15 @@ void Grid::RemoveObjectFromCell(const CellPosition & pos)
 	}
 }
 
+GameObject* Grid::GetGameObjectFromCellPosition(const CellPosition& pos) const
+{
+	if (pos.IsValidCell()) // Check if valid position
+	{
+		return CellList[pos.VCell()][pos.HCell()]->GetGameObject();
+	}
+}
+
+
 void Grid::UpdatePlayerCell(Player * player, const CellPosition & newPosition)
 {
 	// Clear the player's triangle from the old cell position
