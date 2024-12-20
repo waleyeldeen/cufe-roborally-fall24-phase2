@@ -20,7 +20,7 @@ Cell::Cell(const CellPosition & pos) : position(pos)
 Cell::Cell(int v, int h) : position(v, h)
 {
 	// initializes the data members (position & pGameObject)
-	pGameObject = NULL;
+	pGameObject = nullptr;
 }
 
 
