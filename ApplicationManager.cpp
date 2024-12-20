@@ -102,7 +102,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		break;
 	case CUT:
 		pAct = new Cut(this);
-		
+		break;
 
 	// PLAYMODE
 	case NEW_GAME:
