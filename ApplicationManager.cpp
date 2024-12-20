@@ -11,6 +11,7 @@
 #include "NewGameAction.h"
 #include"PasteAction.h"
 #include"CutAction.h"
+#include"CopyAction.h"
 ///TODO: Add #include for all action types
 
 ApplicationManager::ApplicationManager()
@@ -102,6 +103,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		break;
 	case CUT:
 		pAct = new CutAction(this);
+		break;
+	case COPY:
+		pAct = new CopyAction(this);
 		break;
 	case PASTE:
 		pAct = new PasteAction(this);
