@@ -176,7 +176,7 @@
     <ClCompile Include="CMUgraphicsLib\jpeg\jquant1.c" />
     <ClCompile Include="CMUgraphicsLib\jpeg\jquant2.c" />
     <ClCompile Include="CMUgraphicsLib\jpeg\jutils.c" />
-    <ClCompile Include="Cut.cpp" />
+    <ClCompile Include="CutAction.cpp" />
     <ClCompile Include="DangerZone.cpp" />
     <ClCompile Include="DisplayRandomCommands.cpp" />
     <ClCompile Include="Flag.cpp" />
@@ -226,7 +226,7 @@
     <ClInclude Include="CMUgraphicsLib\jpeg\jpegint.h" />
     <ClInclude Include="CMUgraphicsLib\jpeg\jpeglib.h" />
     <ClInclude Include="CMUgraphicsLib\jpeg\jversion.h" />
-    <ClInclude Include="Cut.h" />
+    <ClInclude Include="CutAction.h" />
     <ClInclude Include="DangerZone.h" />
     <ClInclude Include="DEFS.h" />
     <ClInclude Include="DisplayRandomCommands.h" />
