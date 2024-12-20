@@ -1,13 +1,13 @@
-#include "NewGame.h"
+#include "NewGameAction.h"
 #include "ApplicationManager.h"
 #include "Grid.h"
 #include "Player.h"
 #include "Output.h"
-NewGame::NewGame(ApplicationManager* pApp) : Action(pApp) {}
+NewGameAction::NewGameAction(ApplicationManager* pApp) : Action(pApp) {}
 
-NewGame::~NewGame() {}
-void NewGame::ReadActionParameters() {}
-void NewGame::Execute() {
+NewGameAction::~NewGameAction() {}
+void NewGameAction::ReadActionParameters() {}
+void NewGameAction::Execute() {
   
     Grid* pGrid = pManager->GetGrid();
     if (!pGrid) {
