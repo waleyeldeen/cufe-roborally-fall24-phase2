@@ -23,6 +23,14 @@ void AddDangerZoneAction::Execute() {
 	Grid* pGrid = pManager->GetGrid(); // We get a pointer to the Grid from the ApplicationManager
 	Output* pOut = pGrid->GetOutput();
 
+	if (!pGrid)
+		return;
+
+	if (!dangerZonePos.IsValidCell()) {
+		pGrid->PrintErrorMessage("Error: Invalid Cell Clicked, click anywhere to continue...");
+		return;
+	}
+
 	bool added = pGrid->AddObjectToCell(pWaterPit);
 
 	// if the GameObject cannot be added
