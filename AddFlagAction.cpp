@@ -45,7 +45,7 @@ void AddFlagAction::Execute()
 	bool flagAd = pGrid->AddObjectToCell(f);
 	if (!flagAd) 
 	{
-		Output* pOut = pGrid->GetOutput();
+		Output* pOut;
 		pOut->PrintMessage("The Flag is not added");
 		delete f;
 	}
