@@ -2,7 +2,7 @@
 
 #include "GameObject.h"
 
-Player::Player(Cell * pCell, int playerNum) : stepCount(0), health(10), playerNum(playerNum), currDirection(RIGHT)
+Player::Player(Cell * pCell, int playerNum) : stepCount(0), health(10), playerNum(playerNum), currDirection(RIGHT),DoubleLaser(true)
 {
 	this->pCell = pCell;
 
@@ -89,11 +89,34 @@ void Player::Reset()
 		pCell = nullptr;
 	}
 }
-Direction Player::GetDirection() {
-	return currDirection;
-}
+
 bool Player::HasDoubleLaser() const
 {
 	return DoubleLaser;
 }
 
+bool Player::IsFacingOtherPlayer(const CellPosition& targetPos) const
+{
+	CellPosition shooterPos = pCell->GetCellPosition();
+
+
+	// SAME ROW:
+	if (shooterPos.VCell() == targetPos.VCell())
+	{
+		if (currDirection == RIGHT && shooterPos.HCell() < targetPos.HCell())
+			return true;
+		if (currDirection == LEFT && shooterPos.HCell() > targetPos.HCell())
+			return true;
+	}
+
+	// SAME COLUMN:
+	else if (shooterPos.HCell() == targetPos.HCell())
+	{
+		if (currDirection == UP && shooterPos.VCell() > targetPos.VCell())
+			return true;
+		if (currDirection == DOWN && shooterPos.VCell() < targetPos.VCell())
+			return true;
+	}
+
+	return false;
+}
