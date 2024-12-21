@@ -7,7 +7,7 @@ class ShootingPhaseAction :public Action
 	Grid* pGrid;
 	
 public:
-	ShootingPhaseAction(Grid* grid);
+	ShootingPhaseAction(Grid* grid, ApplicationManager* pApp);
 	void Execute();
 	~ShootingPhaseAction();
 };

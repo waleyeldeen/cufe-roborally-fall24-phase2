@@ -5,7 +5,7 @@
 #include "Output.h"
 #include "Input.h"
 
-ShootingPhaseAction::ShootingPhaseAction(Grid* grid) : pGrid(grid) {}
+ShootingPhaseAction::ShootingPhaseAction(Grid* grid, ApplicationManager* pApp) : pGrid(grid) , Action(pApp) {}
 ShootingPhaseAction::~ShootingPhaseAction() {};
 void ShootingPhaseAction::Execute()
 {
