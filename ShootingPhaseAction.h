@@ -2,7 +2,7 @@
 #include "Action.h"
 #include "Player.h"
 #include "Grid.h"
-class ShootingPhaseAction
+class ShootingPhaseAction :public Action
 {
 	Grid* pGrid;
 	
