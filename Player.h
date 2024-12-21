@@ -18,7 +18,7 @@ class Player
 	// carried consumables
 	// carried laser type (default, double laser)
 	// isHacked (to indicate whether the player is blocked to play the round, as a result of the opponent using a hacking device)
-	
+	bool DoubleLaser;
 	
 public:
 
@@ -32,7 +32,7 @@ public:
 	void SetHealth(int h);			// A setter for the health points
 	int GetHealth();				// A getter for the health points
 
-
+	Direction GetDirection();
 	///TODO: You can add setters and getters for data members here (if needed)
 
 	// ====== Drawing Functions ======
@@ -51,5 +51,7 @@ public:
 	                                                   // for example: P0(Direction, health)
 
 	void Reset();
+	
+	bool HasDoubleLaser() const;
 };
 

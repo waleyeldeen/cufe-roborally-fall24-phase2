@@ -89,3 +89,11 @@ void Player::Reset()
 		pCell = nullptr;
 	}
 }
+Direction Player::GetDirection() {
+	return currDirection;
+}
+bool Player::HasDoubleLaser() const
+{
+	return DoubleLaser;
+}
+
