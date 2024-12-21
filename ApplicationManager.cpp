@@ -9,6 +9,7 @@
 #include "AddWorkshopAction.h"
 #include "AddFlagAction.h"
 #include "NewGameAction.h"
+#include"AddAntenna.h"
 
 ///TODO: Add #include for all action types
 
@@ -86,6 +87,10 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		// create an object of AddFlagAction here
 		pAct = new AddFlagAction(this);
 		break;
+	case ADD_ANTENNA:
+		pAct = new AddAntenna(this);
+		break;
+	
 
 	case EXIT:
 		break;
