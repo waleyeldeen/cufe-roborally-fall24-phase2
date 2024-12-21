@@ -29,6 +29,7 @@ void AddAntenna::Execute()
 	{
 		Output* p;
 		p->PrintMessage("Antenna is not added to cell");
+		delete A;
 
 	}
 
