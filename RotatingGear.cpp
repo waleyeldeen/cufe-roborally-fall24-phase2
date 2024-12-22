@@ -26,6 +26,16 @@ bool RotatingGear::GetisClockWise() const
 {
 	return isClockWise;
 }
+void RotatingGear::load(ifstream& infile, GType type) const
+{
+	int cellnum;
+	if (type == ROTATING_GEAR)
+	{
+		infile >> cellnum;
+		position.GetCellPositionFromNum(cellnum);
+	}
+
+}
 
 RotatingGear::~RotatingGear()
 {
