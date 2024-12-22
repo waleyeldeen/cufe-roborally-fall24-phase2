@@ -4,6 +4,9 @@
 #include "GameObject.h"
 #include "Belt.h"
 #include "Player.h"
+#include<iostream>
+using namespace std;
+#include<fstream>
 
 Grid::Grid(Input * pIn, Output * pOut) : pIn(pIn), pOut(pOut) // Initializing pIn, pOut
 {
@@ -123,14 +126,14 @@ void Grid::AdvanceCurrentPlayer()
 // ========= Other Getters =========
 
 
-Player * Grid::GetCurrentPlayer() const
+Player* Grid::GetCurrentPlayer() const
 {
 	return PlayerList[currPlayerNumber];
 }
 
-Belt * Grid::GetNextBelt(const CellPosition & position)
+Belt* Grid::GetNextBelt(const CellPosition& position)
 {
-	
+
 	int startH = position.HCell(); // represents the start hCell in the current row to search for the belt in
 	for (int i = position.VCell(); i >= 0; i--) // searching from position.vCell and ABOVE
 	{
@@ -139,7 +142,7 @@ Belt * Grid::GetNextBelt(const CellPosition & position)
 
 
 			///TODO: Check if CellList[i][j] has a belt, if yes return it
-			
+
 
 		}
 		startH = 0; // because in the next above rows, we will search from the first left cell (hCell = 0) to the right
@@ -156,7 +159,7 @@ void Grid::UpdateInterface() const
 	if (UI.InterfaceMode == MODE_DESIGN)
 	{
 		// 1- Draw cells with or without waterpits or dangerzone 
-		for (int i = NumVerticalCells-1; i >= 0 ; i--) // bottom up
+		for (int i = NumVerticalCells - 1; i >= 0; i--) // bottom up
 		{
 			for (int j = 0; j < NumHorizontalCells; j++) // left to right
 			{
@@ -165,7 +168,7 @@ void Grid::UpdateInterface() const
 		}
 
 		// 2- Draw other game objects(excluding waterpit and dangerzone)
-		for (int i = NumVerticalCells-1; i >= 0 ; i--) // bottom up
+		for (int i = NumVerticalCells - 1; i >= 0; i--) // bottom up
 		{
 			for (int j = 0; j < NumHorizontalCells; j++) // left to right
 			{
@@ -186,7 +189,7 @@ void Grid::UpdateInterface() const
 		for (int i = 0; i < MaxPlayerCount; i++)
 		{
 			PlayerList[i]->AppendPlayerInfo(playersInfo); // passed by reference
-			if (i < MaxPlayerCount-1) // except the last player
+			if (i < MaxPlayerCount - 1) // except the last player
 				playersInfo += ", ";
 		}
 		playersInfo += " | Curr = " + to_string(currPlayerNumber);
@@ -207,6 +210,30 @@ void Grid::PrintErrorMessage(string msg)
 	pOut->ClearStatusBar();
 }
 
+void Grid::SaveAll(ofstream file, GType type)
+{
+	Grid* pGrid;
+	
+	for (int i = 0; i < NumVerticalCells; i++)
+	{
+		for (int j = 0; j < NumHorizontalCells; j++)
+		{
+			
+			Cell* cell = CellList[i][j];
+			if (cell && cell->GetGameObject() != nullptr)
+			{
+				GameObject* OBJ = cell->GetGameObject();
+
+				OBJ->Save(file, type);
+
+			}
+		
+
+
+
+		}
+	}
+}
 
 Grid::~Grid()
 {
