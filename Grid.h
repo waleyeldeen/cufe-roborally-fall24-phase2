@@ -80,7 +80,7 @@ public:
 	void PrintErrorMessage(string msg); // Prints an error message on statusbar, Waits for mouse click then clears statusbar
 									    // We added this function once here because it is used many times by other classes
 
-	void LoadAll(ifstream& infile, GType type);
+	void  LoadAll(ifstream& infile, GType type);
 	~Grid(); // A destructor for any needed deallcations
 
 	Player* GetPlayer(int index)const;
