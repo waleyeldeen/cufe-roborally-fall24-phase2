@@ -42,3 +42,7 @@ void AddWaterPitAction::Execute() {
 		+ to_string(waterPitPos.VCell()) + ", HCell: " 
 		+ to_string(waterPitPos.HCell()) + ", Click anywhere to continue...");
 }
+
+AddWaterPitAction::~AddWaterPitAction()
+{
+}

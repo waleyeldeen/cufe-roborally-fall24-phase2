@@ -42,3 +42,7 @@ void AddDangerZoneAction::Execute() {
 		+ to_string(dangerZonePos.VCell()) + ", HCell: "
 		+ to_string(dangerZonePos.HCell()) + ", Click anywhere to continue...");
 }
+
+AddDangerZoneAction::~AddDangerZoneAction()
+{
+}
