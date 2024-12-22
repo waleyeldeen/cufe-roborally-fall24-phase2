@@ -18,6 +18,28 @@ void LoadAction::ReadActionParameters()
 void LoadAction::Execute()
 {
 	ReadActionParameters();
+	Grid* pGrid;
 
+	pGrid = pManager->GetGrid();
+	ifstream infile(file);
+	
+	if (infile.is_open())
+	{
+		pGrid->PrintErrorMessage("Error");
+	}
+
+	pGrid->LoadAll(infile, FLAG);
+	pGrid->LoadAll(infile, WATER_PIT);
+	pGrid->LoadAll(infile, DANGER_ZONE);
+	pGrid->LoadAll(infile, BELT);
+	pGrid->LoadAll(infile, WORKSHOP);
+	pGrid->LoadAll(infile, ANTENNA);
+	pGrid->LoadAll(infile, ROTATING_GEAR);
+
+	infile.close();
+}
+
+LoadAction::~LoadAction()
+{
 
  }
