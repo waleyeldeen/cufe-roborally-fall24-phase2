@@ -32,11 +32,11 @@ CellPosition Belt::GetEndPosition() const
 	return endCellPos;
 }
 
-void Belt::Save(GType type) const
+void Belt::Save(ofstream &outfile,GType type) const
 {
 	if (type == BELT) 
 	{
-
+		outfile << position.GetCellNum();
 	}
 }
 
