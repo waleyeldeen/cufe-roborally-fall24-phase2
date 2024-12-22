@@ -19,6 +19,7 @@ void AddRotatingGearAction::ReadActionParameters()
 	gearPos = pIn->GetCellClicked();
 
 	// 3- Read whether the direction will be clockwise or not
+	// 4- Make the needed validations on the read parameters
 	if (gearPos.IsValidCell())
 	{
 		pOut->PrintMessage("Enter 0 for CCW or 1 for CW");
@@ -37,7 +38,6 @@ void AddRotatingGearAction::ReadActionParameters()
 	{
 		pGrid->PrintErrorMessage("Error: Invalid Cell Clicked, click anywhere to continue...");
 	}
-	// 4- Make the needed validations on the read parameters
 
 
 	// 5- Clear status bar
