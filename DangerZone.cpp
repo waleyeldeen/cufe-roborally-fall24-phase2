@@ -26,6 +26,17 @@ void DangerZone::Apply(Grid * pGrid, Player * pPlayer)
 	
 }
 
+void DangerZone::load(ifstream& infile, GType type) const 
+{
+	int cellnum;
+	if (type == BELT)
+	{
+		infile >> cellnum;
+		position.GetCellPositionFromNum(cellnum);
+	}
+
+}
+
 
 DangerZone::~DangerZone()
 {
