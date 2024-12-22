@@ -7,10 +7,7 @@ AddRotatingGearAction::AddRotatingGearAction(ApplicationManager * pApp):Action(p
 
 void AddRotatingGearAction::ReadActionParameters()
 {
-	///TODO: Implement this function as mentioned in the guideline steps (numbered below) below
-
-
-	// == Here are some guideline steps (numbered below) to implement this function ==
+	///[+]TODO: Implement this function as mentioned in the guideline steps (numbered below) below
 
 	// 1- Get a Pointer to the Input / Output Interfaces
 	Grid* pGrid = pManager->GetGrid();
@@ -22,9 +19,24 @@ void AddRotatingGearAction::ReadActionParameters()
 	gearPos = pIn->GetCellClicked();
 
 	// 3- Read whether the direction will be clockwise or not
-	pOut->PrintMessage("Enter 0 for CCW or 1 for CW");
-	clockwise = pIn->GetInteger(pOut);
-
+	if (gearPos.IsValidCell())
+	{
+		pOut->PrintMessage("Enter 0 for CCW or 1 for CW");
+		string clockwiseStr = pIn->GetSrting(pOut);
+		if (clockwiseStr == "0")
+			clockwise = false;
+		else if (clockwiseStr == "1")
+			clockwise = true;
+		else
+		{
+			gearPos.Invalidate();
+			pGrid->PrintErrorMessage("Error: Invalid Direction Entered, click asnywhere to continue...");
+		}
+	}
+	else if (!gearPos.IsValidCell())
+	{
+		pGrid->PrintErrorMessage("Error: Invalid Cell Clicked, click anywhere to continue...");
+	}
 	// 4- Make the needed validations on the read parameters
 
 
@@ -34,18 +46,26 @@ void AddRotatingGearAction::ReadActionParameters()
 
 void AddRotatingGearAction::Execute()
 {
-	// The first line of any Action Execution is to read its parameter first 
-	// and hence initializes its data members
-	ReadActionParameters();
 	///[+]TODO: Implement this function as mentioned in the guideline steps (numbered below) below
-	// == Here are some guideline steps (numbered below) to implement this function ==
+	ReadActionParameters();
 
 	// 1-Create a rotating gear object
 	RotatingGear* pGear = new RotatingGear(gearPos, clockwise);
+
 	// 2-get a pointer to the Grid from the ApplicationManager
 	Grid* pGrid = pManager->GetGrid();
+
+	if (!pGrid)
+		return;
+
+	if (!gearPos.IsValidCell())
+	{
+		return;
+	}
+
 	// 3-Add the rotating object to the GameObject of its Cell:
 	bool added = pGrid->AddObjectToCell(pGear);
+
 	// 4-Check if the rotating gear was added and print an errror message if flag couldn't be added
 	if (!added)
 	{
