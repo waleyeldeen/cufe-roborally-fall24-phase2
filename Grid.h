@@ -6,6 +6,7 @@
 #include "Input.h"
 #include "Output.h"
 #include "CellPosition.h"
+#include"GameObject.h"
 
 // forward declarations (the includes are in the cpp)
 class Cell;
@@ -78,7 +79,7 @@ public:
 	void PrintErrorMessage(string msg); // Prints an error message on statusbar, Waits for mouse click then clears statusbar
 									    // We added this function once here because it is used many times by other classes
 
-    void SaveAll (ofstream file,GType type);
+    void SaveAll (ofstream &outfile,GType type);
 	~Grid(); // A destructor for any needed deallcations
 };
 
