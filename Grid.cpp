@@ -236,6 +236,11 @@ void Grid::ResetPlayers() {
 	}
 }
 
+void Grid::LoadAll(ifstream& infile, GType type)
+{
+
+}
+
 
 Grid::~Grid()
 {
