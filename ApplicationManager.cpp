@@ -9,7 +9,7 @@
 #include "AddWorkshopAction.h"
 #include "AddFlagAction.h"
 #include "NewGameAction.h"
-
+#include "ShootingPhaseAction.h"
 ///TODO: Add #include for all action types
 
 ApplicationManager::ApplicationManager()
