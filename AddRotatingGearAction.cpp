@@ -19,9 +19,24 @@ void AddRotatingGearAction::ReadActionParameters()
 	gearPos = pIn->GetCellClicked();
 
 	// 3- Read whether the direction will be clockwise or not
-	pOut->PrintMessage("Enter 0 for CCW or 1 for CW");
-	clockwise = pIn->GetInteger(pOut);
-
+	if (gearPos.IsValidCell())
+	{
+		pOut->PrintMessage("Enter 0 for CCW or 1 for CW");
+		string clockwiseStr = pIn->GetSrting(pOut);
+		if (clockwiseStr == "0")
+			clockwise = false;
+		else if (clockwiseStr == "1")
+			clockwise = true;
+		else
+		{
+			gearPos.Invalidate();
+			pGrid->PrintErrorMessage("Error: Invalid Direction Entered, click asnywhere to continue...");
+		}
+	}
+	else if (!gearPos.IsValidCell())
+	{
+		pGrid->PrintErrorMessage("Error: Invalid Cell Clicked, click anywhere to continue...");
+	}
 	// 4- Make the needed validations on the read parameters
 
 
@@ -39,6 +54,14 @@ void AddRotatingGearAction::Execute()
 
 	// 2-get a pointer to the Grid from the ApplicationManager
 	Grid* pGrid = pManager->GetGrid();
+
+	if (!pGrid)
+		return;
+
+	if (!gearPos.IsValidCell())
+	{
+		return;
+	}
 
 	// 3-Add the rotating object to the GameObject of its Cell:
 	bool added = pGrid->AddObjectToCell(pGear);
