@@ -223,6 +223,7 @@ void Grid::SaveAll(ofstream& outfile, GType type)
 			{
 				GameObject* OBJ = cell->GetGameObject();
 
+		
 				OBJ->Save(outfile, type);
 
 			}
