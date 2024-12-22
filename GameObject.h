@@ -2,6 +2,7 @@
 
 #include "Grid.h"
 
+
 // Base Class for All Game Objects ( Belts, danger zones, .. )
 class GameObject
 {
