@@ -8,7 +8,7 @@ public:
 	virtual void Draw(Output* pOut) const; // Draws a danger zone in the cell
 
 	virtual void Apply(Grid* pGrid, Player* pPlayer); // Applys the effect of the danger zone by reducing the robot's health by 1
-	void Save(GType type) const override;
+	void Save(ofstream &outfile,GType type) const ;
 
 
 	virtual ~DangerZone();
