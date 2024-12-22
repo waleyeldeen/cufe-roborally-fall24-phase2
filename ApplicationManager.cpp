@@ -4,6 +4,7 @@
 #include "AddBeltAction.h"
 #include "AddRotatingGearAction.h"
 #include "AddFlagAction.h"
+#include"SaveGridAction.h"
 
 ///TODO: Add #include for all action types
 
@@ -81,6 +82,15 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 	case TO_DESIGN_MODE:				//TODO:
 		pOut->CreateDesignModeToolBar(); // temporary till you made its action class (CHANGE THIS LATTER)
 		break;
+
+	case SAVE:
+		pAct = new SaveGridAction(this);
+		break;
+
+
+
+
+
 
 		
 
