@@ -10,7 +10,7 @@ public:
 	virtual void Draw(Output* pOut) const; // Draws a belt from its start cell to its end cell
 
 	virtual void Apply(Grid* pGrid, Player* pPlayer); // Applys the effect of the belt by moving player to belt's end cell
-
+	virtual void  load(ifstream& infile, GType type) const;
 	CellPosition GetEndPosition() const; // A getter for the endCellPos data member
 	virtual ~Belt();
 };
