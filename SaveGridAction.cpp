@@ -26,9 +26,19 @@ void SaveGridAction::Execute()
 	{
 		Grid* pGrid;
 		pGrid->PrintErrorMessage("Error");
+		return;
 	}
 	Grid* pGrid = pManager->GetGrid();
-	pGrid->SaveAll()
+	pGrid->SaveAll(outfile, FLAG);
+	pGrid->SaveAll(outfile, WATER_PIT);
+	pGrid->SaveAll(outfile, DANGER_ZONE);
+	pGrid->SaveAll(outfile, BELT);
+	pGrid->SaveAll(outfile, WORKSHOP);
+	pGrid->SaveAll(outfile, ANTENNA);
+	pGrid->SaveAll(outfile, ROTATING_GEAR);
+
+
+	outfile.close();
 	
 
 
