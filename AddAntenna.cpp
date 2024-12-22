@@ -11,10 +11,7 @@ void AddAntenna::ReadActionParameters()
 	Input* pIn = pGrid->GetInput();
 	pOut->PrintMessage("Click on the cell to place antenna");
 	AntennaPos = pIn->GetCellClicked();
-	if (!AntennaPos.IsValidCell())
-	{
-		pOut->PrintMessage("Invalid position for antenna");
-	}
+	
 
 	pOut->ClearStatusBar();
 }
@@ -27,8 +24,7 @@ void AddAntenna::Execute()
 	bool Add = pGrid->AddObjectToCell(A);
 	if (!Add) 
 	{
-		Output* p;
-		p->PrintMessage("Antenna is not added to cell");
+		pGrid->PrintErrorMessage("Error plese choose another cell");
 		delete A;
 
 	}
