@@ -16,6 +16,15 @@ void Workshop::Draw(Output * pOut) const
 void Workshop::Apply(Grid * pGrid, Player * pPlayer)
 {
 }
+void Workshop::load(ifstream& infile, GType type) const
+{
+	int cellnum;
+	if (type == WORKSHOP)
+	{
+		infile >> cellnum;
+		position.GetCellPositionFromNum(cellnum);
+	}
+}
 
 Workshop::~Workshop()
 {
