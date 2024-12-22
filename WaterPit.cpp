@@ -25,6 +25,16 @@ void WaterPit::Apply(Grid * pGrid, Player * pPlayer)
 	// 3- Update the players info which is displayed (check Grid class and decide which function to use)
 }
 
+void WaterPit::load(ifstream& infile, GType type) const
+{
+	int cellnum;
+	if (type == WATER_PIT)
+	{
+		infile >> cellnum;
+		position.GetCellPositionFromNum(cellnum);
+	}
+
+}
 
 WaterPit::~WaterPit()
 {
