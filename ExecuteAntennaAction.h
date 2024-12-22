@@ -10,7 +10,7 @@ class ExecuteAntennaAction: public Action
 
 public:
 	ExecuteAntennaAction(ApplicationManager* pApp);
-	virtual void ReadActionParameter();
+	virtual void ReadactionParameter();
 	virtual void Execute();
 	~ExecuteAntennaAction();
 

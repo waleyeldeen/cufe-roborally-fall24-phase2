@@ -7,7 +7,7 @@ ExecuteAntennaAction::ExecuteAntennaAction(ApplicationManager* pApp) :Action(pAp
 
 }
 
-void ExecuteAntennaAction::ReadActionParameter()
+void ExecuteAntennaAction::ReadactionParameter()
 {
 	Grid* pGrid = pManager->GetGrid();
 	Output* pOut = pGrid->GetOutput();
@@ -23,7 +23,7 @@ void ExecuteAntennaAction::ReadActionParameter()
 
 void ExecuteAntennaAction::Execute()
 {
-	ReadActionParameter();
+	ReadactionParameter();
 	Antenna* An = new Antenna(AntennaPos);
 
 	Grid* pGrid = pManager->GetGrid();
