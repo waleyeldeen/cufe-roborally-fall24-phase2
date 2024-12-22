@@ -15,7 +15,7 @@ void Antenna::Draw(Output * pOut) const
 
 void Antenna::Apply(Grid * pGrid, Player * pPlayer)
 {
-	
+
 	
 	///TODO: Implement this function as mentioned in the guideline steps (numbered below) below
 	
@@ -33,6 +33,15 @@ void Antenna::Apply(Grid * pGrid, Player * pPlayer)
 
 }
 
+void Antenna::Save(ofstream& outfile, GType type) const
+{
+	if (type == ANTENNA)
+	{
+		outfile << position.GetCellNum();
+		
+	
+	}
+}
 
 Antenna::~Antenna()
 {
