@@ -11,6 +11,10 @@ CellPosition GameObject::GetPosition() const
 {
 	return position;
 }
+void GameObject::Save(ofstream &outfile, GType type) const 
+{
+
+}
 
 GameObject::~GameObject()
 {
