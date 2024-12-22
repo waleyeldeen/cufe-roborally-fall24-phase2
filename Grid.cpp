@@ -238,9 +238,22 @@ void Grid::ResetPlayers() {
 
 void Grid::LoadAll(ifstream& infile, GType type)
 {
+	for (int i = 0; i < NumVerticalCells; i++)
+	{
+		for (int j = 0; j < NumHorizontalCells; j++)
+		{
+			Cell* cell = CellList[i][j];
+			if (cell && cell->GetGameObject() != nullptr)
+			{
+				GameObject* OBJ = cell->GetGameObject();
 
+
+				OBJ->Load(infile, type);
+
+			}
+		}
+	}
 }
-
 
 Grid::~Grid()
 {
