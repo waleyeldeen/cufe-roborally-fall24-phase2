@@ -31,6 +31,16 @@ void Antenna::Apply(Grid * pGrid, Player * pPlayer)
 	// 3- After deciding the turn of player Print a message indicating which player will play first example: "Player 1 will play first"
 
 }
+void Antenna::load(ifstream &infile, GType type) const
+{
+	int cellnum;
+	if (type == ANTENNA)
+	{
+		infile >> cellnum;
+	   position.GetCellPositionFromNum(cellnum);
+	}
+
+}
 
 
 Antenna::~Antenna()
