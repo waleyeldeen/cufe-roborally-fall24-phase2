@@ -11,6 +11,12 @@ CellPosition GameObject::GetPosition() const
 	return position;
 }
 
+void GameObject::SetPositon(CellPosition newPos)
+{
+	position = newPos;
+}
+
+
 GameObject::~GameObject()
 {
 }

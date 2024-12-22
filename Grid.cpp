@@ -61,10 +61,19 @@ void Grid::RemoveObjectFromCell(const CellPosition & pos)
 {
 	if (pos.IsValidCell()) // Check if valid position
 	{
-		delete CellList[pos.VCell()][pos.HCell()]; // Note: you can deallocate the object here before setting the pointer to null if it is needed
+		//delete CellList[pos.VCell()][pos.HCell()]->GetGameObject(); // Note: you can deallocate the object here before setting the pointer to null if it is needed
 		CellList[pos.VCell()][pos.HCell()]->SetGameObject(NULL);
 	}
 }
+
+GameObject* Grid::GetGameObjectFromCellPosition(const CellPosition& pos) const
+{
+	if (pos.IsValidCell()) // Check if valid position
+	{
+		return CellList[pos.VCell()][pos.HCell()]->GetGameObject();
+	}
+}
+
 
 void Grid::UpdatePlayerCell(Player * player, const CellPosition & newPosition)
 {
@@ -214,7 +223,6 @@ Player* Grid::GetPlayer(int index) const {
 	}
 	return nullptr; 
 }
-
 
 void Grid::ClearGrid() {
 	for (int i = NumVerticalCells - 1; i >= 0; i--) // bottom up

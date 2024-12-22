@@ -166,3 +166,9 @@ void CellPosition::AddCellNum(int addedNum, Direction direction)
 		}
 	}
 }
+
+void CellPosition::Invalidate()
+{
+	vCell = -1;
+	hCell = -1;
+}
