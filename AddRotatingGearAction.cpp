@@ -54,6 +54,7 @@ void AddRotatingGearAction::Execute()
 
 	// 2-get a pointer to the Grid from the ApplicationManager
 	Grid* pGrid = pManager->GetGrid();
+	Output* pOut = pGrid->GetOutput();
 
 	if (!pGrid)
 		return;
@@ -71,7 +72,12 @@ void AddRotatingGearAction::Execute()
 	{
 		// Print an appropriate message
 		pGrid->PrintErrorMessage("Error: Cell already has an object ! Click to continue ...");
+		return;
 	}
+
+	pOut->PrintMessage("Added Water Pit at VCell: "
+		+ to_string(gearPos.VCell()) + ", HCell: "
+		+ to_string(gearPos.HCell()) + ", Click anywhere to continue...");
 }
 
 AddRotatingGearAction::~AddRotatingGearAction()
