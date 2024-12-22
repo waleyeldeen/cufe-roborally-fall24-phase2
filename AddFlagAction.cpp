@@ -4,7 +4,7 @@
 
 AddFlagAction::AddFlagAction(ApplicationManager *pApp) : Action(pApp)
 {
-	pManager->~ApplicationManager();
+	
 	// Initializes the pManager pointer of Action with the passed pointer
 }
 
@@ -20,10 +20,7 @@ void AddFlagAction::ReadActionParameters()
 	// == Here are some guideline steps (numbered below) to implement this function ==
 	flagPos = In->GetCellClicked();
 	// 1- Get a Pointer to the Input / Output Interfaces
-	if (!flagPos.IsValidCell())
-	{
-		Out->PrintMessage("Please choose valid cell position");
-	}
+	
 	// 2- Read the flagPos
 
 	// 4- Make the needed validations on the read parameters
@@ -45,8 +42,7 @@ void AddFlagAction::Execute()
 	bool flagAd = pGrid->AddObjectToCell(f);
 	if (!flagAd) 
 	{
-		Output* pOut;
-		pOut->PrintMessage("The Flag is not added");
+		pGrid->PrintErrorMessage("Please choose another cell");
 		delete f;
 	}
 	// 2-get a pointer to the Grid from the ApplicationManager
