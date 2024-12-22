@@ -7,7 +7,7 @@ public:
 	virtual void Draw(Output* pOut) const; // Draws an antenna
 
 	virtual void Apply(Grid* pGrid, Player* pPlayer); // Applys the effect of the antenna by deciding the players turns
-
+	virtual void load(ifstream &infile, GType Type) const;
 
 	virtual ~Antenna();
 };
