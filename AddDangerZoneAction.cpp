@@ -35,8 +35,12 @@ void AddDangerZoneAction::Execute() {
 
 	// if the GameObject cannot be added
 	if (!added)
+	{
 		// Print an appropriate message
 		pGrid->PrintErrorMessage("Error: Cell already has an object ! Click to continue...");
+		return;
+	}
+
 
 	pOut->PrintMessage("Added Water Pit at VCell: "
 		+ to_string(dangerZonePos.VCell()) + ", HCell: "
