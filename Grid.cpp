@@ -5,8 +5,7 @@
 #include "Belt.h"
 #include "Player.h"
 #include<iostream>
-using namespace std;
-#include<fstream>
+
 
 Grid::Grid(Input * pIn, Output * pOut) : pIn(pIn), pOut(pOut) // Initializing pIn, pOut
 {
