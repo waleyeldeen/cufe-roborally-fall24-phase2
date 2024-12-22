@@ -24,10 +24,11 @@ void DangerZone::Apply(Grid * pGrid, Player * pPlayer)
 	// 3- Update the players info which is displayed (check Grid class and decide which function to use)
 	
 }
-void DangerZone::Save(GType type) const  
+void DangerZone::Save(ofstream &outfile ,GType type) const  
 {
 	if (type == DANGER_ZONE)
 	{
+		outfile << position.GetCellNum();
 		
 	}
 }
