@@ -209,9 +209,9 @@ void Grid::PrintErrorMessage(string msg)
 	pOut->ClearStatusBar();
 }
 
-void Grid::SaveAll(ofstream file, GType type)
+void Grid::SaveAll(ofstream& outfile, GType type)
 {
-	Grid* pGrid;
+	
 	
 	for (int i = 0; i < NumVerticalCells; i++)
 	{
@@ -223,7 +223,7 @@ void Grid::SaveAll(ofstream file, GType type)
 			{
 				GameObject* OBJ = cell->GetGameObject();
 
-				OBJ->Save(file, type);
+				OBJ->Save(outfile, type);
 
 			}
 		
