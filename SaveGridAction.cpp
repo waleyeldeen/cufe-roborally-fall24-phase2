@@ -28,7 +28,7 @@ void SaveGridAction::Execute()
 		pGrid->PrintErrorMessage("Error");
 	}
 	Grid* pGrid = pManager->GetGrid();
-
+	pGrid->SaveAll()
 	
 
 
