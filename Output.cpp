@@ -61,8 +61,8 @@ Output::Output()
 	UI.FlagPoleColor = GHOSTWHITE;
 
 	// player sizes
-	UI.PlayerWidth = 20;
-	UI.PlayerHeight = 20;
+	UI.PlayerWidth = 14;
+	UI.PlayerHeight = 14;
 
 
 	// Commands X and Y Coordinates
