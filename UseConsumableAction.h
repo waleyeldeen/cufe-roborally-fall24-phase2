@@ -3,6 +3,7 @@
 #include "Grid.h"
 #include "Input.h"
 #include "Output.h"
+#include "Player.h"
 
 class UseConsumableAction : public Action
 {
