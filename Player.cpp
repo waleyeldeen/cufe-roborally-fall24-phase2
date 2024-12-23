@@ -12,6 +12,14 @@ Player::Player(Cell * pCell, int playerNum) : stepCount(0), health(10), playerNu
 	{
 		bag[i] = EMPTY_BAG;
 	}
+
+	// set saved commands to no command
+	for (int i = 0; i < 5; i++)
+	{
+		savedCommands[i] = NO_COMMAND;
+	}
+
+
 	// Make all the needed initialization or validations
 }
 
