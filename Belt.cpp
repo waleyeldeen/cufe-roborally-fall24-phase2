@@ -11,7 +11,9 @@ void Belt::Draw(Output* pOut) const
 {
 	pOut->DrawBelt(position, endCellPos);
 }
-
+GameObject* Belt::Clone() const {
+	return new Belt(*this);
+}
 void Belt::Apply(Grid* pGrid, Player* pPlayer)
 {
 

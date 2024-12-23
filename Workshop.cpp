@@ -16,7 +16,9 @@ void Workshop::Draw(Output * pOut) const
 void Workshop::Apply(Grid * pGrid, Player * pPlayer)
 {
 }
-
+GameObject* Workshop::Clone() const {
+	return new Workshop(*this);
+}
 Workshop::~Workshop()
 {
 }

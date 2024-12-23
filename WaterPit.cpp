@@ -10,7 +10,9 @@ void WaterPit::Draw(Output * pOut) const
 {
 	pOut->DrawWaterPit(position);
 }
-
+GameObject* WaterPit::Clone() const {
+	return new WaterPit(*this);
+}
 void WaterPit::Apply(Grid * pGrid, Player * pPlayer)
 {
 

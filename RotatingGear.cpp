@@ -30,3 +30,12 @@ bool RotatingGear::GetisClockWise() const
 RotatingGear::~RotatingGear()
 {
 }
+void RotatingGear::setFilePath(const string& path) {
+	filepath = path;
+}
+string RotatingGear::GetFilePath()const {
+	return filepath;
+}
+GameObject* RotatingGear::Clone() const {
+	return new RotatingGear(*this);
+}
