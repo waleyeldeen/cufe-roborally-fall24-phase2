@@ -15,6 +15,7 @@ class Player
 	int health;				// Player's current health points
 
 	Command savedCommands[5];
+	int savedCommandsCount;
 
 	// owned equipments
 	Consumable bag[MaxCarriedConsumables];// carried consumables
@@ -38,6 +39,8 @@ public:
 	bool GetIsHacked();
 	void Hack();
 	void UnHack();
+
+	bool AddSavedCommand(Command newCommand);
 
 	//
 	Consumable* GetBag();

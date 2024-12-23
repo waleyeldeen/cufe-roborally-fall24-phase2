@@ -14,6 +14,7 @@ Player::Player(Cell * pCell, int playerNum) : stepCount(0), health(10), playerNu
 	}
 
 	// set saved commands to no command
+	savedCommandsCount = 0;
 	for (int i = 0; i < 5; i++)
 	{
 		savedCommands[i] = NO_COMMAND;
@@ -58,6 +59,21 @@ void Player::Hack() {
 void Player::UnHack() {
 	isHacked = false;
 }
+
+bool Player::AddSavedCommand(Command newCommand) {
+	if (savedCommandsCount < 5) // if there is space in space saved commands
+	{
+		savedCommands[savedCommandsCount++] = newCommand;
+		return true;
+	}
+	else if (savedCommandsCount >= 5)
+	{
+		return false;
+	}
+	else
+		return false;
+}
+
 
 Consumable* Player::GetBag() {
 	return this->bag;
