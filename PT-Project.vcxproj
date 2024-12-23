@@ -192,6 +192,7 @@
     <ClCompile Include="RotatingGear.cpp" />
     <ClCompile Include="SwitchToDesignMode.cpp" />
     <ClCompile Include="SwitchToPlayMode.cpp" />
+    <ClCompile Include="UseConsumableAction.cpp" />
     <ClCompile Include="WaterPit.cpp" />
     <ClCompile Include="Workshop.cpp" />
   </ItemGroup>
@@ -245,6 +246,7 @@
     <ClInclude Include="SwitchToDesignMode.h" />
     <ClInclude Include="SwitchToPlayMode.h" />
     <ClInclude Include="UI_Info.h" />
+    <ClInclude Include="UseConsumableAction.h" />
     <ClInclude Include="WaterPit.h" />
     <ClInclude Include="Workshop.h" />
   </ItemGroup>
