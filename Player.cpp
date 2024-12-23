@@ -5,7 +5,7 @@
 Player::Player(Cell * pCell, int playerNum) : stepCount(0), health(10), playerNum(playerNum), currDirection(RIGHT)
 {
 	this->pCell = pCell;
-
+	this->isHacked = false; // player is not hacked by default
 	// Make all the needed initialization or validations
 }
 
@@ -30,6 +30,19 @@ void Player::SetHealth(int h)
 int Player::GetHealth()
 {
 	return this->health;
+}
+
+bool Player::GetIsHacked()
+{
+	return this->isHacked;
+}
+
+void Player::Hack() {
+	isHacked = true;
+}
+
+void Player::UnHack() {
+	isHacked = false;
 }
 
 // ====== Drawing Functions ======

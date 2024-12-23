@@ -17,7 +17,7 @@ class Player
 	// owned equipments
 	Consumable bag[MaxCarriedConsumables];// carried consumables
 	// carried laser type (default, double laser)
-	// isHacked (to indicate whether the player is blocked to play the round, as a result of the opponent using a hacking device)
+	bool isHacked;// isHacked (to indicate whether the player is blocked to play the round, as a result of the opponent using a hacking device)
 	
 	
 public:
@@ -32,6 +32,9 @@ public:
 	void SetHealth(int h);			// A setter for the health points
 	int GetHealth();				// A getter for the health points
 
+	bool GetIsHacked();
+	void Hack();
+	void UnHack();
 
 	///TODO: You can add setters and getters for data members here (if needed)
 
