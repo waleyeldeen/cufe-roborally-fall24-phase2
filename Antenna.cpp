@@ -33,11 +33,12 @@ void Antenna::Apply(Grid * pGrid, Player * pPlayer)
 }
 void Antenna::load(ifstream &infile, GType type) const
 {
-	int cellnum;
+
 	if (type == ANTENNA)
 	{
+		int cellnum;
 		infile >> cellnum;
-	   position.GetCellPositionFromNum(cellnum);
+		position.GetCellNumFromPosition(cellnum);
 	}
 
 }
