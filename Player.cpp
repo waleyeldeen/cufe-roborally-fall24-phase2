@@ -89,6 +89,13 @@ bool Player::RemoveFromBag(Consumable removeConsumable)
 	return false; // incase no match is found
 }
 
+bool Player::IsBagFull()
+{
+	if (bagCount == MaxCarriedConsumables)
+		return true;
+	return false;
+}
+
 // ====== Drawing Functions ======
 
 void Player::Draw(Output* pOut) const

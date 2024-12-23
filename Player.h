@@ -48,6 +48,8 @@ public:
 	// returns true if consumable is found and removed
 	// returns false if consumable does not exist in players bag
 	bool RemoveFromBag(Consumable removeConsumable);
+
+	bool IsBagFull();
 	///TODO: You can add setters and getters for data members here (if needed)
 
 	// ====== Drawing Functions ======
