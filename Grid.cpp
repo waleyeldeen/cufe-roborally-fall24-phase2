@@ -136,6 +136,20 @@ Player * Grid::GetCurrentPlayer() const
 	return PlayerList[currPlayerNumber];
 }
 
+Player* Grid::GetNonCurrentPlayer() const
+{
+	// this function assumes there is only 2 players
+	switch (currPlayerNumber)
+	{
+	case 0:
+		return PlayerList[1];
+		//break; should be not needed to break since return terminates function
+	case 1:
+		return PlayerList[0];
+		//break;
+	}
+}
+
 Belt * Grid::GetNextBelt(const CellPosition & position)
 {
 	
