@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Grid.h"
+#include "Player.h"
 
 // Base Class for All Game Objects ( Belts, danger zones, .. )
 class GameObject
