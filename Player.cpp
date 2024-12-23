@@ -94,7 +94,13 @@ bool Player::HasDoubleLaser() const
 {
 	return DoubleLaser;
 }
-
+bool Player::GetReflectiveGear()
+{
+	return HasreflectiveGear;
+}
+void Player::SetReflectiveGear(bool state) {
+	HasreflectiveGear = state;
+}
 bool Player::IsFacingOtherPlayer(const CellPosition& targetPos) const
 {
 	CellPosition shooterPos = pCell->GetCellPosition();

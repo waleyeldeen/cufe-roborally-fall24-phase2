@@ -13,6 +13,7 @@ class Player
 	int stepCount;		   // step count which is the same as his cellNum: from 1 to NumVerticalCells*NumHorizontalCells
 	Direction currDirection; // Current Direction of the player
 	int health;				// Player's current health points
+	bool HasreflectiveGear;
 
 	// owned equipments
 	// carried consumables
@@ -49,7 +50,8 @@ public:
 	
 	void AppendPlayerInfo(string & playersInfo) const; // Appends player's info to the input string, 
 	                                                   // for example: P0(Direction, health)
-
+	bool GetReflectiveGear();
+	void SetReflectiveGear( bool state);
 	void Reset();
 	
 	bool HasDoubleLaser() const;
