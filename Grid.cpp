@@ -128,6 +128,11 @@ void Grid::AdvanceCurrentPlayer()
 	currPlayerNumber = (currPlayerNumber + 1) % MaxPlayerCount; // this generates value from 0 to MaxPlayerCount - 1
 }
 
+int Grid::getCurrentPlayerNum()
+{
+	return this->currPlayerNumber;
+}
+
 // ========= Other Getters =========
 
 
