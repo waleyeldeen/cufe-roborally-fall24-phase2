@@ -16,6 +16,7 @@ class Player
 
 	// owned equipments
 	Consumable bag[MaxCarriedConsumables];// carried consumables
+	int bagCount;
 	// carried laser type (default, double laser)
 	bool isHacked;// isHacked (to indicate whether the player is blocked to play the round, as a result of the opponent using a hacking device)
 	
@@ -36,6 +37,17 @@ public:
 	void Hack();
 	void UnHack();
 
+	//
+	Consumable* GetBag();
+
+	// returns false if bag is full
+	// returns true if item added to last empty index
+	bool AddToBag(Consumable newConsumable);
+
+	// used when player uses a consumable
+	// returns true if consumable is found and removed
+	// returns false if consumable does not exist in players bag
+	bool RemoveFromBag(Consumable removeConsumable);
 	///TODO: You can add setters and getters for data members here (if needed)
 
 	// ====== Drawing Functions ======

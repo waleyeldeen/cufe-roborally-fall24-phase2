@@ -6,6 +6,12 @@ Player::Player(Cell * pCell, int playerNum) : stepCount(0), health(10), playerNu
 {
 	this->pCell = pCell;
 	this->isHacked = false; // player is not hacked by default
+	this->bagCount = 0;
+	// set all slots in bag to empty
+	for (int i = 0; i < MaxCarriedConsumables; i++)
+	{
+		bag[i] = EMPTY_BAG;
+	}
 	// Make all the needed initialization or validations
 }
 
@@ -43,6 +49,44 @@ void Player::Hack() {
 
 void Player::UnHack() {
 	isHacked = false;
+}
+
+Consumable* Player::GetBag() {
+	return this->bag;
+}
+
+
+bool Player::AddToBag(Consumable newConsumable)
+{
+	if (bagCount < MaxCarriedConsumables) // if there is space in bag
+	{
+		bag[bagCount++] = newConsumable;
+		return true;
+	}
+	else if (bagCount >= MaxCarriedConsumables) // bag is full
+	{
+		return false;
+	}
+	else
+		return false;
+}
+
+bool Player::RemoveFromBag(Consumable removeConsumable)
+{
+	for (int i = 0; i < MaxCarriedConsumables; i++)
+	{
+		if (bag[i] == removeConsumable)
+		{
+			// switch with last non empty slot
+			Consumable last = bag[bagCount - 1];
+			bag[i] = last;
+			bag[bagCount - 1] = EMPTY_BAG;
+			this->bagCount--;
+			return true;
+		}
+	}
+
+	return false; // incase no match is found
 }
 
 // ====== Drawing Functions ======
