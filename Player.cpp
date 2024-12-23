@@ -128,6 +128,24 @@ void Player::Move(Grid * pGrid, Command moveCommands[])
 
 }
 
+void Player::Rotate(bool clockwise)
+{
+	Direction clockwiseOrder[5] = { UP, RIGHT, DOWN, LEFT, UP };
+	Direction antiClockwiseOrder[5] = { UP, LEFT, DOWN, RIGHT, UP };
+
+	for (int i = 0; i < 5; i++)
+	{
+		if (this->currDirection == clockwiseOrder[i])
+		{
+			if (clockwise)
+				currDirection = clockwiseOrder[i + 1];
+			else
+				currDirection = antiClockwiseOrder[i + 1];
+			return;
+		}
+	}
+}
+
 void Player::AppendPlayerInfo(string & playersInfo) const
 {
 	// TODO: Modify the Info as needed
