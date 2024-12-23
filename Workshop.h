@@ -3,6 +3,8 @@
 class Workshop :
 	public GameObject
 {
+private:
+	Consumable inv[2];
 public:
 	Workshop(const CellPosition & workshopPosition);
 	virtual void Draw(Output* pOut) const; // Draws workshop
