@@ -45,6 +45,11 @@ void CopyAction::Execute() {
         pGrid->PrintErrorMessage("Can't Copy Antenna");
         return;
     }
+    if (pGameObject->GetClassName() == "Flag")
+    {
+        pGrid->PrintErrorMessage("Can't Copy Flag");
+        return;
+    }
     pGrid->SetClipboard(pGameObject);
     pGrid->PrintErrorMessage("Game object copied successfully. Click anywhere to continue...");
 }
