@@ -15,15 +15,8 @@ void Antenna::Draw(Output * pOut) const
 
 void Antenna::Apply(Grid * pGrid, Player* pPlayer)
 {
-	Output* pOut=pGrid->GetOutput();
-	pOut->PrintMessage("the antenna will decide the turn of players.Click to continue...");
-	pGrid->GetInput()->GetCellClicked();
+	
 	///TODO: Implement this function as mentioned in the guideline steps (numbered below) below
-	CellPosition antennaPos = this->GetPosition();
-	
-	
-	int dis = INT_MAX;
-	int Fplayer = -1;
 	
 	
 	// == Here are some guideline steps (numbered below) to implement this function ==
