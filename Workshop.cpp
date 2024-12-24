@@ -17,12 +17,12 @@ void Workshop::Apply(Grid * pGrid, Player * pPlayer)
 {
 }
 
-void Workshop::Save(ofstream &outfile,GType type)const
+void Workshop::Save(ofstream &outfile)
 {
-	if (type == WORKSHOP)
-	{
-		outfile << position.GetCellNum();
-	}
+	
+	
+	outfile << position.GetCellNum();
+	
 }
 Workshop::~Workshop()
 {
