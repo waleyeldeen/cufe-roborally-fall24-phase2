@@ -20,15 +20,16 @@ void SaveGridAction::ReadActionParameters()
 void SaveGridAction::Execute()
 {
 	ReadActionParameters();
+	Grid* pGrid;
 	
 	ofstream outfile(file);
 	if (!outfile.is_open())
 	{
-		Grid* pGrid;
-		pGrid->PrintErrorMessage("Error");
+		Output* pOut;
+		pOut->PrintMessage("Error:Please try again");
 		return;
 	}
-	Grid* pGrid;
+	
 
 	pGrid->SaveAll(outfile);
 	
@@ -36,5 +37,9 @@ void SaveGridAction::Execute()
 	outfile.close();
 	
 
+
+}
+SaveGridAction::~SaveGridAction()
+{
 
 }
