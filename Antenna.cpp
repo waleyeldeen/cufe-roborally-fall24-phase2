@@ -28,40 +28,15 @@ void Antenna::Apply(Grid* pGrid, Player* pPlayer)
 	{
 		Player* pPlayer = pGrid->GetPlayer(j);
 		Cell* pCell = pPlayer->GetCell();
-		CellPosition cellposition = pCell->GetCellPosition();
+		CellPosition playerPosition = pCell->GetCellPosition();
 
-		int dist = abs(cellposition.VCell() - position.VCell()) + abs(cellposition.HCell() - position.HCell());
-		
-		
-		play[j] = dist;
-		playingorder[j] = j + 1;
-	   
+		double xDist = abs(playerPosition.HCell() - position.HCell());
+		double yDist = abs(playerPosition.VCell() - position.VCell());
 
+		double distance = sqrt(xDist * xDist + yDist * yDist);
+
+		///TODO: SET PLAYER DATA MEMBER DISTANCE FROM ANTENNA
 	}
-	int player1 = playingorder[0];
-	int sdist = play[0];
-	for (int i = 0; i < MaxPlayerCount; i++)
-	{
-		if (play[i] < sdist)
-		{
-			sdist = play[i];
-			player1 = playingorder[i];
-
-		}
-		if (play[i] == sdist)
-		{
-			if (playingorder[i] < player1)
-			{
-				player1 = playingorder[i];
-			}
-
-		}
-
-	
-
-		pOut->PrintMessage("it is" + to_string(player1) + "turn to play");
-	}
-	
 
 	// == Here are some guideline steps (numbered below) to implement this function ==
 
@@ -73,8 +48,8 @@ void Antenna::Apply(Grid* pGrid, Player* pPlayer)
 	//Player with the minimum distance[ from the antenna will have the first turn in that round.
 	//If there is a tie, player number will break it, for example if player 1 & 2 are in the same cell and they have the same distance from the antenna, player 1 will play first in that round.
 	// 3- After deciding the turn of player Print a message indicating which player will play first example: "Player 1 will play first"
-
 }
+
 
 
 Antenna::~Antenna()
