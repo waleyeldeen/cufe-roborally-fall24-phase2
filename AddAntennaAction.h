@@ -6,7 +6,7 @@
 class AddAntennaAction:public Action
 {
 	CellPosition AntennaPos;
-
+	bool isParamRead;
 public:
 	AddAntennaAction(ApplicationManager* pApp);
 	virtual void Execute();
