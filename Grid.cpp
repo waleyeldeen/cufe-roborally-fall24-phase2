@@ -248,12 +248,15 @@ void Grid::DisplayPlayersInfo() const{
 
 	}
 	if (currentPlayer) {
+		int currentPlayerIndex = -1;
 		for (int i = 0; i < MaxPlayerCount; i++) {
 			if (GetPlayer(i) == currentPlayer) {
-				info += "  Current player is Player";
-				currentPlayer->AppendNumber(info, i + 1); 
-				break;
+				currentPlayerIndex = i + 1; 
 			}
+		}
+		if (currentPlayerIndex != -1) {
+			info += " | Current player is player #";
+			info += std::to_string(currentPlayerIndex);
 		}
 	}
 	Output* pOut = GetOutput();

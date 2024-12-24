@@ -79,23 +79,4 @@ void Player::AppendPlayerInfo(string & playersInfo) const
 	playersInfo += to_string(health) + ")";
 
 }
-void Player::AppendNumber(string str, int num)const {
-	char buffer[12];
-	int index = 0;
-	if (num == 0) {
-		buffer[index++] = '0';
-	}
-	else {
-		if (num < 0) {
-			str += "-";
-			num = -num;
-		}
-		while (num > 0) {
-			buffer[index++] = '0' + (num % 10); 
-			num /= 10;
-		}
-		for (int i = index - 1; i >= 0; i--) {
-			str += buffer[i];
-		}
-	}
-}
+
