@@ -7,6 +7,7 @@
 #include "Player.h"
 #include "DangerZone.h"
 #include "Output.h"
+#include "Flag.h"
 Cell::Cell(const CellPosition & pos) : position(pos)
 {
 	// initializes the data members (position & pGameObject)
@@ -52,6 +53,7 @@ Flag * Cell::HasFlag() const
 {
 
 	///TODO: Implement the following function like HasBelt() function
+	return dynamic_cast<Flag*>(pGameObject);
 
 	return false; // THIS LINE SHOULD CHANGED WITH YOUR IMPLEMENTATION
 
