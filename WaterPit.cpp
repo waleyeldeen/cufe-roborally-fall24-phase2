@@ -24,12 +24,11 @@ void WaterPit::Apply(Grid * pGrid, Player * pPlayer)
 	// 2- Apply the water pit's effect by setting the player's health which drowned to zero and ending the game
 	// 3- Update the players info which is displayed (check Grid class and decide which function to use)
 }
-void WaterPit::Save(ofstream &outfile,GType type) const 
+void WaterPit::Save(ofstream &Outfile)  
 {
-	if (type == WATER_PIT)
-	{
-		outfile << position.GetCellNum();
-	}
+	
+	Outfile << position.GetCellNum();
+	
 }
 
 
