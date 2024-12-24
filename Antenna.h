@@ -10,8 +10,7 @@ public:
 	virtual void Apply(Grid* pGrid, Player* pPlayer); // Applys the effect of the antenna by deciding the players turns
 
 	virtual GameObject* Clone() const override;
-	void setFilePath(const string& path);
-	string GetFilePath()const;
+	
 	virtual ~Antenna();
 };
 
