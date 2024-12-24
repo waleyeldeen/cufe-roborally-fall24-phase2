@@ -33,14 +33,14 @@ void Antenna::Apply(Grid * pGrid, Player * pPlayer)
 
 }
 
-void Antenna::Save(ofstream& outfile, GType type) const
+void Antenna::Save(ofstream& Outfile) 
 {
-	if (type == ANTENNA)
-	{
-		outfile << position.GetCellNum();
+	
+	
+	Outfile << position.GetCellNum();
 		
 	
-	}
+	
 }
 
 Antenna::~Antenna()
