@@ -3,17 +3,9 @@
 #include "Grid.h"
 
 #include <fstream>
-enum GType 
-{
-	FLAG,
-	WATER_PIT,
-	DANGER_ZONE,
-	BELT,
-	WORKSHOP,
-	ANTENNA,
-	ROTATING_GEAR
 
-};
+
+
 
 // Base Class for All Game Objects ( Belts, danger zones, .. )
 class GameObject
@@ -45,9 +37,9 @@ public:
 	/// TODO::Decide the parameters that you should pass to each function	
 	//Uncomment those functions and implement them in all the derived classes 
 	//virtual void Save(ofstream &OutFile) = 0;	// Saves the GameObject parameters to the file
-	//virtual void Load(ifstream &Infile) = 0;	// Loads and Reads the GameObject parameters from the file
+	virtual void Load(ifstream &Infile) = 0;	// Loads and Reads the GameObject parameters from the file
 
-	virtual void  Load(ifstream& infile, GType type) const ;
+
 	virtual ~GameObject(); // Virtual destructor
 };
 
