@@ -16,9 +16,11 @@ void Antenna::Draw(Output * pOut) const
 void Antenna::Apply(Grid* pGrid, Player* pPlayer)
 {
 	///TODO: Implement this function as mentioned in the guideline steps (numbered below) below
-	pGrid->GetOutput()->PrintMessage("The antenna will decide the turn of players. Click to continue...");
-	pGrid->GetInput()->GetCellClicked();
 	Output* pOut;
+	Input* In;
+	pOut->PrintMessage("The antenn will decide the turn of plyers.Click to continue...");
+	In->GetCellClicked();
+	
 	int play[MaxPlayerCount];
 	int playingorder[MaxPlayerCount];
 	for (int j = 0; j < MaxPlayerCount; j++)
