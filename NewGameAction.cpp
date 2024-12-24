@@ -29,7 +29,7 @@ void NewGameAction::Execute() {
     Output* pOut = pGrid->GetOutput();
 
     if (pOut) {
-        pOut->ClearGridArea();
+        //pOut->ClearGridArea();
         pOut->ClearStatusBar();
         pOut->PrintMessage("New Game has started!");
     }

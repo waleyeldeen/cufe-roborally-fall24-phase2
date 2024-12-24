@@ -256,9 +256,11 @@ void Grid::ClearGrid() {
 
 
 void Grid::ResetPlayers() {
+	CellPosition cell_1(1);
 	for (int i = 0; i < MaxPlayerCount; ++i) {
 		if (PlayerList[i]) {
-			PlayerList[i]->Reset(); 
+			PlayerList[i]->Reset();
+			this->UpdatePlayerCell(PlayerList[i], cell_1);
 		}
 	}
 }

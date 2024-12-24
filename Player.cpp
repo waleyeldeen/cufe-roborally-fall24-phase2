@@ -188,8 +188,4 @@ void Player::Reset()
 	health = 10;
 	stepCount = 0;
 	currDirection = RIGHT;
-	if (pCell)
-	{
-		pCell = nullptr;
-	}
 }
