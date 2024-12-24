@@ -209,7 +209,7 @@ void Grid::PrintErrorMessage(string msg)
 	pOut->ClearStatusBar();
 }
 
-void Grid::SaveAll(ofstream& outfile, GType type)
+void Grid::SaveAll(ofstream& outfile)
 {
 	
 	
@@ -224,7 +224,7 @@ void Grid::SaveAll(ofstream& outfile, GType type)
 				GameObject* OBJ = cell->GetGameObject();
 
 		
-				OBJ->Save(outfile, type);
+				OBJ->Save(outfile);
 
 			}
 		
