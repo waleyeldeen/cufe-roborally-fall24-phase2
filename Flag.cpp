@@ -1,7 +1,25 @@
 #include "Flag.h"
+
+int Flag::count = 0;
+
 Flag::Flag(const CellPosition & flagposition) : GameObject(flagposition)
 {
+	Flag::PutOnGrid();
+}
 
+void Flag::PutOnGrid() {
+	count++;
+}
+
+void Flag::RemoveFromGrid() {
+	count--;
+}
+
+
+bool Flag::IsOnGrid() {
+	if (count >= 1)
+		return true;
+	return false;
 }
 
 void Flag::Draw(Output* pOut) const
@@ -23,5 +41,5 @@ void Flag::Apply(Grid* pGrid, Player* pPlayer)
 
 Flag::~Flag()
 {
-
+	Flag::RemoveFromGrid();
 }
