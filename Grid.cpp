@@ -236,7 +236,7 @@ void Grid::ResetPlayers() {
 	}
 }
 
-void Grid::LoadAll(ifstream& infile, GType type)
+void Grid::LoadAll(ifstream& Infile)
 {
 	for (int i = 0; i < NumVerticalCells; i++)
 	{
@@ -248,7 +248,7 @@ void Grid::LoadAll(ifstream& infile, GType type)
 				GameObject* OBJ = cell->GetGameObject();
 
 
-				OBJ->Load(infile, type);
+				OBJ->Load(Infile);
 
 			}
 		}
