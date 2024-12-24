@@ -16,15 +16,15 @@ void AddFlagAction::ReadActionParameters()
 	Output* pOut=pGrid->GetOutput();
 	Input* pIn = pGrid->GetInput() ;
 	
-	// == Here are some guideline steps (numbered below) to implement this function ==
-	flagPos = pIn->GetCellClicked();
-	// 1- Get a Pointer to the Input / Output Interfaces
-	
-	// 2- Read the flagPos
+	if (Flag::IsOnGrid()) {
+		isParamRead = false;
+		pGrid->PrintErrorMessage("A Flag Already Exists on Grid! Click anywhere to continue...");
+		return;
+	}
 
-	// 4- Make the needed validations on the read parameters
-	pOut->ClearStatusBar();
-	// 5- Clear status bar
+	pOut->PrintMessage("New Flag: Click on Target Cell"); 
+	flagPos = pIn->GetCellClicked();
+
 }
 
 void AddFlagAction::Execute()
@@ -33,6 +33,10 @@ void AddFlagAction::Execute()
 	// The first line of any Action Execution is to read its parameter first 
 	// and hence initializes its data members
 	ReadActionParameters();
+
+	if (!isParamRead)
+		return;
+
 	///TODO: Implement this function as mentioned in the guideline steps (numbered below) below
 	// == Here are some guideline steps (numbered below) to implement this function ==
 
@@ -45,6 +49,7 @@ void AddFlagAction::Execute()
 	{
 		pGrid->PrintErrorMessage("A flag Already Exists on Grid! Click anywhere to continue...");
 		delete newFlag;
+		return;
 	}
 	// 2-get a pointer to the Grid from the ApplicationManager
 	// 3-Add the flag object to the GameObject of its Cell:
