@@ -1,5 +1,5 @@
 #include "Grid.h"
-
+#include"Output.h"
 #include "Cell.h"
 #include "GameObject.h"
 #include "Belt.h"
@@ -234,3 +234,36 @@ Player* Grid::GetPlayer(int i)const {
 	}
 	return nullptr;
 }
+void Grid::DisplayPlayersInfo() const{
+	string info;
+	Player* currentPlayer = GetCurrentPlayer();
+	for (int i = 0; i < MaxPlayerCount; i++) {
+		Player* player = GetPlayer(i);
+		if (player) {
+			player->AppendPlayerInfo(info);
+			if (i < MaxPlayerCount - 1) {
+				info += ",";
+			}
+		}
+
+	}
+	if (currentPlayer) {
+		for (int i = 0; i < MaxPlayerCount; i++) {
+			if (GetPlayer(i) == currentPlayer) {
+				info += "  Current player is Player";
+				currentPlayer->AppendNumber(info, i + 1); 
+				break;
+			}
+		}
+	}
+	Output* pOut = GetOutput();
+	if (pOut) {
+		pOut->ClearStatusBar();
+		pOut->PrintPlayersInfo(info);
+	}
+	}
+		
+		
+	
+
+	
