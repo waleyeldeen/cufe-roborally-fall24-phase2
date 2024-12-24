@@ -179,6 +179,7 @@
     <ClCompile Include="CopyAction.cpp" />
     <ClCompile Include="CutAction.cpp" />
     <ClCompile Include="DangerZone.cpp" />
+    <ClCompile Include="DeleteGameObjectAction.cpp" />
     <ClCompile Include="DisplayRandomCommands.cpp" />
     <ClCompile Include="Flag.cpp" />
     <ClCompile Include="GameObject.cpp" />
@@ -192,6 +193,7 @@
     <ClCompile Include="RotatingGear.cpp" />
     <ClCompile Include="SwitchToDesignMode.cpp" />
     <ClCompile Include="SwitchToPlayMode.cpp" />
+    <ClCompile Include="UseConsumableAction.cpp" />
     <ClCompile Include="WaterPit.cpp" />
     <ClCompile Include="Workshop.cpp" />
   </ItemGroup>
@@ -232,6 +234,7 @@
     <ClInclude Include="CutAction.h" />
     <ClInclude Include="DangerZone.h" />
     <ClInclude Include="DEFS.h" />
+    <ClInclude Include="DeleteGameObjectAction.h" />
     <ClInclude Include="DisplayRandomCommands.h" />
     <ClInclude Include="Flag.h" />
     <ClInclude Include="GameObject.h" />
@@ -245,6 +248,7 @@
     <ClInclude Include="SwitchToDesignMode.h" />
     <ClInclude Include="SwitchToPlayMode.h" />
     <ClInclude Include="UI_Info.h" />
+    <ClInclude Include="UseConsumableAction.h" />
     <ClInclude Include="WaterPit.h" />
     <ClInclude Include="Workshop.h" />
   </ItemGroup>

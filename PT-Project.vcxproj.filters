@@ -223,6 +223,12 @@
     <ClCompile Include="CopyAction.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
+    <ClCompile Include="UseConsumableAction.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="DeleteGameObjectAction.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMUgraphicsLib\auxil.h">
@@ -374,6 +380,12 @@
       <Filter>Actions</Filter>
     </ClInclude>
     <ClInclude Include="CopyAction.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="UseConsumableAction.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+     <ClInclude Include="DeleteGameObjectAction.h">
       <Filter>Actions</Filter>
     </ClInclude>
   </ItemGroup>

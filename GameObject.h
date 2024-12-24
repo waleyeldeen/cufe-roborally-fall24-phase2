@@ -1,8 +1,7 @@
 #pragma once
 
 #include "Grid.h"
-//#include "iostream"
-//using namespace std;
+#include "Player.h"
 
 // Base Class for All Game Objects ( Belts, danger zones, .. )
 class GameObject

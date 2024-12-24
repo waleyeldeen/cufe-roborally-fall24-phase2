@@ -5,7 +5,13 @@
 Player::Player(Cell * pCell, int playerNum) : stepCount(0), health(10), playerNum(playerNum), currDirection(RIGHT)
 {
 	this->pCell = pCell;
-
+	this->isHacked = false; // player is not hacked by default
+	this->bagCount = 0;
+	// set all slots in bag to empty
+	for (int i = 0; i < MaxCarriedConsumables; i++)
+	{
+		bag[i] = EMPTY_BAG;
+	}
 	// Make all the needed initialization or validations
 }
 
@@ -30,6 +36,64 @@ void Player::SetHealth(int h)
 int Player::GetHealth()
 {
 	return this->health;
+}
+
+bool Player::GetIsHacked()
+{
+	return this->isHacked;
+}
+
+void Player::Hack() {
+	isHacked = true;
+}
+
+void Player::UnHack() {
+	isHacked = false;
+}
+
+Consumable* Player::GetBag() {
+	return this->bag;
+}
+
+
+bool Player::AddToBag(Consumable newConsumable)
+{
+	if (bagCount < MaxCarriedConsumables) // if there is space in bag
+	{
+		bag[bagCount++] = newConsumable;
+		return true;
+	}
+	else if (bagCount >= MaxCarriedConsumables) // bag is full
+	{
+		return false;
+	}
+	else
+		return false;
+}
+
+bool Player::RemoveFromBag(Consumable removeConsumable)
+{
+	for (int i = 0; i < MaxCarriedConsumables; i++)
+	{
+		if (bag[i] == removeConsumable)
+		{
+			// switch with last non empty slot
+			Consumable last = bag[bagCount - 1];
+			bag[i] = last;
+			bag[bagCount - 1] = EMPTY_BAG;
+			this->bagCount--;
+			return true;
+		}
+	}
+
+	return false; // incase no match is found
+}
+
+bool Player::IsBagFull()
+{
+	if (bagCount == MaxCarriedConsumables)
+		return true;
+	return false;
 }
 
 // ====== Drawing Functions ======
@@ -71,6 +135,24 @@ void Player::Move(Grid * pGrid, Command moveCommands[])
 
 }
 
+void Player::Rotate(bool clockwise)
+{
+	Direction clockwiseOrder[5] = { UP, RIGHT, DOWN, LEFT, UP };
+	Direction antiClockwiseOrder[5] = { UP, LEFT, DOWN, RIGHT, UP };
+
+	for (int i = 0; i < 5; i++)
+	{
+		if (this->currDirection == clockwiseOrder[i])
+		{
+			if (clockwise)
+				currDirection = clockwiseOrder[i + 1];
+			else
+				currDirection = antiClockwiseOrder[i + 1];
+			return;
+		}
+	}
+}
+
 void Player::AppendPlayerInfo(string & playersInfo) const
 {
 	// TODO: Modify the Info as needed
@@ -84,8 +166,4 @@ void Player::Reset()
 	health = 10;
 	stepCount = 0;
 	currDirection = RIGHT;
-	if (pCell)
-	{
-		pCell = nullptr;
-	}
 }

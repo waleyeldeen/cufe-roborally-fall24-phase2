@@ -135,12 +135,31 @@ void Grid::AdvanceCurrentPlayer()
 	currPlayerNumber = (currPlayerNumber + 1) % MaxPlayerCount; // this generates value from 0 to MaxPlayerCount - 1
 }
 
+int Grid::getCurrentPlayerNum()
+{
+	return this->currPlayerNumber;
+}
+
 // ========= Other Getters =========
 
 
 Player * Grid::GetCurrentPlayer() const
 {
 	return PlayerList[currPlayerNumber];
+}
+
+Player* Grid::GetNonCurrentPlayer() const
+{
+	// this function assumes there is only 2 players
+	switch (currPlayerNumber)
+	{
+	case 0:
+		return PlayerList[1];
+		//break; should be not needed to break since return terminates function
+	case 1:
+		return PlayerList[0];
+		//break;
+	}
 }
 
 Belt * Grid::GetNextBelt(const CellPosition & position)
@@ -244,9 +263,11 @@ void Grid::ClearGrid() {
 
 
 void Grid::ResetPlayers() {
+	CellPosition cell_1(1);
 	for (int i = 0; i < MaxPlayerCount; ++i) {
 		if (PlayerList[i]) {
-			PlayerList[i]->Reset(); 
+			PlayerList[i]->Reset();
+			this->UpdatePlayerCell(PlayerList[i], cell_1);
 		}
 	}
 }
