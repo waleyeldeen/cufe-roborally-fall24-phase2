@@ -62,7 +62,7 @@ void Antenna::Apply(Grid* pGrid, Player* pPlayer)
 
 	// == Here are some guideline steps (numbered below) to implement this function ==
 
-	// 1- Print a message "the antenna will decide he turn of players. Click to continue ..." and wait mouse click
+	// 1- Print a message "the antenna will decide the turn of players. Click to continue ..." and wait mouse click
 
 	// 2- Apply the antenna effect by following these notes, check grid class and decide which function to use
 	//The antenna determines the turn order for players.
