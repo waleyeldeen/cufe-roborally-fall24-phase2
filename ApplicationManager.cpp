@@ -9,6 +9,7 @@
 #include "AddWorkshopAction.h"
 #include "AddFlagAction.h"
 #include "NewGameAction.h"
+#include"LoadAction.h"
 
 ///TODO: Add #include for all action types
 
@@ -85,6 +86,10 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 	case SET_FLAG_CELL:
 		// create an object of AddFlagAction here
 		pAct = new AddFlagAction(this);
+		break;
+
+	case LOAD:
+		pAct = new LoadAction(this);
 		break;
 
 	case EXIT:
