@@ -105,8 +105,15 @@ Output * Grid::GetOutput() const
 void Grid::SetClipboard(GameObject * gameObject) // to be used in copy/cut
 {
 	// you may update slightly in implementation if you want (but without breaking responsibilities)
-	Clipboard = gameObject;
-}
+		if (gameObject) {
+			Clipboard = gameObject->Clone(); // Clone returns a new object
+		}
+		else {
+			Clipboard = nullptr;
+		}
+	}
+
+
 
 GameObject * Grid::GetClipboard() const // to be used in paste
 {
@@ -126,6 +133,11 @@ bool Grid::GetEndGame() const
 void Grid::AdvanceCurrentPlayer()
 {
 	currPlayerNumber = (currPlayerNumber + 1) % MaxPlayerCount; // this generates value from 0 to MaxPlayerCount - 1
+}
+
+int Grid::getCurrentPlayerNum()
+{
+	return this->currPlayerNumber;
 }
 
 // ========= Other Getters =========
@@ -251,9 +263,11 @@ void Grid::ClearGrid() {
 
 
 void Grid::ResetPlayers() {
+	CellPosition cell_1(1);
 	for (int i = 0; i < MaxPlayerCount; ++i) {
 		if (PlayerList[i]) {
-			PlayerList[i]->Reset(); 
+			PlayerList[i]->Reset();
+			this->UpdatePlayerCell(PlayerList[i], cell_1);
 		}
 	}
 }

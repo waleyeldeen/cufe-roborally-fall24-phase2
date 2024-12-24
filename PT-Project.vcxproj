@@ -179,6 +179,7 @@
     <ClCompile Include="CopyAction.cpp" />
     <ClCompile Include="CutAction.cpp" />
     <ClCompile Include="DangerZone.cpp" />
+    <ClCompile Include="DeleteGameObjectAction.cpp" />
     <ClCompile Include="DisplayRandomCommands.cpp" />
     <ClCompile Include="Flag.cpp" />
     <ClCompile Include="GameObject.cpp" />
@@ -234,6 +235,7 @@
     <ClInclude Include="CutAction.h" />
     <ClInclude Include="DangerZone.h" />
     <ClInclude Include="DEFS.h" />
+    <ClInclude Include="DeleteGameObjectAction.h" />
     <ClInclude Include="DisplayRandomCommands.h" />
     <ClInclude Include="Flag.h" />
     <ClInclude Include="GameObject.h" />

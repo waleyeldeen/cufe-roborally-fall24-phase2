@@ -13,6 +13,7 @@
 #include"CutAction.h"
 #include"CopyAction.h"
 #include "RebootAndRepairAction.h"
+#include"DeleteGameObjectAction.h"
 ///TODO: Add #include for all action types
 
 ApplicationManager::ApplicationManager()
@@ -110,6 +111,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		break;
 	case PASTE:
 		pAct = new PasteAction(this);
+		break;
+	case DELETE_:
+		pAct = new DeleteGameObjectAction(this);
 		break;
 	// PLAYMODE
 	case NEW_GAME:

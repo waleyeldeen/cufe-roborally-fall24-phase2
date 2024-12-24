@@ -48,6 +48,8 @@ public:
 	// returns true if consumable is found and removed
 	// returns false if consumable does not exist in players bag
 	bool RemoveFromBag(Consumable removeConsumable);
+
+	bool IsBagFull();
 	///TODO: You can add setters and getters for data members here (if needed)
 
 	// ====== Drawing Functions ======
@@ -60,7 +62,7 @@ public:
 
 	void Move(Grid * pGrid, Command moveCommands[]);	// Moves the Player with the passed move command
 														// and Applies the Game Object's effect (if any) of the end reached cell 
-														// for example, if the end cell contains a belt, take it
+	void Rotate(bool clockwise);													// for example, if the end cell contains a belt, take it
 	
 	void AppendPlayerInfo(string & playersInfo) const; // Appends player's info to the input string, 
 	                                                   // for example: P0(Direction, health)

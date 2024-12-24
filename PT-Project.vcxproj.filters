@@ -229,6 +229,9 @@
     <ClCompile Include="RebootAndRepairAction.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
+    <ClCompile Include="DeleteGameObjectAction.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMUgraphicsLib\auxil.h">
@@ -386,6 +389,9 @@
       <Filter>Actions</Filter>
     </ClInclude>
     <ClInclude Include="RebootAndRepairAction.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+     <ClInclude Include="DeleteGameObjectAction.h">
       <Filter>Actions</Filter>
     </ClInclude>
   </ItemGroup>

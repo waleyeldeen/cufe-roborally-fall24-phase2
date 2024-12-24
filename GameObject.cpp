@@ -15,7 +15,9 @@ void GameObject::SetPositon(CellPosition newPos)
 {
 	position = newPos;
 }
-
+string GameObject::GetClassName()const {
+	return ClassName;
+}
 
 GameObject::~GameObject()
 {
