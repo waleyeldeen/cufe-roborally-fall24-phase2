@@ -32,14 +32,13 @@ CellPosition Belt::GetEndPosition() const
 	return endCellPos;
 }
 
-void Belt::load(ifstream& infile, GType type) const
+void Belt::Load(ifstream& Infile) 
 {
-	int cellnum;
-	if (type == BELT)
-	{
-		infile >> cellnum;
-		position.GetCellPositionFromNum(cellnum);
-	}
+	
+	int pst;
+	Infile >> pst;
+	position.GetCellPositionFromNum(pst);
+	
 
 }
 
