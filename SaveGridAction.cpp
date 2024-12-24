@@ -21,20 +21,20 @@ void SaveGridAction::Execute()
 {
 	ReadActionParameters();
 	Grid* pGrid;
-	
-	ofstream outfile(file);
-	if (!outfile.is_open())
+	pGrid = pManager->GetGrid();
+	ofstream Outfile(file);
+	if (!Outfile.is_open())
 	{
-		Output* pOut;
-		pOut->PrintMessage("Error:Please try again");
+		
+		pGrid->PrintErrorMessage("Error:Please try again");
 		return;
 	}
 	
-	pGrid = pManager->GetGrid();
-	pGrid->SaveAll(outfile);
+	
+	pGrid->SaveAll(Outfile);
 	
 
-	outfile.close();
+	Outfile.close();
 	
 
 
