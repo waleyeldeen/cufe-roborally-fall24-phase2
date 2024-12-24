@@ -26,12 +26,11 @@ bool RotatingGear::GetisClockWise() const
 {
 	return isClockWise;
 }
-void RotatingGear::Save(ofstream& outfile, GType type) const
+void RotatingGear::Save(ofstream& Outfile) 
 {
-	if (type == ROTATING_GEAR)
-	{
-		outfile << position.GetCellNum();
-	}
+	
+		Outfile << position.GetCellNum();
+	
 }
 
 RotatingGear::~RotatingGear()
