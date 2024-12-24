@@ -13,7 +13,7 @@ void Flag::Apply(Grid* pGrid, Player* pPlayer)
 {
 	Output* pOut;
 	pOut->PrintMessage("You have reached a flag .click to continue");
-	Grid* pGrid;
+	
 	pGrid->GetInput()->GetCellClicked();
 	
 	///TODO: Implement this function as mentioned in the guideline steps (numbered below) below
