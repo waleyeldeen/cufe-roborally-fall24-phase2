@@ -12,6 +12,7 @@
 #include"PasteAction.h"
 #include"CutAction.h"
 #include"CopyAction.h"
+#include "RebootAndRepairAction.h"
 #include"DeleteGameObjectAction.h"
 ///TODO: Add #include for all action types
 
@@ -118,7 +119,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 	case NEW_GAME:
 		pAct = new NewGameAction(this);
 		break;
-
+	case REBOOT_AND_REPAIR:
+		pAct = new RebootAndRepairAction(this);
+		break;
 
 		///TODO: Add a case for EACH Action type in the Design mode or Play mode
 	case STATUS:	// a click on the status bar ==> no action
