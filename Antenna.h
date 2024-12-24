@@ -2,7 +2,7 @@
 #include "GameObject.h"
 class Antenna :public GameObject
 {
-	string filepath;
+
 public:
 	Antenna(const CellPosition & antennaPosition);
 	virtual void Draw(Output* pOut) const; // Draws an antenna

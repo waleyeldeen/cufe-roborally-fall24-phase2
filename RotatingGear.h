@@ -10,8 +10,7 @@ public:
 	virtual void Apply(Grid* pGrid, Player* pPlayer); // Applys the effect of the flag
 	bool GetisClockWise() const; // Getter for the direction
 	
-	void setFilePath(const string& path);
-	string GetFilePath()const;
+	
 	virtual GameObject* Clone() const override;
 	virtual ~RotatingGear();
 };

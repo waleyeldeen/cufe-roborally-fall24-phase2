@@ -9,8 +9,7 @@ public:
 
 	virtual void Apply(Grid* pGrid, Player* pPlayer); // Applys the effect of the workshop
 	virtual GameObject* Clone() const override;
-	void setFilePath(const string& path);
-	string GetFilePath()const;
+	
 
 	~Workshop();
 };

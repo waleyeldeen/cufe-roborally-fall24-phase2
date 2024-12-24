@@ -31,12 +31,7 @@ void Antenna::Apply(Grid * pGrid, Player * pPlayer)
 	// 3- After deciding the turn of player Print a message indicating which player will play first example: "Player 1 will play first"
 
 }
-void Antenna::setFilePath(const string& path) {
-	filepath = path;
-}
-string Antenna::GetFilePath()const {
-	return filepath;
-}
+
 GameObject* Antenna::Clone() const {
 	return new Antenna(*this);
 }
