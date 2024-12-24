@@ -35,7 +35,8 @@ void Antenna::Apply(Grid* pGrid, Player* pPlayer)
 
 		double distance = sqrt(xDist * xDist + yDist * yDist);
 
-		///TODO: SET PLAYER DATA MEMBER DISTANCE FROM ANTENNA
+		///[+]TODO: SET PLAYER DATA MEMBER DISTANCE FROM ANTENNA
+		pPlayer->setDistanceFromAntenna(distance);
 	}
 
 	// == Here are some guideline steps (numbered below) to implement this function ==

@@ -16,6 +16,17 @@ void Player::SetCell(Cell * cell)
 	pCell = cell;
 }
 
+void Player::setDistanceFromAntenna(double newDistance)
+{
+	this->distanceFromAntenna = newDistance;
+}
+
+double Player::getDistanceFromAntenna() const 
+{
+	return this->distanceFromAntenna;
+}
+
+
 Cell* Player::GetCell() const
 {
 	return pCell;
