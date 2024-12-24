@@ -9,28 +9,30 @@ void AddAntennaAction::ReadActionParameters()
 	Grid *pGrid = pManager->GetGrid();
 	Output* pOut = pGrid->GetOutput();
 	Input* pIn = pGrid->GetInput();
-	pOut->PrintMessage("Click on the cell to place antenna");
+
+	pOut->PrintMessage("New Antenna pit: Click on Target Cell");
 	AntennaPos = pIn->GetCellClicked();
 	
-
-	pOut->ClearStatusBar();
+	//pOut->ClearStatusBar();
 }
 
 void AddAntennaAction::Execute()
 {
 	ReadActionParameters();
-	Antenna* A= new Antenna(AntennaPos);
+
+	Antenna* pAntenna= new Antenna(AntennaPos);
+
 	Grid* pGrid = pManager->GetGrid();
-	bool Add = pGrid->AddObjectToCell(A);
-	if (!Add) 
+
+	bool add = pGrid->AddObjectToCell(pAntenna);
+
+	if (!add)
 	{
-		pGrid->PrintErrorMessage("Error plese choose another cell");
-		delete A;
-
+		pGrid->PrintErrorMessage("Error: Cell already has an object! Click Anywhere to continue...");
+		delete pAntenna;
 	}
-
-	
 }
+
 AddAntennaAction::~AddAntennaAction() 
 {
 
