@@ -11,7 +11,7 @@ public:
 	bool GetisClockWise() const; // Getter for the direction
 	
 	
-	virtual GameObject* Clone() const override;
+	virtual GameObject* Clone() const;
 	virtual ~RotatingGear();
 };
 

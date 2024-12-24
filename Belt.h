@@ -13,9 +13,7 @@ public:
 
 	CellPosition GetEndPosition() const;
 	// A getter for the endCellPos data member
-	virtual GameObject* Clone() const override;
-	void setFilePath(const string& path);
-	string GetFilePath()const;
+	virtual GameObject* Clone() const;
 	
 	virtual ~Belt();
 };

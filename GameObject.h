@@ -1,6 +1,8 @@
 #pragma once
 
 #include "Grid.h"
+//#include "iostream"
+//using namespace std;
 
 // Base Class for All Game Objects ( Belts, danger zones, .. )
 class GameObject
@@ -9,7 +11,6 @@ class GameObject
 protected:
 
 	CellPosition position; // The current cell position of the GameObject
-	
 public:
 
 	GameObject(const CellPosition & pos); // Constructor for initializing data members
