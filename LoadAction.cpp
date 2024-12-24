@@ -21,22 +21,15 @@ void LoadAction::Execute()
 	Grid* pGrid;
 
 	pGrid = pManager->GetGrid();
-	ifstream infile(file);
+	ifstream Infile(file);
 	
-	if (infile.is_open())
+	if (Infile.is_open())
 	{
 		pGrid->PrintErrorMessage("Error");
 	}
 
-	pGrid->LoadAll(infile, FLAG);
-	pGrid->LoadAll(infile, WATER_PIT);
-	pGrid->LoadAll(infile, DANGER_ZONE);
-	pGrid->LoadAll(infile, BELT);
-	pGrid->LoadAll(infile, WORKSHOP);
-	pGrid->LoadAll(infile, ANTENNA);
-	pGrid->LoadAll(infile, ROTATING_GEAR);
-
-	infile.close();
+	pGrid->LoadAll(Infile);
+	Infile.close();
 }
 
 LoadAction::~LoadAction()
