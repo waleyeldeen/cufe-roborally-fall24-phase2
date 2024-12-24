@@ -4,6 +4,7 @@
 Belt::Belt(const CellPosition & startCellPos, const CellPosition & endCellPos) : GameObject(startCellPos)
 {
 	this->endCellPos = endCellPos;
+	ClassName = "Belt";
 
 	///TODO: Do the needed validation
 }
@@ -11,7 +12,9 @@ void Belt::Draw(Output* pOut) const
 {
 	pOut->DrawBelt(position, endCellPos);
 }
-
+GameObject* Belt::Clone() const {
+	return new Belt(*this);
+}
 void Belt::Apply(Grid* pGrid, Player* pPlayer)
 {
 	///[+]TODO: Implement this function as mentioned in the guideline steps (numbered below) below	

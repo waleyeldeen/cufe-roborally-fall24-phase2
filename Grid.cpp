@@ -105,8 +105,15 @@ Output * Grid::GetOutput() const
 void Grid::SetClipboard(GameObject * gameObject) // to be used in copy/cut
 {
 	// you may update slightly in implementation if you want (but without breaking responsibilities)
-	Clipboard = gameObject;
-}
+		if (gameObject) {
+			Clipboard = gameObject->Clone(); // Clone returns a new object
+		}
+		else {
+			Clipboard = nullptr;
+		}
+	}
+
+
 
 GameObject * Grid::GetClipboard() const // to be used in paste
 {

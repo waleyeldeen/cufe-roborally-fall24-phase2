@@ -6,6 +6,7 @@
 RotatingGear::RotatingGear(const CellPosition & gearposition,bool clockwise) : GameObject(gearposition)
 {
 	isClockWise = clockwise;
+	ClassName = "Rotating Gear";
 }
 
 void RotatingGear::Draw(Output* pOut) const
@@ -37,4 +38,8 @@ bool RotatingGear::GetisClockWise() const
 
 RotatingGear::~RotatingGear()
 {
+}
+
+GameObject* RotatingGear::Clone() const {
+	return new RotatingGear(*this);
 }

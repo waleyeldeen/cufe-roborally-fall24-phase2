@@ -29,20 +29,26 @@ void PasteAction::Execute() {
         pGrid->PrintErrorMessage("Invalid cell! Click anywhere to continue...");
         return;
     }
+    GameObject* IsnotEmpty = pGrid->GetGameObjectFromCellPosition(targetCell);
+    if (!IsnotEmpty)
+    {
+
+        GameObject* pClipboardObject = pGrid->GetClipboard();
+        if (!pClipboardObject) {
+            pGrid->PrintErrorMessage("Clipboard is empty! no object found to cut ,Click anywhere to continue...");
+            return;
+        }
 
 
-    GameObject* pClipboardObject = pGrid->GetClipboard();
-    if (!pClipboardObject) {
-        pGrid->PrintErrorMessage("Clipboard is empty! no object found to cut or copied ,Click anywhere to continue...");
-        return;
+        pClipboardObject->SetPositon(targetCell);
+
+        pGrid->AddObjectToCell(pClipboardObject);
+
+
+        pGrid->SetClipboard(nullptr);
+        pGrid->PrintErrorMessage("Game object pasted successfully. Click anywhere to continue...");
     }
-
-    
-    pClipboardObject->SetPositon(targetCell);
-
-    pGrid->AddObjectToCell(pClipboardObject);
-
-  
-    pGrid->SetClipboard(nullptr);
-    pGrid->PrintErrorMessage("Game object pasted successfully. Click anywhere to continue...");
+    else
+        pGrid->PrintErrorMessage("a game object already exists in this cell");
 }
+ 
