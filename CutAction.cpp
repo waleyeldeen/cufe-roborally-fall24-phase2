@@ -35,14 +35,14 @@ void CutAction::Execute() {
         pGrid->PrintErrorMessage("No game object found in the selected cell! Click anywhere to continue...");
         return;
     }
-    Antenna* antennaPtr = dynamic_cast<Antenna*>(pGameObject);
-    if (antennaPtr != nullptr) {
-        pGrid->PrintErrorMessage("Cannot Cut an Antenna. Click anywhere to continue...");
+    if (pGameObject->GetClassName() == "Belt")
+    {
+        pGrid->PrintErrorMessage("Can't Cut Belt");
         return;
     }
-    Belt* Beltptr = dynamic_cast<Belt*>(pGameObject);
-    if (Beltptr != nullptr) {
-        pGrid->PrintErrorMessage("Cannot Cut a Belt. Click anywhere to continue...");
+    if (pGameObject->GetClassName() == "Antenna")
+    {
+        pGrid->PrintErrorMessage("Can't Cut Antenna");
         return;
     }
 

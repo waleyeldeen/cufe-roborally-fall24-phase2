@@ -4,6 +4,7 @@
 
 WaterPit::WaterPit(const CellPosition & waterPitPosition):GameObject(waterPitPosition)
 {
+	ClassName = "WaterPit";
 }
 
 void WaterPit::Draw(Output * pOut) const

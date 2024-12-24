@@ -4,6 +4,7 @@
 
 DangerZone::DangerZone(const CellPosition & dangerZonePosition): GameObject(dangerZonePosition)
 {
+	ClassName = "DangerZone";
 }
 
 void DangerZone::Draw(Output * pOut) const

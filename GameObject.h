@@ -7,7 +7,7 @@ class GameObject
 {
 
 protected:
-
+	string ClassName;
 	CellPosition position; // The current cell position of the GameObject
 	
 public:
@@ -36,6 +36,7 @@ public:
 	//virtual void Save(ofstream &OutFile) = 0;	// Saves the GameObject parameters to the file
 	//virtual void Load(ifstream &Infile) = 0;	// Loads and Reads the GameObject parameters from the file
 	virtual GameObject* Clone() const=0;
+	string GetClassName()const;
 	virtual ~GameObject(); // Virtual destructor
 };
 

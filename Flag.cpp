@@ -1,7 +1,7 @@
 #include "Flag.h"
 Flag::Flag(const CellPosition & flagposition) : GameObject(flagposition)
 {
-
+	ClassName = "Flag";
 }
 
 void Flag::Draw(Output* pOut) const

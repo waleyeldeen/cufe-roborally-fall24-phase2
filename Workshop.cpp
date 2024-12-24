@@ -4,7 +4,7 @@
 
 Workshop::Workshop(const CellPosition & workshopPosition):GameObject( workshopPosition)
 {
-
+	ClassName = "Workshop";
 }
 
 

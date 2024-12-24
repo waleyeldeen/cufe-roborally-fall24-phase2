@@ -4,6 +4,7 @@
 Belt::Belt(const CellPosition & startCellPos, const CellPosition & endCellPos) : GameObject(startCellPos)
 {
 	this->endCellPos = endCellPos;
+	ClassName = "Belt";
 
 	///TODO: Do the needed validation
 }

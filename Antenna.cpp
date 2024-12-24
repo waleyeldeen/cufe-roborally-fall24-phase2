@@ -6,6 +6,7 @@
 
 Antenna::Antenna(const CellPosition & antennaPosition):GameObject(antennaPosition)
 {
+	ClassName = "Antenna";
 }
 
 void Antenna::Draw(Output * pOut) const
