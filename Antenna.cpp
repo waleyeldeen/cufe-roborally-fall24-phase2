@@ -26,9 +26,9 @@ void Antenna::Apply(Grid* pGrid, Player* pPlayer)
 	int playingorder[MaxPlayerCount];
 	for (int j = 0; j < MaxPlayerCount; j++)
 	{
-		Player* p = pGrid->GetPlayer(j);
-		Cell* pcel= p->GetCell();
-		CellPosition cellposition = pcel->GetCellPosition();
+		Player* pPlayer = pGrid->GetPlayer(j);
+		Cell* pCell = pPlayer->GetCell();
+		CellPosition cellposition = pCell->GetCellPosition();
 
 		int dist = abs(cellposition.VCell() - position.VCell()) + abs(cellposition.HCell() - position.HCell());
 		
