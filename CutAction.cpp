@@ -2,6 +2,8 @@
 #include "Grid.h"
 #include "Cell.h"
 #include "GameObject.h"
+#include"Antenna.h"
+#include"Belt.h"
 
 CutAction::CutAction(ApplicationManager* pApp) :Action(pApp) {}
 CutAction::~CutAction() {}
@@ -31,6 +33,16 @@ void CutAction::Execute() {
     GameObject* pGameObject = pGrid->GetGameObjectFromCellPosition(sourceCell);
     if (!pGameObject) {
         pGrid->PrintErrorMessage("No game object found in the selected cell! Click anywhere to continue...");
+        return;
+    }
+    Antenna* antennaPtr = dynamic_cast<Antenna*>(pGameObject);
+    if (antennaPtr != nullptr) {
+        pGrid->PrintErrorMessage("Cannot Cut an Antenna. Click anywhere to continue...");
+        return;
+    }
+    Belt* Beltptr = dynamic_cast<Belt*>(pGameObject);
+    if (Beltptr != nullptr) {
+        pGrid->PrintErrorMessage("Cannot Cut a Belt. Click anywhere to continue...");
         return;
     }
 

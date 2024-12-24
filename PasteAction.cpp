@@ -49,6 +49,6 @@ void PasteAction::Execute() {
         pGrid->PrintErrorMessage("Game object pasted successfully. Click anywhere to continue...");
     }
     else
-        pGrid->PrintErrorMessage("cell is already Occupied");
+        pGrid->PrintErrorMessage("a game object already exists in this cell");
 }
  
