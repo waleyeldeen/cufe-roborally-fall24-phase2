@@ -7,7 +7,7 @@ class GameObject
 {
 
 protected:
-
+	
 	CellPosition position; // The current cell position of the GameObject
 	
 public:
