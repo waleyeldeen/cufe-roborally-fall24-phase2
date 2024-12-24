@@ -38,6 +38,7 @@ void AddDangerZoneAction::Execute() {
 	{
 		// Print an appropriate message
 		pGrid->PrintErrorMessage("Error: Cell already has an object ! Click to continue...");
+		delete pDangerZone;
 		return;
 	}
 

@@ -42,7 +42,6 @@ void AddAntennaAction::Execute()
 		return;
 	}
 
-	Antenna::PutOnGrid();
 }
 
 AddAntennaAction::~AddAntennaAction() 

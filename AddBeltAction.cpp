@@ -50,6 +50,7 @@ void AddBeltAction::Execute()
 	{
 		// Print an appropriate message
 		pGrid->PrintErrorMessage("Error: Cell already has an object ! Click to continue ...");
+		delete pBelt;
 	}
 	// Here, the belt is created and added to the GameObject of its Cell, so we finished executing the AddBeltAction
 
