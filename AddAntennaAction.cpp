@@ -1,10 +1,10 @@
-#include "AddAntenna.h"
+#include "AddAntennaAction.h"
 
-AddAntenna::AddAntenna(ApplicationManager* pApp):Action(pApp)
+AddAntennaAction::AddAntennaAction(ApplicationManager* pApp):Action(pApp)
 {
 
 }
-void AddAntenna::ReadActionParameters()
+void AddAntennaAction::ReadActionParameters()
 {
 	Grid *pGrid = pManager->GetGrid();
 	Output* pOut = pGrid->GetOutput();
@@ -16,7 +16,7 @@ void AddAntenna::ReadActionParameters()
 	pOut->ClearStatusBar();
 }
 
-void AddAntenna::Execute()
+void AddAntennaAction::Execute()
 {
 	ReadActionParameters();
 	Antenna* A= new Antenna(AntennaPos);
@@ -31,7 +31,7 @@ void AddAntenna::Execute()
 
 	
 }
-AddAntenna::~AddAntenna() 
+AddAntennaAction::~AddAntennaAction() 
 {
 
 }
