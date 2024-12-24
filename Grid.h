@@ -55,16 +55,21 @@ public:
 	void SetClipboard(GameObject * gameObject);  // A setter to be used in copy/cut (in order NOT to break class responsibilities)
 	GameObject * GetClipboard() const;	 // A getter to be used in paste (in order NOT to break class responsibilities)
 
+	GameObject* GetGameObjectFromCellPosition(const CellPosition& pos) const;
+
 	void SetEndGame(bool endGame);	 // A setter for endGame data member
 	bool GetEndGame() const;		 // A getter for endGame data member
 
 	void AdvanceCurrentPlayer();     // Increments the currPlayerNum and if reaches MaxPlayerCount reset to 0 (using %)
 
+	int getCurrentPlayerNum();
 	///TODO: add any needed setter/getter "EXCEPT" ANY setters or getters of "CellList" or "PlayerList" (Forbidden for class Responsibilities)
 
 	// ========= Other Getters =========
 	
-	Player * GetCurrentPlayer() const;	// Gets a Pointer to the Current Player	                                    
+	Player * GetCurrentPlayer() const;	// Gets a Pointer to the Current Player	            
+	Player* GetNonCurrentPlayer() const;	// Gets a Pointer to the Current Player	            
+
 	Belt * GetNextBelt(const CellPosition & position);  // Gets a Pointer to the first Belth after the passed "position"
 
 	// ========= User Interface Functions =========
@@ -77,7 +82,10 @@ public:
 
 	void PrintErrorMessage(string msg); // Prints an error message on statusbar, Waits for mouse click then clears statusbar
 									    // We added this function once here because it is used many times by other classes
-
 	~Grid(); // A destructor for any needed deallcations
+
+	Player* GetPlayer(int index)const;
+	void ClearGrid();
+	void ResetPlayers();
 };
 

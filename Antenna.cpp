@@ -2,10 +2,27 @@
 
 
 
-
+int Antenna::count = 0;
 
 Antenna::Antenna(const CellPosition & antennaPosition):GameObject(antennaPosition)
 {
+	ClassName = "Antenna";
+	Antenna::PutOnGrid();
+}
+
+void Antenna::PutOnGrid() {
+	count++;
+}
+
+void Antenna::RemoveFromGrid() {
+	count--;
+}
+
+
+bool Antenna::IsOnGrid() {
+	if (count >= 1)
+		return true;
+	return false;
 }
 
 void Antenna::Draw(Output * pOut) const
@@ -32,7 +49,10 @@ void Antenna::Apply(Grid * pGrid, Player* pPlayer)
 
 }
 
-
+GameObject* Antenna::Clone() const {
+	return new Antenna(*this);
+}
 Antenna::~Antenna()
 {
+	Antenna::RemoveFromGrid();
 }

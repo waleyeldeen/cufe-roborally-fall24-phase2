@@ -4,8 +4,17 @@
 #include "Grid.h"
 #include "AddBeltAction.h"
 #include "AddRotatingGearAction.h"
+#include "AddWaterPitAction.h"
+#include "AddDangerZoneAction.h"
+#include "AddWorkshopAction.h"
 #include "AddFlagAction.h"
-
+#include "NewGameAction.h"
+#include "AddAntennaAction.h"
+#include"PasteAction.h"
+#include"CutAction.h"
+#include"CopyAction.h"
+#include "RebootAndRepairAction.h"
+#include"DeleteGameObjectAction.h"
 ///TODO: Add #include for all action types
 
 ApplicationManager::ApplicationManager()
@@ -65,10 +74,27 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		// create an object of AddRotatingGearAction here
 		pAct = new AddRotatingGearAction(this);
 		break;
+
+	case ADD_WATER_PIT:
+		pAct = new AddWaterPitAction(this);
+		break;
+
+	case ADD_DANGER_ZONE:
+		pAct = new AddDangerZoneAction(this);
+		break;
+
+	case ADD_WORKSHOP:
+		pAct = new AddWorkshopAction(this);
+		break;
+
 	case SET_FLAG_CELL:
 		// create an object of AddFlagAction here
 		pAct = new AddFlagAction(this);
 		break;
+	case ADD_ANTENNA:
+		pAct = new AddAntennaAction(this);
+		break;
+	
 
 	case EXIT:
 		break;
@@ -82,13 +108,27 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 	case TO_DESIGN_MODE:				//TODO:
 		pAct = new SwitchToDesignMode(this); // temporary till you made its action class (CHANGE THIS LATTER)
 		break;
-
-		
+	case CUT:
+		pAct = new CutAction(this);
+		break;
+	case COPY:
+		pAct = new CopyAction(this);
+		break;
+	case PASTE:
+		pAct = new PasteAction(this);
+		break;
+	case DELETE_:
+		pAct = new DeleteGameObjectAction(this);
+		break;
+	// PLAYMODE
+	case NEW_GAME:
+		pAct = new NewGameAction(this);
+		break;
+	case REBOOT_AND_REPAIR:
+		pAct = new RebootAndRepairAction(this);
+		break;
 
 		///TODO: Add a case for EACH Action type in the Design mode or Play mode
-
-
-
 	case STATUS:	// a click on the status bar ==> no action
 		return;
 	}
