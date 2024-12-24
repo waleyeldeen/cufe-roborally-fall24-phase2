@@ -226,6 +226,9 @@
     <ClCompile Include="UseConsumableAction.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
+    <ClCompile Include="RebootAndRepairAction.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMUgraphicsLib\auxil.h">
@@ -380,6 +383,9 @@
       <Filter>Actions</Filter>
     </ClInclude>
     <ClInclude Include="UseConsumableAction.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="RebootAndRepairAction.h">
       <Filter>Actions</Filter>
     </ClInclude>
   </ItemGroup>
