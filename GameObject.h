@@ -1,6 +1,8 @@
 #pragma once
 
 #include "Grid.h"
+
+#include <fstream>
 enum GType 
 {
 	FLAG,
