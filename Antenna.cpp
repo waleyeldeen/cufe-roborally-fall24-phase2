@@ -6,6 +6,7 @@ int Antenna::count = 0;
 
 Antenna::Antenna(const CellPosition & antennaPosition):GameObject(antennaPosition)
 {
+	ClassName = "Antenna";
 }
 
 void Antenna::PutOnGrid() {
@@ -47,7 +48,9 @@ void Antenna::Apply(Grid * pGrid, Player * pPlayer)
 
 }
 
-
+GameObject* Antenna::Clone() const {
+	return new Antenna(*this);
+}
 Antenna::~Antenna()
 {
 

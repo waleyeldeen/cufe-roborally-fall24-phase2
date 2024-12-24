@@ -21,17 +21,31 @@ void AddWaterPitAction::Execute() {
     WaterPit* pWaterPit = new WaterPit(waterPitPos);
 
 	Grid* pGrid = pManager->GetGrid(); // We get a pointer to the Grid from the ApplicationManager
+	Output* pOut = pGrid->GetOutput();
+
+	if (!pGrid)
+		return;
+
+	if (!waterPitPos.IsValidCell()) {
+		pGrid->PrintErrorMessage("Error: Invalid Cell Clicked, click anywhere to continue...");
+		return;
+	}
 
 	bool added = pGrid->AddObjectToCell(pWaterPit);
 
 	// if the GameObject cannot be added
-	if (!added)
+	if (!added) 
 	{
 		// Print an appropriate message
-		pGrid->PrintErrorMessage("Error: Cell already has an object ! Click to continue ...");
+		pGrid->PrintErrorMessage("Error: Cell already has an object! Click to continue...");
+		return;
 	}
-	// Here, the belt is created and added to the GameObject of its Cell, so we finished executing the AddBeltAction
 
-    //pManager->GetGrid()->AddObjectToCell(pWaterPit, position);
-    //pManager->GetOutput()->PrintMessage("Added Water Pit at (" + std::to_string(position.vCell) + ", " + std::to_string(position.hCell) + ")");
+    pOut->PrintMessage("Added Water Pit at VCell: "
+		+ to_string(waterPitPos.VCell()) + ", HCell: " 
+		+ to_string(waterPitPos.HCell()) + ", Click anywhere to continue...");
+}
+
+AddWaterPitAction::~AddWaterPitAction()
+{
 }

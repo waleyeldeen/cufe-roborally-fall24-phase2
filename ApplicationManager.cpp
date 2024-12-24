@@ -10,7 +10,11 @@
 #include "AddFlagAction.h"
 #include "NewGameAction.h"
 #include "AddAntennaAction.h"
-
+#include"PasteAction.h"
+#include"CutAction.h"
+#include"CopyAction.h"
+#include "RebootAndRepairAction.h"
+#include"DeleteGameObjectAction.h"
 ///TODO: Add #include for all action types
 
 ApplicationManager::ApplicationManager()
@@ -104,14 +108,25 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 	case TO_DESIGN_MODE:				//TODO:
 		pAct = new SwitchToDesignMode(this); // temporary till you made its action class (CHANGE THIS LATTER)
 		break;
-
-		
-
+	case CUT:
+		pAct = new CutAction(this);
+		break;
+	case COPY:
+		pAct = new CopyAction(this);
+		break;
+	case PASTE:
+		pAct = new PasteAction(this);
+		break;
+	case DELETE_:
+		pAct = new DeleteGameObjectAction(this);
+		break;
 	// PLAYMODE
 	case NEW_GAME:
 		pAct = new NewGameAction(this);
 		break;
-
+	case REBOOT_AND_REPAIR:
+		pAct = new RebootAndRepairAction(this);
+		break;
 
 		///TODO: Add a case for EACH Action type in the Design mode or Play mode
 	case STATUS:	// a click on the status bar ==> no action
