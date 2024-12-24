@@ -30,7 +30,7 @@ void SaveGridAction::Execute()
 		return;
 	}
 	
-
+	pGrid = pManager->GetGrid();
 	pGrid->SaveAll(outfile);
 	
 
