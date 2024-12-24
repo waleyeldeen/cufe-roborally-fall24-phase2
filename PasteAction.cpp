@@ -33,7 +33,7 @@ void PasteAction::Execute() {
 
     GameObject* pClipboardObject = pGrid->GetClipboard();
     if (!pClipboardObject) {
-        pGrid->PrintErrorMessage("Clipboard is empty! no object found to cut ,Click anywhere to continue...");
+        pGrid->PrintErrorMessage("Clipboard is empty! no object found to cut or copied ,Click anywhere to continue...");
         return;
     }
 
