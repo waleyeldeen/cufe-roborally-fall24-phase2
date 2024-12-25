@@ -4,6 +4,7 @@
 #include "GameObject.h"
 #include "Belt.h"
 #include "Player.h"
+#include "Antenna.h"
 
 Grid::Grid(Input * pIn, Output * pOut) : pIn(pIn), pOut(pOut) // Initializing pIn, pOut
 {
@@ -181,6 +182,18 @@ Belt * Grid::GetNextBelt(const CellPosition & position)
 	return NULL; // not found
 }
 
+
+Antenna* Grid::GetAntenna() const {
+	for (int i = NumVerticalCells - 1; i >= 0; i--)
+	{
+		for (int j = 0; j < NumHorizontalCells; j++)
+		{
+			Antenna* pAntenna = CellList[i][j]->HasAntenna();
+			if (pAntenna)
+				return pAntenna;
+		}
+	}
+}
 
 // ========= User Interface Functions =========
 

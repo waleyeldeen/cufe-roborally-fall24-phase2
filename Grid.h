@@ -12,6 +12,7 @@ class Cell;
 class GameObject;
 class Player;
 class Belt;
+class Antenna;
 class Grid
 {
 	Output * pOut;   // A pointer to the Output object
@@ -69,6 +70,8 @@ public:
 	
 	Player * GetCurrentPlayer() const;	// Gets a Pointer to the Current Player	            
 	Player* GetNonCurrentPlayer() const;	// Gets a Pointer to the Current Player	            
+
+	Antenna* GetAntenna() const;
 
 	Belt * GetNextBelt(const CellPosition & position);  // Gets a Pointer to the first Belth after the passed "position"
 
