@@ -27,6 +27,8 @@ public:
 
 	Grid * GetGrid() const;    // Returns pointer to the Grid
 
+	Round* GetRound() const;
+
 	void UpdateInterface() const;
 
 	// ========== Action-Related Functions ==========

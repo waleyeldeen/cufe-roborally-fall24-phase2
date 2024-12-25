@@ -43,6 +43,11 @@ Grid * ApplicationManager::GetGrid() const
 	return pGrid;
 }
 
+Round* ApplicationManager::GetRound() const
+{
+	return pRound;
+}
+
 void ApplicationManager::UpdateInterface() const
 {
 	pGrid->UpdateInterface();
