@@ -128,6 +128,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 	case TO_DESIGN_MODE:				//TODO:
 		pAct = new SwitchToDesignMode(this); // temporary till you made its action class (CHANGE THIS LATTER)
 		break;
+
+		///TODO: Add a case for EACH Action type in the Design mode or Play mode
+
 	case CUT:
 		pAct = new CutAction(this);
 		break;

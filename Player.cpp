@@ -194,6 +194,7 @@ void Player::AppendPlayerInfo(string & playersInfo) const
 	playersInfo += to_string(health) + ")";
 
 }
+
 void Player::Reset()
 {
 	health = 10;

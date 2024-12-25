@@ -1,5 +1,5 @@
 #include "Grid.h"
-
+#include"Output.h"
 #include "Cell.h"
 #include "GameObject.h"
 #include "Belt.h"
@@ -306,3 +306,41 @@ Grid::~Grid()
 		delete PlayerList[i];
 	}
 }
+
+Player* Grid::GetPlayer(int i)const {
+	if (i >= 0 && i < MaxPlayerCount) {
+		return PlayerList[i];
+	}
+	return nullptr;
+}
+void Grid::DisplayPlayersInfo() const{
+	string info;
+	Player* currentPlayer = GetCurrentPlayer();
+	for (int i = 0; i < MaxPlayerCount; i++) {
+		Player* player = GetPlayer(i);
+		if (player) {
+			player->AppendPlayerInfo(info);
+			if (i < MaxPlayerCount - 1) {
+				info += ",";
+			}
+		}
+
+	}
+	if (currentPlayer) {
+		int currentPlayerIndex = -1;
+		for (int i = 0; i < MaxPlayerCount; i++) {
+			if (GetPlayer(i) == currentPlayer) {
+				currentPlayerIndex = i + 1; 
+			}
+		}
+		if (currentPlayerIndex != -1) {
+			info += " | Current player is player #";
+			info += std::to_string(currentPlayerIndex);
+		}
+	}
+	Output* pOut = GetOutput();
+	if (pOut) {
+		pOut->ClearStatusBar();
+		pOut->PrintPlayersInfo(info);
+	}
+	}
