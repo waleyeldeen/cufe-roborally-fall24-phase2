@@ -1,7 +1,26 @@
 #include "Flag.h"
+
+int Flag::count = 0;
+
 Flag::Flag(const CellPosition & flagposition) : GameObject(flagposition)
 {
+  ClassName = "Flag";
+  Flag::PutOnGrid();
+}
 
+void Flag::PutOnGrid() {
+	count++;
+}
+
+void Flag::RemoveFromGrid() {
+	count--;
+}
+
+
+bool Flag::IsOnGrid() {
+	if (count >= 1)
+		return true;
+	return false;
 }
 
 void Flag::Draw(Output* pOut) const
@@ -20,8 +39,10 @@ void Flag::Apply(Grid* pGrid, Player* pPlayer)
 	// 2- Apply the flag's effect by ending the game
 	//    Review the "pGrid" functions and decide which function can be used for that
 }
-
+GameObject* Flag::Clone() const {
+	return new Flag(*this);
+}
 Flag::~Flag()
 {
-
+	Flag::RemoveFromGrid();
 }

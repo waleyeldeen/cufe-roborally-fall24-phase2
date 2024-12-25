@@ -4,6 +4,7 @@
 
 Workshop::Workshop(const CellPosition& workshopPosition) :GameObject(workshopPosition)
 {
+	ClassName = "Workshop";
 	this->inv[0] = TOOLKIT; this->inv[1] = HACKDEVICE;
 }
 
@@ -53,7 +54,9 @@ void Workshop::Apply(Grid * pGrid, Player * pPlayer)
 		return;
 	}
 }
-
+GameObject* Workshop::Clone() const {
+	return new Workshop(*this);
+}
 Workshop::~Workshop()
 {
 }

@@ -9,9 +9,12 @@
 #include "AddWorkshopAction.h"
 #include "AddFlagAction.h"
 #include "NewGameAction.h"
+#include "AddAntennaAction.h"
 #include"PasteAction.h"
 #include"CutAction.h"
 #include"CopyAction.h"
+#include "RebootAndRepairAction.h"
+#include"DeleteGameObjectAction.h"
 ///TODO: Add #include for all action types
 
 ApplicationManager::ApplicationManager()
@@ -88,6 +91,10 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		// create an object of AddFlagAction here
 		pAct = new AddFlagAction(this);
 		break;
+	case ADD_ANTENNA:
+		pAct = new AddAntennaAction(this);
+		break;
+	
 
 	case EXIT:
 		break;
@@ -110,10 +117,17 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 	case PASTE:
 		pAct = new PasteAction(this);
 		break;
+	case DELETE_:
+		pAct = new DeleteGameObjectAction(this);
+		break;
 	// PLAYMODE
 	case NEW_GAME:
 		pAct = new NewGameAction(this);
 		break;
+	case REBOOT_AND_REPAIR:
+		pAct = new RebootAndRepairAction(this);
+		break;
+
 
 
 		///TODO: Add a case for EACH Action type in the Design mode or Play mode

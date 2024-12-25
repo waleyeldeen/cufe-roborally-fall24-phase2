@@ -4,13 +4,16 @@
 
 WaterPit::WaterPit(const CellPosition & waterPitPosition):GameObject(waterPitPosition)
 {
+	ClassName = "WaterPit";
 }
 
 void WaterPit::Draw(Output * pOut) const
 {
 	pOut->DrawWaterPit(position);
 }
-
+GameObject* WaterPit::Clone() const {
+	return new WaterPit(*this);
+}
 void WaterPit::Apply(Grid * pGrid, Player * pPlayer)
 {
 

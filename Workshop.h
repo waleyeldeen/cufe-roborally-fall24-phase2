@@ -10,6 +10,8 @@ public:
 	virtual void Draw(Output* pOut) const; // Draws workshop
 
 	virtual void Apply(Grid* pGrid, Player* pPlayer); // Applys the effect of the workshop
+	virtual GameObject* Clone() const;
+	
 
 	~Workshop();
 };

@@ -4,11 +4,16 @@
 
 DangerZone::DangerZone(const CellPosition & dangerZonePosition): GameObject(dangerZonePosition)
 {
+	ClassName = "DangerZone";
 }
 
 void DangerZone::Draw(Output * pOut) const
 {
 	pOut->DrawDangerZone(position);
+}
+
+GameObject* DangerZone::Clone() const {
+	return new DangerZone(*this);
 }
 
 void DangerZone::Apply(Grid * pGrid, Player * pPlayer)

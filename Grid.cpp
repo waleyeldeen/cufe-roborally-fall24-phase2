@@ -61,8 +61,8 @@ void Grid::RemoveObjectFromCell(const CellPosition & pos)
 {
 	if (pos.IsValidCell()) // Check if valid position
 	{
-		//delete CellList[pos.VCell()][pos.HCell()]->GetGameObject(); // Note: you can deallocate the object here before setting the pointer to null if it is needed
-		CellList[pos.VCell()][pos.HCell()]->SetGameObject(NULL);
+		delete CellList[pos.VCell()][pos.HCell()]->GetGameObject(); // Note: you can deallocate the object here before setting the pointer to null if it is needed
+		CellList[pos.VCell()][pos.HCell()]->SetGameObject(nullptr);
 	}
 }
 
@@ -105,8 +105,15 @@ Output * Grid::GetOutput() const
 void Grid::SetClipboard(GameObject * gameObject) // to be used in copy/cut
 {
 	// you may update slightly in implementation if you want (but without breaking responsibilities)
-	Clipboard = gameObject;
-}
+		if (gameObject) {
+			Clipboard = gameObject->Clone(); // Clone returns a new object
+		}
+		else {
+			Clipboard = nullptr;
+		}
+	}
+
+
 
 GameObject * Grid::GetClipboard() const // to be used in paste
 {

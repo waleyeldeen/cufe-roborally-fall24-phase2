@@ -2,6 +2,8 @@
 #include "Grid.h"
 #include "Cell.h"
 #include "GameObject.h"
+#include "Belt.h"
+#include"Antenna.h"
 
 CopyAction::CopyAction(ApplicationManager* pApp) :Action(pApp) {}
 CopyAction::~CopyAction() {}
@@ -33,7 +35,21 @@ void CopyAction::Execute() {
         pGrid->PrintErrorMessage("No game object found in the selected cell! Click anywhere to continue...");
         return;
     }
-
+    if (pGameObject->GetClassName() == "Belt")
+    {
+        pGrid->PrintErrorMessage("Can't Copy Belt");
+        return;
+    }
+    if (pGameObject->GetClassName() == "Antenna")
+    {
+        pGrid->PrintErrorMessage("Can't Copy Antenna");
+        return;
+    }
+    if (pGameObject->GetClassName() == "Flag")
+    {
+        pGrid->PrintErrorMessage("Can't Copy Flag");
+        return;
+    }
     pGrid->SetClipboard(pGameObject);
     pGrid->PrintErrorMessage("Game object copied successfully. Click anywhere to continue...");
 }
