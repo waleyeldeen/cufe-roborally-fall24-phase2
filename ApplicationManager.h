@@ -31,7 +31,7 @@ public:
 
 	ActionType getNextAction() const;
 
-	ActionType setNextAction(ActionType next);
+	void setNextAction(ActionType next);
 
 	Round* GetRound() const;
 

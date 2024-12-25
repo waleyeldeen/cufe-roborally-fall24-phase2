@@ -55,7 +55,7 @@ ActionType ApplicationManager::getNextAction() const
 	return this->nextAction;
 }
 
-ActionType ApplicationManager::setNextAction(ActionType next)
+void ApplicationManager::setNextAction(ActionType next)
 {
 	this->nextAction = next;
 }
