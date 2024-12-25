@@ -12,6 +12,7 @@ class Cell;
 class GameObject;
 class Player;
 class Belt;
+class Antenna;
 class Grid
 {
 	Output * pOut;   // A pointer to the Output object
@@ -70,6 +71,8 @@ public:
 	Player * GetCurrentPlayer() const;	// Gets a Pointer to the Current Player	            
 	Player* GetNonCurrentPlayer() const;	// Gets a Pointer to the Current Player	            
 
+	Antenna* GetAntenna() const;
+
 	Belt * GetNextBelt(const CellPosition & position);  // Gets a Pointer to the first Belth after the passed "position"
 
 	// ========= User Interface Functions =========
@@ -83,7 +86,6 @@ public:
 	void PrintErrorMessage(string msg); // Prints an error message on statusbar, Waits for mouse click then clears statusbar
 									    // We added this function once here because it is used many times by other classes
 	void DisplayPlayersInfo()const;
-	Player* GetPlayer(int i)const;
 	~Grid(); // A destructor for any needed deallcations
 
 	Player* GetPlayer(int index)const;

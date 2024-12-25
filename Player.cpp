@@ -189,8 +189,26 @@ void Player::Rotate(bool clockwise)
 void Player::AppendPlayerInfo(string & playersInfo) const
 {
 	// TODO: Modify the Info as needed
+	string dirStr;
+	switch (currDirection)
+	{
+	case UP:
+		dirStr = "UP";
+		break;
+	case RIGHT:
+		dirStr = "RIGHT";
+		break;
+	case DOWN:
+		dirStr = "DOWN";
+		break;
+	case LEFT:
+		dirStr = "LEFT";
+		break;
+	default:
+		dirStr = "UnKnow dir";
+	}
 	playersInfo += "P" + to_string(playerNum) + "(" ;
-	playersInfo += to_string(currDirection) + ", ";
+	playersInfo += dirStr + ", ";
 	playersInfo += to_string(health) + ")";
 
 }

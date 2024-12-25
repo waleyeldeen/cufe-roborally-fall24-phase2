@@ -238,6 +238,12 @@
     <ClCompile Include="DeleteGameObjectAction.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
+    <ClCompile Include="StartRoundAction.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="Round.cpp">
+      <Filter>Grid</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMUgraphicsLib\auxil.h">
@@ -405,6 +411,12 @@
     </ClInclude>
      <ClInclude Include="DeleteGameObjectAction.h">
       <Filter>Actions</Filter>
+    </ClInclude>
+     <ClInclude Include="StartRoundAction.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+     <ClInclude Include="Round.h">
+      <Filter>Grid</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

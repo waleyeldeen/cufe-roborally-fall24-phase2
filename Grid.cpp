@@ -4,6 +4,7 @@
 #include "GameObject.h"
 #include "Belt.h"
 #include "Player.h"
+#include "Antenna.h"
 
 Grid::Grid(Input * pIn, Output * pOut) : pIn(pIn), pOut(pOut) // Initializing pIn, pOut
 {
@@ -182,6 +183,18 @@ Belt * Grid::GetNextBelt(const CellPosition & position)
 }
 
 
+Antenna* Grid::GetAntenna() const {
+	for (int i = NumVerticalCells - 1; i >= 0; i--)
+	{
+		for (int j = 0; j < NumHorizontalCells; j++)
+		{
+			Antenna* pAntenna = CellList[i][j]->HasAntenna();
+			if (pAntenna)
+				return pAntenna;
+		}
+	}
+}
+
 // ========= User Interface Functions =========
 
 
@@ -294,14 +307,8 @@ Grid::~Grid()
 	}
 }
 
-Player* Grid::GetPlayer(int i)const {
-	if (i >= 0 && i < MaxPlayerCount) {
-		return PlayerList[i];
-	}
-	return nullptr;
-}
 void Grid::DisplayPlayersInfo() const{
-	string info;
+	string info = "";
 	Player* currentPlayer = GetCurrentPlayer();
 	for (int i = 0; i < MaxPlayerCount; i++) {
 		Player* player = GetPlayer(i);
@@ -325,9 +332,9 @@ void Grid::DisplayPlayersInfo() const{
 			info += std::to_string(currentPlayerIndex);
 		}
 	}
-	Output* pOut = GetOutput();
-	if (pOut) {
-		pOut->ClearStatusBar();
-		pOut->PrintPlayersInfo(info);
-	}
+	//Output* pOut = GetOutput();
+	//if (pOut) {
+	//	pOut->ClearStatusBar();
+	//	pOut->PrintPlayersInfo(info);
+	//}
 	}
