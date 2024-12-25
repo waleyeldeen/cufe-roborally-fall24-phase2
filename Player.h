@@ -13,6 +13,7 @@ class Player
 	int stepCount;		   // step count which is the same as his cellNum: from 1 to NumVerticalCells*NumHorizontalCells
 	Direction currDirection; // Current Direction of the player
 	int health;				// Player's current health points
+	bool HasreflectiveGear;
 
 	Command savedCommands[5];
 	int savedCommandsCount;
@@ -21,6 +22,8 @@ class Player
 	Consumable bag[MaxCarriedConsumables];// carried consumables
 	int bagCount;
 	// carried laser type (default, double laser)
+	// isHacked (to indicate whether the player is blocked to play the round, as a result of the opponent using a hacking device)
+	bool DoubleLaser;
 	bool isHacked;// isHacked (to indicate whether the player is blocked to play the round, as a result of the opponent using a hacking device)
 	
 	double distanceFromAntenna;
@@ -74,6 +77,11 @@ public:
 	
 	void AppendPlayerInfo(string & playersInfo) const; // Appends player's info to the input string, 
 	                                                   // for example: P0(Direction, health)
+	bool GetReflectiveGear();
+	void SetReflectiveGear( bool state);
 	void Reset();
+	
+	bool HasDoubleLaser() const;
+	bool IsFacingOtherPlayer(const CellPosition& targetPos) const;
 };
 

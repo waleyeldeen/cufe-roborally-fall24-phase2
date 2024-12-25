@@ -9,6 +9,7 @@
 #include "AddWorkshopAction.h"
 #include "AddFlagAction.h"
 #include "NewGameAction.h"
+#include "ShootingPhaseAction.h"
 #include "AddAntennaAction.h"
 #include"PasteAction.h"
 #include"CutAction.h"

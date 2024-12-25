@@ -23,8 +23,8 @@ enum ActionType // The actions supported (add more as needed)
 	ADD_WATER_PIT,
 	ADD_ROTATING_GEAR,
 	ADD_WORKSHOP,
+	SHOOTING_PHASE,
 	DISPLAYPLAYERSINFO,
-
 
 	///TODO: Add more action types of Design Mode
 

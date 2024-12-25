@@ -2,7 +2,7 @@
 
 #include "GameObject.h"
 
-Player::Player(Cell * pCell, int playerNum) : stepCount(0), health(10), playerNum(playerNum), currDirection(RIGHT)
+Player::Player(Cell * pCell, int playerNum) : stepCount(0), health(10), playerNum(playerNum), currDirection(RIGHT),DoubleLaser(true)
 {
 	this->pCell = pCell;
 	this->isHacked = false; // player is not hacked by default
@@ -218,4 +218,46 @@ void Player::Reset()
 	health = 10;
 	stepCount = 0;
 	currDirection = RIGHT;
+	if (pCell)
+	{
+		pCell = nullptr;
+	}
+}
+
+bool Player::HasDoubleLaser() const
+{
+	return DoubleLaser;
+}
+bool Player::GetReflectiveGear()
+{
+	return HasreflectiveGear;
+}
+void Player::SetReflectiveGear(bool state) {
+	HasreflectiveGear = state;
+}
+bool Player::IsFacingOtherPlayer(const CellPosition& targetPos) const
+{
+	CellPosition shooterPos = pCell->GetCellPosition();
+
+
+	// SAME ROW:
+	if (shooterPos.VCell() == targetPos.VCell())
+	{
+		if (currDirection == RIGHT && shooterPos.HCell() < targetPos.HCell())
+			return true;
+		if (currDirection == LEFT && shooterPos.HCell() > targetPos.HCell())
+			return true;
+	}
+
+	// SAME COLUMN:
+	else if (shooterPos.HCell() == targetPos.HCell())
+	{
+		if (currDirection == UP && shooterPos.VCell() > targetPos.VCell())
+			return true;
+		if (currDirection == DOWN && shooterPos.VCell() < targetPos.VCell())
+			return true;
+	}
+
+	return false;
+}
 }
