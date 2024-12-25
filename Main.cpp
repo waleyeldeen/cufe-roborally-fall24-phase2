@@ -13,8 +13,13 @@ int main()
 
 	do
 	{
-		//Read user action
-		ActType = AppManager.GetUserAction();
+		//check if nextAction is not NO_ACTION and execute it
+		if (AppManager.getNextAction() != NO_ACTION)
+			ActType = AppManager.getNextAction();
+		else
+		//Read user action in of NO_ACTION
+			ActType = AppManager.GetUserAction();
+
 
 		//Exexute the action
 		AppManager.ExecuteAction(ActType);
