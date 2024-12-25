@@ -20,7 +20,7 @@ class Player
 	// carried laser type (default, double laser)
 	bool isHacked;// isHacked (to indicate whether the player is blocked to play the round, as a result of the opponent using a hacking device)
 	
-	
+	double distanceFromAntenna;
 public:
 
 	Player(Cell * pCell, int playerNum); // Constructor making any needed initializations
@@ -33,6 +33,9 @@ public:
 	void SetHealth(int h);			// A setter for the health points
 	int GetHealth();				// A getter for the health points
 
+  
+	void setDistanceFromAntenna(double newDistance);
+	double getDistanceFromAntenna() const;
 	bool GetIsHacked();
 	void Hack();
 	void UnHack();

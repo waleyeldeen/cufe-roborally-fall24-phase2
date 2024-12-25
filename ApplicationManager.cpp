@@ -128,6 +128,8 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		pAct = new RebootAndRepairAction(this);
 		break;
 
+
+
 		///TODO: Add a case for EACH Action type in the Design mode or Play mode
 	case STATUS:	// a click on the status bar ==> no action
 		return;
