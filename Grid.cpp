@@ -307,14 +307,8 @@ Grid::~Grid()
 	}
 }
 
-Player* Grid::GetPlayer(int i)const {
-	if (i >= 0 && i < MaxPlayerCount) {
-		return PlayerList[i];
-	}
-	return nullptr;
-}
 void Grid::DisplayPlayersInfo() const{
-	string info;
+	string info = "";
 	Player* currentPlayer = GetCurrentPlayer();
 	for (int i = 0; i < MaxPlayerCount; i++) {
 		Player* player = GetPlayer(i);
