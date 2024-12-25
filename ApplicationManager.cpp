@@ -15,6 +15,7 @@
 #include"CopyAction.h"
 #include "RebootAndRepairAction.h"
 #include"DeleteGameObjectAction.h"
+#include "Round.h"
 ///TODO: Add #include for all action types
 
 ApplicationManager::ApplicationManager()
@@ -23,6 +24,7 @@ ApplicationManager::ApplicationManager()
 	pOut = new Output();
 	pIn = pOut->CreateInput();
 	pGrid = new Grid(pIn, pOut);
+	pRound = new Round(pGrid);
 }
 
 ////////////////////////////////////////////////////////////////////////////////////
