@@ -49,7 +49,8 @@ enum ActionType // The actions supported (add more as needed)
 	GRID_AREA,						// Inside Grid Area
 	STATUS,							// Inside StatusBar Area
 	START_ROUND_ACTION,
-	NO_ACTION
+	NO_ACTION,
+	DISPLAY_COMMANDS
 };
 
 enum Direction // Directions of the game

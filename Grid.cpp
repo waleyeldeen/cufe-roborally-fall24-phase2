@@ -332,9 +332,9 @@ void Grid::DisplayPlayersInfo() const{
 			info += std::to_string(currentPlayerIndex);
 		}
 	}
-	Output* pOut = GetOutput();
-	if (pOut) {
-		pOut->ClearStatusBar();
-		pOut->PrintPlayersInfo(info);
-	}
+	//Output* pOut = GetOutput();
+	//if (pOut) {
+	//	pOut->ClearStatusBar();
+	//	pOut->PrintPlayersInfo(info);
+	//}
 	}

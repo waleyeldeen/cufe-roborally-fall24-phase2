@@ -27,6 +27,7 @@ void StartRoundAction::Execute()
 
 	Antenna* pAntenna = pGrid->GetAntenna();
 	pAntenna->Apply(pGrid);
+	pManager->setNextAction(DISPLAY_COMMANDS);
 }
 
 StartRoundAction::~StartRoundAction()

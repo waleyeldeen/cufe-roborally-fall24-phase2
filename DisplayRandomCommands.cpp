@@ -28,44 +28,44 @@ void DisplayRandomCommands::Execute() {
         numOfCommandsExc = health; 
     }
 
+    Command enums[8] = { MOVE_FORWARD_ONE_STEP, MOVE_BACKWARD_ONE_STEP , MOVE_FORWARD_TWO_STEPS , MOVE_BACKWARD_TWO_STEPS , MOVE_FORWARD_THREE_STEPS
+        , MOVE_BACKWARD_THREE_STEPS , ROTATE_CLOCKWISE ,  ROTATE_COUNTERCLOCKWISE };
+
     const char* AvailableCommands[4] = {
         "Move Forward", "Move Backward", "Rotate Left", "Rotate Right"
     };
 
- 
-   
-    Command savedCommands[5];  
-    string CommandItemImages[COMMANDS_COUNT] = {
-      "images\\commands\\NoCommand.jpg",
-      "images\\commands\\MoveForwardOneStep.jpg",
-      "images\\commands\\MoveBackwardOneStep.jpg",
-      "images\\commands\\MoveForwardTwoSteps.jpg",
-      "images\\commands\\MoveBackwardTwoSteps.jpg",
-      "images\\commands\\MoveForwardThreeSteps.jpg",
-      "images\\commands\\MoveBackwardThreeSteps.jpg",
-      "images\\commands\\RotateClockwise.jpg",
-      "images\\commands\\RotateCounterClockwise.jpg"
-    };
+    Command save[5] = { MOVE_FORWARD_ONE_STEP, MOVE_BACKWARD_ONE_STEP , MOVE_FORWARD_TWO_STEPS , MOVE_BACKWARD_TWO_STEPS , MOVE_FORWARD_THREE_STEPS };
 
+    Command available[10];
+    int numAvailable = 10;
+    for (int i = 0; i < 10; i++) {
+        available[i] = NO_COMMAND;
+    }
+
+    for (int i = 0; i < 10; i++) {
+        int randomIndex = rand() % 8;
+        available[i] = enums[randomIndex];
+    }
 
   
-    for (int i = 0; i < numOfCommandsExc; ++i) {
-       int randomIndex = rand() % COMMANDS_COUNT;  
-       if (randomIndex == 0) savedCommands[i] = NO_COMMAND;
-       else if (randomIndex == 1) savedCommands[i] = MOVE_FORWARD_ONE_STEP;
-       else if (randomIndex == 2) savedCommands[i] = MOVE_BACKWARD_ONE_STEP;
-       else if (randomIndex == 3) savedCommands[i] = MOVE_FORWARD_TWO_STEPS;
-       else if (randomIndex == 4) savedCommands[i] = MOVE_BACKWARD_TWO_STEPS;
-       else if (randomIndex == 5) savedCommands[i] = MOVE_FORWARD_THREE_STEPS;
-       else if (randomIndex == 6) savedCommands[i] = MOVE_BACKWARD_THREE_STEPS;
-       else if (randomIndex == 7) savedCommands[i] = ROTATE_CLOCKWISE;
-       else if (randomIndex == 8) savedCommands[i] = ROTATE_COUNTERCLOCKWISE;
-    }
+    //for (int i = 0; i < numOfCommandsExc; ++i) {
+    //   int randomIndex = rand() % COMMANDS_COUNT;  
+    //   if (randomIndex == 0) savedCommands[i] = NO_COMMAND;
+    //   else if (randomIndex == 1) savedCommands[i] = MOVE_FORWARD_ONE_STEP;
+    //   else if (randomIndex == 2) savedCommands[i] = MOVE_BACKWARD_ONE_STEP;
+    //   else if (randomIndex == 3) savedCommands[i] = MOVE_FORWARD_TWO_STEPS;
+    //   else if (randomIndex == 4) savedCommands[i] = MOVE_BACKWARD_TWO_STEPS;
+    //   else if (randomIndex == 5) savedCommands[i] = MOVE_FORWARD_THREE_STEPS;
+    //   else if (randomIndex == 6) savedCommands[i] = MOVE_BACKWARD_THREE_STEPS;
+    //   else if (randomIndex == 7) savedCommands[i] = ROTATE_CLOCKWISE;
+    //   else if (randomIndex == 8) savedCommands[i] = ROTATE_COUNTERCLOCKWISE;
+    //}
 
     Output* pOut = pGrid->GetOutput();
 
 
-    pOut->DrawSavedCommands(savedCommands, numOfCommandsExc, CommandItemImages);
+    pOut->CreateCommandsBar(save, 5, available, 10);
 
     pOut->PrintMessage("Random commands have been displayed!");
 }
