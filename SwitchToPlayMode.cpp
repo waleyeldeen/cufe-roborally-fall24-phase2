@@ -9,11 +9,13 @@ void SwitchToPlayMode::ReadActionParameters() {
 }
 void SwitchToPlayMode::Execute()
 {
-    Output* pOutpoint = pManager->GetGrid()->GetOutput();
-    if (pOutpoint) {
-        pOutpoint->CreatePlayModeToolBar();
-        pOutpoint->ClearStatusBar();
-        pOutpoint->PrintMessage("switched to play mode");
+    Grid* pGrid = pManager->GetGrid();
+    Output* pOut = pGrid->GetOutput();
+
+    if (pOut) {
+        pOut->CreatePlayModeToolBar();
+        pOut->ClearStatusBar();
+        pOut->PrintMessage("switched to play mode");
     }
 
 }
