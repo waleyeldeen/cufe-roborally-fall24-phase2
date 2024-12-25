@@ -12,6 +12,15 @@ Player::Player(Cell * pCell, int playerNum) : stepCount(0), health(10), playerNu
 	{
 		bag[i] = EMPTY_BAG;
 	}
+
+	// set saved commands to no command
+	savedCommandsCount = 0;
+	for (int i = 0; i < 5; i++)
+	{
+		savedCommands[i] = NO_COMMAND;
+	}
+
+
 	// Make all the needed initialization or validations
 }
 
@@ -61,6 +70,21 @@ void Player::Hack() {
 void Player::UnHack() {
 	isHacked = false;
 }
+
+bool Player::AddSavedCommand(Command newCommand) {
+	if (savedCommandsCount < 5) // if there is space in space saved commands
+	{
+		savedCommands[savedCommandsCount++] = newCommand;
+		return true;
+	}
+	else if (savedCommandsCount >= 5)
+	{
+		return false;
+	}
+	else
+		return false;
+}
+
 
 Consumable* Player::GetBag() {
 	return this->bag;
@@ -112,10 +136,8 @@ bool Player::IsBagFull()
 void Player::Draw(Output* pOut) const
 {
 	color playerColor = UI.PlayerColors[playerNum];
-
-
 	///TODO: use the appropriate output function to draw the player with "playerColor"
-
+	pOut->DrawPlayer(pCell->GetCellPosition(), playerNum, playerColor, currDirection);
 }
 
 void Player::ClearDrawing(Output* pOut) const

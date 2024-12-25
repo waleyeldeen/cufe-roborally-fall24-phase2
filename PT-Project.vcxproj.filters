@@ -229,6 +229,9 @@
     <ClCompile Include="UseConsumableAction.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
+    <ClCompile Include="SelectCommandAction.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
     <ClCompile Include="RebootAndRepairAction.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
@@ -392,6 +395,9 @@
       <Filter>Actions</Filter>
     </ClInclude>
     <ClInclude Include="UseConsumableAction.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectCommandAction.h">
       <Filter>Actions</Filter>
     </ClInclude>
     <ClInclude Include="RebootAndRepairAction.h">
