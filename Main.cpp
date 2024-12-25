@@ -1,5 +1,6 @@
 
 #include "ApplicationManager.h"
+#include "UI_Info.h"
 
 // This Main Function Must NOT be Changed
 
@@ -11,7 +12,7 @@ int main()
 	ApplicationManager AppManager;
 
 	do
-	{		
+	{
 		//Read user action
 		ActType = AppManager.GetUserAction();
 
