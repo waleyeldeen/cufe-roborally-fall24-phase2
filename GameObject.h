@@ -1,11 +1,13 @@
 #pragma once
 
 #include "Grid.h"
+#include "Player.h"
 #include<fstream>
 // Base Class for All Game Objects ( Belts, danger zones, .. )
 
 
-
+class Grid;
+class Player;
 class GameObject
 {
 
