@@ -14,7 +14,7 @@ public:
 
 	virtual void Draw(Output* pOut) const; // Draws an antenna
 
-	virtual void Apply(Grid* pGrid, Player* pPlayer); // Applys the effect of the antenna by deciding the players turns
+	virtual void Apply(Grid* pGrid, Player* pPlayer = nullptr); // Applys the effect of the antenna by deciding the players turns
 
 	virtual GameObject* Clone() const;
 	
