@@ -16,6 +16,7 @@
 #include "RebootAndRepairAction.h"
 #include"DeleteGameObjectAction.h"
 #include "Round.h"
+#include "StartRoundAction.h"
 ///TODO: Add #include for all action types
 
 ApplicationManager::ApplicationManager()
@@ -152,6 +153,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		///TODO: Add a case for EACH Action type in the Design mode or Play mode
 	case STATUS:	// a click on the status bar ==> no action
 		return;
+
+	case START_ROUND_ACTION:
+		pAct = new StartRoundAction(this);
 	}
 
 	// Execute the created action
