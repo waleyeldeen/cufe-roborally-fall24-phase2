@@ -30,7 +30,7 @@ void Antenna::Draw(Output * pOut) const
 	pOut->DrawAntenna(position);
 }
 
-void Antenna::Apply(Grid* pGrid, Player* pPlayer)
+void Antenna::Apply(Grid* pGrid)
 {
 	///TODO: Implement this function as mentioned in the guideline steps (numbered below) below
 	Output* pOut = pGrid->GetOutput();
