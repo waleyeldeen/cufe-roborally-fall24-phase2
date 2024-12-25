@@ -7,6 +7,6 @@ public:
     SwitchToPlayMode(ApplicationManager* pApp); 
     virtual void ReadActionParameters();         
     virtual void Execute();
-    virtual ~SwitchToPlayMode();
+     ~SwitchToPlayMode();
 };
 
