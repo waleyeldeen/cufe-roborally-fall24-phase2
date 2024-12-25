@@ -25,6 +25,8 @@ ApplicationManager::ApplicationManager()
 	pIn = pOut->CreateInput();
 	pGrid = new Grid(pIn, pOut);
 	pRound = new Round(pGrid);
+
+	nextAction = NO_ACTION;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////
@@ -46,6 +48,16 @@ Grid * ApplicationManager::GetGrid() const
 Round* ApplicationManager::GetRound() const
 {
 	return pRound;
+}
+
+ActionType ApplicationManager::getNextAction() const
+{
+	return this->nextAction;
+}
+
+ActionType ApplicationManager::setNextAction(ActionType next)
+{
+	this->nextAction = next;
 }
 
 void ApplicationManager::UpdateInterface() const

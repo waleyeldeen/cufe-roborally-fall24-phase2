@@ -18,6 +18,8 @@ class ApplicationManager
 	Output *pOut;
 	Round* pRound;
 
+	ActionType nextAction;
+
 public:
 
 	ApplicationManager();  // Constructor: where the Input, Ouput and Grid are allocated
@@ -26,6 +28,10 @@ public:
 	// ========== Interface Management Functions ==========
 
 	Grid * GetGrid() const;    // Returns pointer to the Grid
+
+	ActionType getNextAction() const;
+
+	ActionType setNextAction(ActionType next);
 
 	Round* GetRound() const;
 
