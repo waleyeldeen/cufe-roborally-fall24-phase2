@@ -6,7 +6,7 @@
 class Input;
 class Output;
 class Grid;
-
+class Round;
 // Main class that manages everything in the application.
 class ApplicationManager
 {
@@ -16,6 +16,9 @@ class ApplicationManager
 	// Pointers to the Input and Output 
 	Input *pIn;
 	Output *pOut;
+	Round* pRound;
+
+	ActionType nextAction;
 
 public:
 
@@ -25,6 +28,12 @@ public:
 	// ========== Interface Management Functions ==========
 
 	Grid * GetGrid() const;    // Returns pointer to the Grid
+
+	ActionType getNextAction() const;
+
+	void setNextAction(ActionType next);
+
+	Round* GetRound() const;
 
 	void UpdateInterface() const;
 

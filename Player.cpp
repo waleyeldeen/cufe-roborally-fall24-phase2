@@ -5,6 +5,21 @@
 Player::Player(Cell * pCell, int playerNum) : stepCount(0), health(10), playerNum(playerNum), currDirection(RIGHT),DoubleLaser(true)
 {
 	this->pCell = pCell;
+	this->isHacked = false; // player is not hacked by default
+	this->bagCount = 0;
+	// set all slots in bag to empty
+	for (int i = 0; i < MaxCarriedConsumables; i++)
+	{
+		bag[i] = EMPTY_BAG;
+	}
+
+	// set saved commands to no command
+	savedCommandsCount = 0;
+	for (int i = 0; i < 5; i++)
+	{
+		savedCommands[i] = NO_COMMAND;
+	}
+
 
 	// Make all the needed initialization or validations
 }
@@ -15,6 +30,17 @@ void Player::SetCell(Cell * cell)
 {
 	pCell = cell;
 }
+
+void Player::setDistanceFromAntenna(double newDistance)
+{
+	this->distanceFromAntenna = newDistance;
+}
+
+double Player::getDistanceFromAntenna() const 
+{
+	return this->distanceFromAntenna;
+}
+
 
 Cell* Player::GetCell() const
 {
@@ -32,15 +58,86 @@ int Player::GetHealth()
 	return this->health;
 }
 
+bool Player::GetIsHacked()
+{
+	return this->isHacked;
+}
+
+void Player::Hack() {
+	isHacked = true;
+}
+
+void Player::UnHack() {
+	isHacked = false;
+}
+
+bool Player::AddSavedCommand(Command newCommand) {
+	if (savedCommandsCount < 5) // if there is space in space saved commands
+	{
+		savedCommands[savedCommandsCount++] = newCommand;
+		return true;
+	}
+	else if (savedCommandsCount >= 5)
+	{
+		return false;
+	}
+	else
+		return false;
+}
+
+
+Consumable* Player::GetBag() {
+	return this->bag;
+}
+
+
+bool Player::AddToBag(Consumable newConsumable)
+{
+	if (bagCount < MaxCarriedConsumables) // if there is space in bag
+	{
+		bag[bagCount++] = newConsumable;
+		return true;
+	}
+	else if (bagCount >= MaxCarriedConsumables) // bag is full
+	{
+		return false;
+	}
+	else
+		return false;
+}
+
+bool Player::RemoveFromBag(Consumable removeConsumable)
+{
+	for (int i = 0; i < MaxCarriedConsumables; i++)
+	{
+		if (bag[i] == removeConsumable)
+		{
+			// switch with last non empty slot
+			Consumable last = bag[bagCount - 1];
+			bag[i] = last;
+			bag[bagCount - 1] = EMPTY_BAG;
+			this->bagCount--;
+			return true;
+		}
+	}
+
+	return false; // incase no match is found
+}
+
+bool Player::IsBagFull()
+{
+	if (bagCount == MaxCarriedConsumables)
+		return true;
+	return false;
+}
+
 // ====== Drawing Functions ======
 
 void Player::Draw(Output* pOut) const
 {
 	color playerColor = UI.PlayerColors[playerNum];
-
-
 	///TODO: use the appropriate output function to draw the player with "playerColor"
-
+	pOut->DrawPlayer(pCell->GetCellPosition(), playerNum, playerColor, currDirection);
 }
 
 void Player::ClearDrawing(Output* pOut) const
@@ -71,14 +168,51 @@ void Player::Move(Grid * pGrid, Command moveCommands[])
 
 }
 
+void Player::Rotate(bool clockwise)
+{
+	Direction clockwiseOrder[5] = { UP, RIGHT, DOWN, LEFT, UP };
+	Direction antiClockwiseOrder[5] = { UP, LEFT, DOWN, RIGHT, UP };
+
+	for (int i = 0; i < 5; i++)
+	{
+		if (this->currDirection == clockwiseOrder[i])
+		{
+			if (clockwise)
+				currDirection = clockwiseOrder[i + 1];
+			else
+				currDirection = antiClockwiseOrder[i + 1];
+			return;
+		}
+	}
+}
+
 void Player::AppendPlayerInfo(string & playersInfo) const
 {
 	// TODO: Modify the Info as needed
+	string dirStr;
+	switch (currDirection)
+	{
+	case UP:
+		dirStr = "UP";
+		break;
+	case RIGHT:
+		dirStr = "RIGHT";
+		break;
+	case DOWN:
+		dirStr = "DOWN";
+		break;
+	case LEFT:
+		dirStr = "LEFT";
+		break;
+	default:
+		dirStr = "UnKnow dir";
+	}
 	playersInfo += "P" + to_string(playerNum) + "(" ;
-	playersInfo += to_string(currDirection) + ", ";
+	playersInfo += dirStr + ", ";
 	playersInfo += to_string(health) + ")";
 
 }
+
 void Player::Reset()
 {
 	health = 10;
@@ -125,4 +259,5 @@ bool Player::IsFacingOtherPlayer(const CellPosition& targetPos) const
 	}
 
 	return false;
+}
 }

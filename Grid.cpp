@@ -1,9 +1,10 @@
 #include "Grid.h"
-
+#include"Output.h"
 #include "Cell.h"
 #include "GameObject.h"
 #include "Belt.h"
 #include "Player.h"
+#include "Antenna.h"
 
 Grid::Grid(Input * pIn, Output * pOut) : pIn(pIn), pOut(pOut) // Initializing pIn, pOut
 {
@@ -61,10 +62,19 @@ void Grid::RemoveObjectFromCell(const CellPosition & pos)
 {
 	if (pos.IsValidCell()) // Check if valid position
 	{
-		delete CellList[pos.VCell()][pos.HCell()]; // Note: you can deallocate the object here before setting the pointer to null if it is needed
-		CellList[pos.VCell()][pos.HCell()]->SetGameObject(NULL);
+		delete CellList[pos.VCell()][pos.HCell()]->GetGameObject(); // Note: you can deallocate the object here before setting the pointer to null if it is needed
+		CellList[pos.VCell()][pos.HCell()]->SetGameObject(nullptr);
 	}
 }
+
+GameObject* Grid::GetGameObjectFromCellPosition(const CellPosition& pos) const
+{
+	if (pos.IsValidCell()) // Check if valid position
+	{
+		return CellList[pos.VCell()][pos.HCell()]->GetGameObject();
+	}
+}
+
 
 void Grid::UpdatePlayerCell(Player * player, const CellPosition & newPosition)
 {
@@ -96,8 +106,15 @@ Output * Grid::GetOutput() const
 void Grid::SetClipboard(GameObject * gameObject) // to be used in copy/cut
 {
 	// you may update slightly in implementation if you want (but without breaking responsibilities)
-	Clipboard = gameObject;
-}
+		if (gameObject) {
+			Clipboard = gameObject->Clone(); // Clone returns a new object
+		}
+		else {
+			Clipboard = nullptr;
+		}
+	}
+
+
 
 GameObject * Grid::GetClipboard() const // to be used in paste
 {
@@ -119,12 +136,31 @@ void Grid::AdvanceCurrentPlayer()
 	currPlayerNumber = (currPlayerNumber + 1) % MaxPlayerCount; // this generates value from 0 to MaxPlayerCount - 1
 }
 
+int Grid::getCurrentPlayerNum()
+{
+	return this->currPlayerNumber;
+}
+
 // ========= Other Getters =========
 
 
 Player * Grid::GetCurrentPlayer() const
 {
 	return PlayerList[currPlayerNumber];
+}
+
+Player* Grid::GetNonCurrentPlayer() const
+{
+	// this function assumes there is only 2 players
+	switch (currPlayerNumber)
+	{
+	case 0:
+		return PlayerList[1];
+		//break; should be not needed to break since return terminates function
+	case 1:
+		return PlayerList[0];
+		//break;
+	}
 }
 
 Belt * Grid::GetNextBelt(const CellPosition & position)
@@ -146,6 +182,18 @@ Belt * Grid::GetNextBelt(const CellPosition & position)
 	return NULL; // not found
 }
 
+
+Antenna* Grid::GetAntenna() const {
+	for (int i = NumVerticalCells - 1; i >= 0; i--)
+	{
+		for (int j = 0; j < NumHorizontalCells; j++)
+		{
+			Antenna* pAntenna = CellList[i][j]->HasAntenna();
+			if (pAntenna)
+				return pAntenna;
+		}
+	}
+}
 
 // ========= User Interface Functions =========
 
@@ -215,7 +263,6 @@ Player* Grid::GetPlayer(int index) const {
 	return nullptr; 
 }
 
-
 void Grid::ClearGrid() {
 	for (int i = NumVerticalCells - 1; i >= 0; i--) // bottom up
 	{
@@ -229,9 +276,11 @@ void Grid::ClearGrid() {
 
 
 void Grid::ResetPlayers() {
+	CellPosition cell_1(1);
 	for (int i = 0; i < MaxPlayerCount; ++i) {
 		if (PlayerList[i]) {
-			PlayerList[i]->Reset(); 
+			PlayerList[i]->Reset();
+			this->UpdatePlayerCell(PlayerList[i], cell_1);
 		}
 	}
 }
@@ -257,3 +306,35 @@ Grid::~Grid()
 		delete PlayerList[i];
 	}
 }
+
+void Grid::DisplayPlayersInfo() const{
+	string info = "";
+	Player* currentPlayer = GetCurrentPlayer();
+	for (int i = 0; i < MaxPlayerCount; i++) {
+		Player* player = GetPlayer(i);
+		if (player) {
+			player->AppendPlayerInfo(info);
+			if (i < MaxPlayerCount - 1) {
+				info += ",";
+			}
+		}
+
+	}
+	if (currentPlayer) {
+		int currentPlayerIndex = -1;
+		for (int i = 0; i < MaxPlayerCount; i++) {
+			if (GetPlayer(i) == currentPlayer) {
+				currentPlayerIndex = i + 1; 
+			}
+		}
+		if (currentPlayerIndex != -1) {
+			info += " | Current player is player #";
+			info += std::to_string(currentPlayerIndex);
+		}
+	}
+	//Output* pOut = GetOutput();
+	//if (pOut) {
+	//	pOut->ClearStatusBar();
+	//	pOut->PrintPlayersInfo(info);
+	//}
+	}
