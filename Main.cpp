@@ -14,8 +14,11 @@ int main()
 	do
 	{
 		//check if nextAction is not NO_ACTION and execute it
-		if (AppManager.getNextAction() != NO_ACTION)
+		if (AppManager.getNextAction() != NO_ACTION) 
+		{
 			ActType = AppManager.getNextAction();
+			AppManager.setNextAction(NO_ACTION);
+		}
 		else
 		//Read user action in of NO_ACTION
 			ActType = AppManager.GetUserAction();
