@@ -30,7 +30,7 @@ void Antenna::Draw(Output * pOut) const
 	pOut->DrawAntenna(position);
 }
 
-void Antenna::Apply(Grid* pGrid)
+void Antenna::Apply(Grid* pGrid, Player* pPlayer)
 {
 	///TODO: Implement this function as mentioned in the guideline steps (numbered below) below
 	Output* pOut = pGrid->GetOutput();
@@ -43,8 +43,8 @@ void Antenna::Apply(Grid* pGrid)
 	int playingorder[MaxPlayerCount];
 	for (int j = 0; j < MaxPlayerCount; j++)
 	{
-		Player* pPlayer = pGrid->GetPlayer(j);
-		Cell* pCell = pPlayer->GetCell();
+		Player* ppPlayer = pGrid->GetPlayer(j);
+		Cell* pCell = ppPlayer->GetCell();
 		CellPosition playerPosition = pCell->GetCellPosition();
 
 		double xDist = abs(playerPosition.HCell() - position.HCell());
