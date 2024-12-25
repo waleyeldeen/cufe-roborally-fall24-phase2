@@ -25,6 +25,7 @@ enum ActionType // The actions supported (add more as needed)
 	ADD_WORKSHOP,
 	DISPLAYPLAYERSINFO,
 
+
 	///TODO: Add more action types of Design Mode
 
 
@@ -70,6 +71,14 @@ enum Command
 	ROTATE_COUNTERCLOCKWISE,
 
 	COMMANDS_COUNT,
+};
+
+enum Consumable
+{
+	TOOLKIT,
+	HACKDEVICE,
+	EMPTY_BAG,
+	CONSUMABLE_COUNT
 };
 
 #endif
