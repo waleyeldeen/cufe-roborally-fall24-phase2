@@ -61,8 +61,8 @@ Output::Output()
 	UI.FlagPoleColor = GHOSTWHITE;
 
 	// player sizes
-	UI.PlayerWidth = 20;
-	UI.PlayerHeight = 20;
+	UI.PlayerWidth = 14;
+	UI.PlayerHeight = 14;
 
 
 	// Commands X and Y Coordinates
@@ -735,6 +735,14 @@ void Output::DrawWaterPit(const CellPosition& cellPos) const
 	else
 		return;
 }
+
+
+void Output::DrawLine(int x1, int y1, int x2, int y2, color lineColor, int penWidth) const
+{
+	pWind->SetPen(lineColor, penWidth);
+	pWind->DrawLine(x1, y1, x2, y2);
+}
+
 
 Output::~Output()
 {

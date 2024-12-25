@@ -65,5 +65,6 @@ public:
 															 */
 	void AddCellNum(int addedNum, Direction direction);
 
+	void Invalidate();
 };
 

@@ -402,3 +402,12 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+
+# added by waley
+*.swp
+*.orig
+*BACKUP_*
+*BASE_*
+*LOCAL_*
+*REMOTE_*

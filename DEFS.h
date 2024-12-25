@@ -23,7 +23,8 @@ enum ActionType // The actions supported (add more as needed)
 	ADD_WATER_PIT,
 	ADD_ROTATING_GEAR,
 	ADD_WORKSHOP,
-
+	SHOOTING_PHASE,
+	DISPLAYPLAYERSINFO,
 
 	///TODO: Add more action types of Design Mode
 
@@ -46,7 +47,10 @@ enum ActionType // The actions supported (add more as needed)
 
 	EMPTY,							// Empty Area in ToolBar (NOT inside any action icon)
 	GRID_AREA,						// Inside Grid Area
-	STATUS 							// Inside StatusBar Area
+	STATUS,							// Inside StatusBar Area
+	START_ROUND_ACTION,
+	NO_ACTION,
+	DISPLAY_COMMANDS
 };
 
 enum Direction // Directions of the game
@@ -70,6 +74,14 @@ enum Command
 	ROTATE_COUNTERCLOCKWISE,
 
 	COMMANDS_COUNT,
+};
+
+enum Consumable
+{
+	TOOLKIT,
+	HACKDEVICE,
+	EMPTY_BAG,
+	CONSUMABLE_COUNT
 };
 
 #endif

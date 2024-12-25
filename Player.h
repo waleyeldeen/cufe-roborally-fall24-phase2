@@ -13,13 +13,20 @@ class Player
 	int stepCount;		   // step count which is the same as his cellNum: from 1 to NumVerticalCells*NumHorizontalCells
 	Direction currDirection; // Current Direction of the player
 	int health;				// Player's current health points
+	bool HasreflectiveGear;
+
+	Command savedCommands[5];
+	int savedCommandsCount;
 
 	// owned equipments
-	// carried consumables
+	Consumable bag[MaxCarriedConsumables];// carried consumables
+	int bagCount;
 	// carried laser type (default, double laser)
 	// isHacked (to indicate whether the player is blocked to play the round, as a result of the opponent using a hacking device)
+	bool DoubleLaser;
+	bool isHacked;// isHacked (to indicate whether the player is blocked to play the round, as a result of the opponent using a hacking device)
 	
-	
+	double distanceFromAntenna;
 public:
 
 	Player(Cell * pCell, int playerNum); // Constructor making any needed initializations
@@ -32,7 +39,28 @@ public:
 	void SetHealth(int h);			// A setter for the health points
 	int GetHealth();				// A getter for the health points
 
+  
+	void setDistanceFromAntenna(double newDistance);
+	double getDistanceFromAntenna() const;
+	bool GetIsHacked();
+	void Hack();
+	void UnHack();
 
+	bool AddSavedCommand(Command newCommand);
+
+	//
+	Consumable* GetBag();
+
+	// returns false if bag is full
+	// returns true if item added to last empty index
+	bool AddToBag(Consumable newConsumable);
+
+	// used when player uses a consumable
+	// returns true if consumable is found and removed
+	// returns false if consumable does not exist in players bag
+	bool RemoveFromBag(Consumable removeConsumable);
+
+	bool IsBagFull();
 	///TODO: You can add setters and getters for data members here (if needed)
 
 	// ====== Drawing Functions ======
@@ -45,10 +73,15 @@ public:
 
 	void Move(Grid * pGrid, Command moveCommands[]);	// Moves the Player with the passed move command
 														// and Applies the Game Object's effect (if any) of the end reached cell 
-														// for example, if the end cell contains a belt, take it
+	void Rotate(bool clockwise);													// for example, if the end cell contains a belt, take it
 	
 	void AppendPlayerInfo(string & playersInfo) const; // Appends player's info to the input string, 
 	                                                   // for example: P0(Direction, health)
-
+	bool GetReflectiveGear();
+	void SetReflectiveGear( bool state);
+	void Reset();
+	
+	bool HasDoubleLaser() const;
+	bool IsFacingOtherPlayer(const CellPosition& targetPos) const;
 };
 

@@ -12,6 +12,9 @@ class WaterPit;
 class Flag;
 class Player;
 class DangerZone;
+class Workshop;
+class RotatingGear;
+class Antenna;
 class Cell
 {
 	const CellPosition position;	// the cell position (vCell and hCell) --> will not change after the Cell is constructed
@@ -36,6 +39,12 @@ public:
 	Flag * HasFlag() const;	    // Checks if pGameObject is a Flag Then returns true if it is a flag or returns NULL if not flag
 	WaterPit* HasWaterPit() const;
 	DangerZone* HasDangerZone() const;
+
+	RotatingGear* HasRotatingGear() const;
+
+	Workshop* HasWorkshop() const;
+
+	Antenna* HasAntenna() const;
 	// ======= Drawing Functions ======= 
 
 	void DrawCellOrWaterPitOrDangerZone(Output* pOut) const;	// Draws the Cell either has waterpit or dangerzone(either of the gameobjects changes the cell color)
@@ -45,6 +54,5 @@ public:
 	// then draw all other game objects, in order to avoid overlapping 
 	// or drawing cell's background over existing game objects
 	void DrawGameObject(Output* pOut) const;	
-	
 };
 
