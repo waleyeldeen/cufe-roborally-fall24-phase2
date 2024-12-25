@@ -260,4 +260,3 @@ bool Player::IsFacingOtherPlayer(const CellPosition& targetPos) const
 
 	return false;
 }
-}
