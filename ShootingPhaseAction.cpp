@@ -11,11 +11,11 @@ ShootingPhaseAction::ShootingPhaseAction(Grid* grid, ApplicationManager* pApp)
 ShootingPhaseAction::~ShootingPhaseAction() {}
 
 void ShootingPhaseAction::Execute() {
-for (int i = 0; i < MaxPlayerCount; i++) {
-Player* shooter = pGrid->GetPlayer(i);
-if (shooter != nullptr) {
-CellPosition shooterPos = shooter->GetCell()->GetCellPosition();
-for (int j = 0; j < MaxPlayerCount; j++) {
+    for (int i = 0; i < MaxPlayerCount; i++) {
+        Player* shooter = pGrid->GetPlayer(i);
+        if (shooter != nullptr) {
+            CellPosition shooterPos = shooter->GetCell()->GetCellPosition();
+    for (int j = 0; j < MaxPlayerCount; j++) {
     if (i != j) {
 Player* target = pGrid->GetPlayer(j);
 if (target != nullptr) {

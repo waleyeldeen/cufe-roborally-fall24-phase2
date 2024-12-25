@@ -33,7 +33,10 @@ void Flag::Apply(Grid* pGrid, Player* pPlayer)
 
 	///TODO: Implement this function as mentioned in the guideline steps (numbered below) below
 	// == Here are some guideline steps (numbered below) to implement this function ==
-
+	Output* pout = pGrid->GetOutput();
+	pout->PrintMessage("You have reached  flag ");
+		Grid* pGrid;
+		pGrid->SetEndGame(true);
 	// 1- Print a message "You have reached a flag. Click to continue ..." and wait mouse click
 
 	// 2- Apply the flag's effect by ending the game
