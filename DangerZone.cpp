@@ -1,6 +1,6 @@
 #include "DangerZone.h"
-
-
+using namespace std;
+#include<iostream>
 
 DangerZone::DangerZone(const CellPosition & dangerZonePosition): GameObject(dangerZonePosition)
 {
@@ -39,6 +39,17 @@ void DangerZone::Apply(Grid * pGrid, Player * pPlayer)
 
 	
 }
+void DangerZone::Save(ofstream &Outfile )  
+{
+	
+
+		Outfile << position.GetCellNum();
+		
+	
+}
+
+
+
 
 
 DangerZone::~DangerZone()

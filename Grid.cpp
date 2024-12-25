@@ -4,6 +4,7 @@
 #include "GameObject.h"
 #include "Belt.h"
 #include "Player.h"
+#include<iostream>
 #include "Antenna.h"
 
 Grid::Grid(Input * pIn, Output * pOut) : pIn(pIn), pOut(pOut) // Initializing pIn, pOut
@@ -144,11 +145,12 @@ int Grid::getCurrentPlayerNum()
 // ========= Other Getters =========
 
 
-Player * Grid::GetCurrentPlayer() const
+Player* Grid::GetCurrentPlayer() const
 {
 	return PlayerList[currPlayerNumber];
 }
 
+Belt* Grid::GetNextBelt(const CellPosition& position)
 Player* Grid::GetNonCurrentPlayer() const
 {
 	// this function assumes there is only 2 players
@@ -165,7 +167,7 @@ Player* Grid::GetNonCurrentPlayer() const
 
 Belt * Grid::GetNextBelt(const CellPosition & position)
 {
-	
+
 	int startH = position.HCell(); // represents the start hCell in the current row to search for the belt in
 	for (int i = position.VCell(); i >= 0; i--) // searching from position.vCell and ABOVE
 	{
@@ -174,7 +176,7 @@ Belt * Grid::GetNextBelt(const CellPosition & position)
 
 
 			///TODO: Check if CellList[i][j] has a belt, if yes return it
-			
+
 
 		}
 		startH = 0; // because in the next above rows, we will search from the first left cell (hCell = 0) to the right
@@ -203,7 +205,7 @@ void Grid::UpdateInterface() const
 	if (UI.InterfaceMode == MODE_DESIGN)
 	{
 		// 1- Draw cells with or without waterpits or dangerzone 
-		for (int i = NumVerticalCells-1; i >= 0 ; i--) // bottom up
+		for (int i = NumVerticalCells - 1; i >= 0; i--) // bottom up
 		{
 			for (int j = 0; j < NumHorizontalCells; j++) // left to right
 			{
@@ -212,7 +214,7 @@ void Grid::UpdateInterface() const
 		}
 
 		// 2- Draw other game objects(excluding waterpit and dangerzone)
-		for (int i = NumVerticalCells-1; i >= 0 ; i--) // bottom up
+		for (int i = NumVerticalCells - 1; i >= 0; i--) // bottom up
 		{
 			for (int j = 0; j < NumHorizontalCells; j++) // left to right
 			{
@@ -233,7 +235,7 @@ void Grid::UpdateInterface() const
 		for (int i = 0; i < MaxPlayerCount; i++)
 		{
 			PlayerList[i]->AppendPlayerInfo(playersInfo); // passed by reference
-			if (i < MaxPlayerCount-1) // except the last player
+			if (i < MaxPlayerCount - 1) // except the last player
 				playersInfo += ", ";
 		}
 		playersInfo += " | Curr = " + to_string(currPlayerNumber);
@@ -255,6 +257,31 @@ void Grid::PrintErrorMessage(string msg)
 	pOut->ClearStatusBar();
 }
 
+void Grid::SaveAll(ofstream& outfile)
+{
+	
+	
+	for (int i = 0; i < NumVerticalCells; i++)
+	{
+		for (int j = 0; j < NumHorizontalCells; j++)
+		{
+			
+			Cell* cell = CellList[i][j];
+			if (cell && cell->GetGameObject() != nullptr)
+			{
+				GameObject* OBJ = cell->GetGameObject();
+
+		
+				OBJ->Save(outfile);
+
+			}
+		
+
+
+
+		}
+	}
+}
 
 Player* Grid::GetPlayer(int index) const {
 	if (index >= 0 && index < MaxPlayerCount) { 

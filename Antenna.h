@@ -1,11 +1,14 @@
 #pragma once
 #include "GameObject.h"
+
 class Antenna :public GameObject
 {
 	static int count;
 public:
 	Antenna(const CellPosition & antennaPosition);
 
+	virtual void Apply(Grid* pGrid, Player* pPlayer); // Applys the effect of the antenna by deciding the players turns
+	virtual void Save(ofstream& OutFile)  override ;
 	static void PutOnGrid();
 
 	static void RemoveFromGrid();

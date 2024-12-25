@@ -11,10 +11,11 @@ public:
 
 	virtual void Apply(Grid* pGrid, Player* pPlayer); // Applys the effect of the belt by moving player to belt's end cell
 
+	CellPosition GetEndPosition() const; // A getter for the endCellPos data member
+	virtual void  Save(ofstream& Outfile) override;
 	CellPosition GetEndPosition() const;
 	// A getter for the endCellPos data member
 	virtual GameObject* Clone() const;
-	
 	virtual ~Belt();
 };
 

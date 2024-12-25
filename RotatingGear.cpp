@@ -35,6 +35,12 @@ bool RotatingGear::GetisClockWise() const
 {
 	return isClockWise;
 }
+void RotatingGear::Save(ofstream& Outfile) 
+{
+	
+		Outfile << position.GetCellNum();
+	
+}
 
 RotatingGear::~RotatingGear()
 {

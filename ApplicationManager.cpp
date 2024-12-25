@@ -8,6 +8,7 @@
 #include "AddDangerZoneAction.h"
 #include "AddWorkshopAction.h"
 #include "AddFlagAction.h"
+#include"SaveGridAction.h"
 #include "NewGameAction.h"
 #include "ShootingPhaseAction.h"
 #include "AddAntennaAction.h"
@@ -129,6 +130,10 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 
 	case TO_DESIGN_MODE:				//TODO:
 		pAct = new SwitchToDesignMode(this); // temporary till you made its action class (CHANGE THIS LATTER)
+		break;
+
+	case SAVE:
+		pAct = new SaveGridAction(this);
 		break;
 
 		///TODO: Add a case for EACH Action type in the Design mode or Play mode

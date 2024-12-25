@@ -41,9 +41,21 @@ void Flag::Apply(Grid* pGrid, Player* pPlayer)
 	// 2- Apply the flag's effect by ending the game
 	//    Review the "pGrid" functions and decide which function can be used for that
 }
+
+void Flag::Save(ofstream &Outfile) 
+{
+	
+	
+		Outfile << position.GetCellNum();
+	
+
+}
+
 GameObject* Flag::Clone() const {
 	return new Flag(*this);
 }
+
+
 Flag::~Flag()
 {
 	Flag::RemoveFromGrid();

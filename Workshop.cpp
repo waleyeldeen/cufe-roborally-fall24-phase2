@@ -57,6 +57,14 @@ void Workshop::Apply(Grid * pGrid, Player * pPlayer)
 GameObject* Workshop::Clone() const {
 	return new Workshop(*this);
 }
+
+void Workshop::Save(ofstream &outfile)
+{
+	
+	
+	outfile << position.GetCellNum();
+	
+}
 Workshop::~Workshop()
 {
 }

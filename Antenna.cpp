@@ -1,4 +1,7 @@
 #include "Antenna.h"
+using namespace std;
+#include<iostream>
+
 #include"Player.h"
 
 
@@ -32,6 +35,8 @@ void Antenna::Draw(Output * pOut) const
 
 void Antenna::Apply(Grid* pGrid, Player* pPlayer)
 {
+
+	///TODO: Implement this function as mentioned in the guideline steps (numbered below) below
 	///TODO: Implement this function as mentioned in the guideline steps (numbered below) below
 	Output* pOut = pGrid->GetOutput();
 	Input* pIn = pGrid->GetInput();
@@ -57,6 +62,15 @@ void Antenna::Apply(Grid* pGrid, Player* pPlayer)
 	}
 }
 
+void Antenna::Save(ofstream& Outfile) 
+{
+	
+	
+	Outfile << position.GetCellNum();
+		
+	
+	
+}
 
 GameObject* Antenna::Clone() const {
 	return new Antenna(*this);
