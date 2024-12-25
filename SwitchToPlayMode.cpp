@@ -18,5 +18,6 @@ void SwitchToPlayMode::Execute()
         pOut->PrintMessage("switched to play mode");
     }
 
+    pManager->setNextAction(START_ROUND_ACTION);
 }
 SwitchToPlayMode::~SwitchToPlayMode() {}
