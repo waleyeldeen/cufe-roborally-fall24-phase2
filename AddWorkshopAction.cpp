@@ -30,6 +30,8 @@ void AddWorkshopAction::Execute() {
 	{
 		// Print an appropriate message
 		pGrid->PrintErrorMessage("Error: Cell already has an object ! Click to continue ...");
+		delete pWorkshop;
+		return;
 	}
 
 	pOut->PrintMessage("Added Workshop at (" + to_string(workshopPos.VCell()) + ", " + to_string(workshopPos.HCell()) + ")");

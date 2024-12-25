@@ -73,4 +73,12 @@ enum Command
 	COMMANDS_COUNT,
 };
 
+enum Consumable
+{
+	TOOLKIT,
+	HACKDEVICE,
+	EMPTY_BAG,
+	CONSUMABLE_COUNT
+};
+
 #endif

@@ -9,6 +9,7 @@ class AddFlagAction :public Action
 
 	// [Action Parameters]
 	CellPosition flagPos; // 1- The position of the flag
+	bool isParamRead;
 public:
 	
 	AddFlagAction(ApplicationManager *pApp);
